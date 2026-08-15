@@ -1,0 +1,24 @@
+;; Run the `;;; Examples:` doctests in lib/raylib/src/Raylib.lcl.
+;;
+;;   build/lcl-raylib test/doctest.lcl <path/to/lcl/lib/doc/src/Doc.lcl>
+;;
+;; (ctest runs this with the Doc.lcl from the fetched lcl source.)
+;; The Raylib layer itself is already loaded by the runner.
+if [< [len $argv] 1] { error "usage: doctest.lcl <Doc.lcl>" }
+
+load [get $argv 0]
+
+let src [raylib::load_file_text "lib/raylib/src/Raylib.lcl"]
+let r [Doc::doctest [Doc::extract $src]]
+
+puts "doctests: [get $r pass] passed, [get $r fail] failed"
+
+foreach f [get $r failures] {
+    puts "  FAIL [get $f name]: [get $f cmd]"
+    puts "       expected: [get $f expect]"
+    puts "       got:      [get $f got]"
+}
+
+if [> [get $r fail] 0] {
+    error "doctests failed"
+}

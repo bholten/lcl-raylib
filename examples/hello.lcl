@@ -1,0 +1,35 @@
+;; Hello, raylib -- run with: build/lcl-raylib examples/hello.lcl
+import raylib
+
+let width  640
+let height 480
+
+init_window $width $height "Hello, Raylib!"
+set_target_fps 60
+
+var time 0.0
+
+;; A little wave helper: fn is a math proc, ampl the amplitude, offset the centre.
+proc wave {fn ampl offset} {
+    let v [apply $fn [* $time 2.0]]
+    int [+ $offset [* $v $ampl]]
+}
+
+while {not [window_should_close]} {
+    set! time [+ $time [get_frame_time]]
+
+    begin_drawing
+    clear_background $BLACK
+    draw_fps 10 10
+
+    let x [wave ${math::cos} 100 [/ $width 2]]
+    let y [wave ${math::sin} 100 [/ $height 2]]
+
+    draw_text "Hello from Lcl!" [- $x 80] $y 20 [color 125 43 231 255]
+    draw_circle_v ($x $y) 6 $RAYWHITE
+    draw_line_v ([/ $width 2] [/ $height 2]) ($x $y) $GRAY
+    draw_rectangle_lines_ex (20 20 [- $width 40] [- $height 40]) 2 $DARKGRAY
+    end_drawing
+}
+
+close_window

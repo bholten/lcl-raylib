@@ -1,0 +1,658 @@
+;;; Raylib -- an idiomatic Lcl layer over the raw `raylib::` bindings.
+;;;
+;;; The raw bindings (`raylib::draw_text`, `raylib::load_texture`, ...)
+;;; mirror raylib.h one to one. This library owns the three things that
+;;; are easy to get wrong when scripting against them directly:
+;;;
+;;;   * the main loop -- `Raylib::app` runs it; scripts register
+;;;     `on_update` / `on_draw` handlers instead of writing a `while`.
+;;;     A host that owns the loop itself (Emscripten) sets
+;;;     `Raylib::hosted!` and calls `Raylib::step!` once per frame.
+;;;   * begin/end pairs -- `draw`, `mode_2d`, `mode_3d`, `texture_mode`,
+;;;     `scissor`, `blend`, `shader` take a body and always close the
+;;;     pair, even when the body raises.
+;;;   * unloading -- `asset` loads a resource and registers it; every
+;;;     registered asset is unloaded (in reverse order) at `close!`.
+;;;
+;;; Conventions: procs that mutate library state end in `!`, predicates
+;;; end in `?`. Vectors, rectangles and colours are plain lists
+;;; (`(x y)`, `(x y w h)`, `(r g b a)`); the `Vec` namespace does list
+;;; arithmetic on them and `Raylib::color` accepts names and hex.
+;;;
+;;; Usage:
+;;;
+;;;   require lib/raylib/src/Raylib.lcl     ;; (or embedded by the host)
+;;;   import Raylib
+;;;
+;;;   app 800 600 "Bounce" {
+;;;       fps 60
+;;;       background "#202030"
+;;;       let ball [asset texture "ball.png"]
+;;;       var pos (400 300)
+;;;       var vel (120 90)
+;;;
+;;;       on_update {dt} {
+;;;           set! pos [Vec::add $pos [Vec::scale $vel $dt]]
+;;;       }
+;;;       on_key_pressed space { set! vel [Vec::scale $vel -1] }
+;;;       on_draw {
+;;;           raylib::draw_texture_v $ball $pos ${raylib::WHITE}
+;;;           text "pos: $pos" 10 10
+;;;       }
+;;;   }
+
+;;; Vec -- arithmetic on vectors written as flat lists of numbers.
+;;;
+;;; Works for any length (2, 3, 4), so the same procs serve Vector2,
+;;; Vector3 and colours-as-lists. Results are always lists, which the raw
+;;; bindings accept wherever a Vector2/3/4 is expected.
+namespace Vec {
+    ;;; Element-wise sum.
+    ;;;
+    ;;; Examples:
+    ;;; >> Vec::add (1 2) (10 20)
+    ;;; (11 22)
+    proc add {a b} {
+        List::map [List::range 0 [len $a]] [lambda {i} {
+            + [get $a $i] [get $b $i]
+        }]
+    }
+
+    ;;; Element-wise difference `a - b`.
+    ;;;
+    ;;; Examples:
+    ;;; >> Vec::sub (10 20) (1 2)
+    ;;; (9 18)
+    proc sub {a b} {
+        List::map [List::range 0 [len $a]] [lambda {i} {
+            - [get $a $i] [get $b $i]
+        }]
+    }
+
+    ;;; Multiply every component by scalar `k`.
+    ;;;
+    ;;; Examples:
+    ;;; >> Vec::scale (1 2 3) 2
+    ;;; (2 4 6)
+    proc scale {v k} {
+        List::map $v [lambda {x} {
+            * $x $k
+        }]
+    }
+
+    ;;; Element-wise product.
+    ;;;
+    ;;; Examples:
+    ;;; >> Vec::mul (1 2) (3 4)
+    ;;; (3 8)
+    proc mul {a b} {
+        List::map [List::range 0 [len $a]] [lambda {i} {
+            * [get $a $i] [get $b $i]
+        }]
+    }
+
+    ;;; Dot product.
+    ;;;
+    ;;; Examples:
+    ;;; >> Vec::dot (1 2) (3 4)
+    ;;; 11
+    proc dot {a b} {
+        List::reduce [mul $a $b] 0 [lambda {acc x} {
+            + $acc $x
+        }]
+    }
+
+    ;;; Squared length (cheaper than `len` when only comparing).
+    ;;;
+    ;;; Examples:
+    ;;; >> Vec::len_sq (3 4)
+    ;;; 25
+    proc len_sq {v} {
+        dot $v $v
+    }
+
+    ;;; Euclidean length.
+    ;;;
+    ;;; Examples:
+    ;;; >> Vec::length (3 4)
+    ;;; 5
+    proc length {v} {
+        math::sqrt [len_sq $v]
+    }
+
+    ;;; Distance between two points.
+    ;;;
+    ;;; Examples:
+    ;;; >> Vec::dist (0 0) (3 4)
+    ;;; 5
+    proc dist {a b} {
+        length [sub $a $b]
+    }
+
+    ;;; Unit vector in the direction of `v` (the zero vector stays zero).
+    ;;;
+    ;;; Examples:
+    ;;; >> Vec::norm (0 5)
+    ;;; (0 1)
+    ;;; >> Vec::norm (0 0)
+    ;;; (0 0)
+    proc norm {v} {
+        let l [length $v]
+
+        if [== $l 0] {
+            $v
+        } else {
+            scale $v [/ 1.0 $l]
+        }
+    }
+
+    ;;; Linear interpolation from `a` to `b` by `t` in [0, 1].
+    ;;;
+    ;;; Examples:
+    ;;; >> Vec::lerp (0 0) (10 20) 0.5
+    ;;; (5 10)
+    proc lerp {a b t} {
+        add $a [scale [sub $b $a] $t]
+    }
+
+    ;;; Negate every component.
+    ;;;
+    ;;; Examples:
+    ;;; >> Vec::neg (1 -2)
+    ;;; (-1 2)
+    proc neg {v} {
+        scale $v -1
+    }
+
+    ;;; Clamp each component to the matching component of `lo` / `hi`.
+    ;;;
+    ;;; Examples:
+    ;;; >> Vec::clamp (-5 50) (0 0) (10 10)
+    ;;; (0 10)
+    proc clamp {v lo hi} {
+        List::map [List::range 0 [len $v]] [lambda {i} {
+            let x [get $v $i]
+            let l [get $lo $i]
+            let h [get $hi $i]
+
+            cond [< $x $l] [$l] [> $x $h] [$h] else [$x]
+        }]
+    }
+}
+
+;;; Rect -- helpers for rectangles written as `(x y w h)` lists.
+namespace Rect {
+    ;;; Is point `p` inside rectangle `r`?
+    ;;;
+    ;;; Examples:
+    ;;; >> Rect::contains? (0 0 10 10) (5 5)
+    ;;; 1
+    ;;; >> Rect::contains? (0 0 10 10) (15 5)
+    ;;; 0
+    proc contains? {r p} {
+        raylib::check_collision_point_rec $p $r
+    }
+
+    ;;; Do two rectangles overlap?
+    ;;;
+    ;;; Examples:
+    ;;; >> Rect::overlaps? (0 0 10 10) (5 5 10 10)
+    ;;; 1
+    proc overlaps? {a b} {
+        raylib::check_collision_recs $a $b
+    }
+
+    ;;; Centre point of a rectangle.
+    ;;;
+    ;;; Examples:
+    ;;; >> Rect::center (0 0 10 20)
+    ;;; (5 10)
+    proc center {r} {
+        list [+ [get $r 0] [/ [get $r 2] 2.0]] [+ [get $r 1] [/ [get $r 3] 2.0]]
+    }
+
+    ;;; Rectangle of size `(w h)` centred on point `p`.
+    ;;;
+    ;;; Examples:
+    ;;; >> Rect::around (10 10) (4 2)
+    ;;; (8 9 4 2)
+    proc around {p size} {
+        let w [get $size 0]
+        let h [get $size 1]
+
+        list [- [get $p 0] [/ $w 2.0]] [- [get $p 1] [/ $h 2.0]] $w $h
+    }
+}
+
+namespace Raylib {
+    ;; ---------------------------------------------------------------
+    ;; Loop state. `_running` is the loop flag; handlers are lists so
+    ;; several `on_draw` blocks compose (they run in registration order).
+    ;; ---------------------------------------------------------------
+    var _running    0
+    var _hosted     0
+    var _target_fps 60
+    var _bg         (245 245 245 255)
+    var _updates    ()
+    var _draws      ()
+    var _key_pressed ()
+    var _key_down   ()
+    var _on_exit    ()
+    var _assets     ()
+
+    ;;; Named colours (raylib's palette) usable with `color`.
+    let COLORS #{lightgray (200 200 200 255)  gray (130 130 130 255)
+                 darkgray (80 80 80 255)      yellow (253 249 0 255)
+                 gold (255 203 0 255)         orange (255 161 0 255)
+                 pink (255 109 194 255)       red (230 41 55 255)
+                 maroon (190 33 55 255)       green (0 228 48 255)
+                 lime (0 158 47 255)          darkgreen (0 117 44 255)
+                 skyblue (102 191 255 255)    blue (0 121 241 255)
+                 darkblue (0 82 172 255)      purple (200 122 255 255)
+                 violet (135 60 190 255)      darkpurple (112 31 126 255)
+                 beige (211 176 131 255)      brown (127 106 79 255)
+                 darkbrown (76 63 47 255)     white (255 255 255 255)
+                 black (0 0 0 255)            blank (0 0 0 0)
+                 magenta (255 0 255 255)      raywhite (245 245 245 255)}
+
+    proc _hex_digit {c} {
+        let i [String::find "0123456789abcdef" [String::lower $c]]
+
+        if [< $i 0] {
+            error "color: bad hex digit \"$c\""
+        }
+
+        $i
+    }
+
+    proc _hex_byte {s at} {
+        + [* 16 [_hex_digit [String::index $s $at]]] [_hex_digit [String::index $s [+ $at 1]]]
+    }
+
+    proc _color_hex {spec} {
+        let n [String::length $spec]
+
+        if [not [or [== $n 7] [== $n 9]]] {
+            error "color: expected #rrggbb or #rrggbbaa, got \"$spec\""
+        }
+
+        let r [_hex_byte $spec 1]
+        let g [_hex_byte $spec 3]
+        let b [_hex_byte $spec 5]
+        let a [if [== $n 9] { _hex_byte $spec 7 } else { 255 }]
+
+        list $r $g $b $a
+    }
+
+    proc _color_named {spec} {
+        let k [String::lower $spec]
+
+        if [has? $COLORS $k] {
+            get $COLORS $k
+        } else {
+            error "unknown color: $spec"
+        }
+    }
+
+    ;;; Coerce a colour spec to an `(r g b a)` list.
+    ;;;
+    ;;; Accepts a palette name (`red`, `raywhite`, case-insensitive), a
+    ;;; hex string `#rrggbb` / `#rrggbbaa`, or a list which is returned
+    ;;; as is (3 components get alpha 255).
+    ;;;
+    ;;; Examples:
+    ;;; >> Raylib::color red
+    ;;; (230 41 55 255)
+    ;;; >> Raylib::color "#ff8000"
+    ;;; (255 128 0 255)
+    ;;; >> Raylib::color "#ff800080"
+    ;;; (255 128 0 128)
+    ;;; >> Raylib::color (1 2 3)
+    ;;; (1 2 3 255)
+    ;;; >> Raylib::color nope
+    ;;; !! unknown color
+    proc color {spec} {
+
+        cond [list? $spec]   [if [== [len $spec] 3] { List::push $spec 255 } else { $spec }] \
+             [opaque? $spec] [$spec] \
+             [== [String::index $spec 0] "#"] [_color_hex $spec] \
+             else [_color_named $spec]
+    }
+
+    ;;; Colour with alpha replaced by `a` in [0, 1].
+    ;;;
+    ;;; Examples:
+    ;;; >> Raylib::fade red 0.5
+    ;;; (230 41 55 127)
+    proc fade {spec a} {
+        let c [color $spec]
+
+        list [get $c 0] [get $c 1] [get $c 2] [int [* 255 $a]]
+    }
+
+    ;;; Key code for a key name: `space`, `a`, `left`, `f1`, `kp_0` ...
+    ;;; (any suffix of raylib's `KEY_*` constants, case-insensitive).
+    ;;; Numbers pass through unchanged.
+    ;;;
+    ;;; Examples:
+    ;;; >> Raylib::key space
+    ;;; 32
+    ;;; >> Raylib::key 65
+    ;;; 65
+    ;;; >> Raylib::key nope
+    ;;; !! unknown key
+    proc key {name} {
+        if [int? $name] { return $name }
+
+        let sym "KEY_[String::upper $name]"
+
+        if [has? $raylib $sym] {
+            get $raylib $sym
+        } else {
+            error "unknown key: $name"
+        }
+    }
+
+    ;;; Mouse button code for `left`, `right`, `middle`, `side`, `extra`,
+    ;;; `forward`, `back`; numbers pass through.
+    ;;;
+    ;;; Examples:
+    ;;; >> Raylib::mouse_button left
+    ;;; 0
+    proc mouse_button {name} {
+        if [int? $name] { return $name }
+
+        let sym "MOUSE_BUTTON_[String::upper $name]"
+
+        if [has? $raylib $sym] {
+            get $raylib $sym
+        } else {
+            error "unknown mouse button: $name"
+        }
+    }
+
+    ;;; Is the named key held down this frame?
+    proc key_down? {name} { raylib::is_key_down [key $name] }
+
+    ;;; Was the named key pressed this frame?
+    proc key_pressed? {name} { raylib::is_key_pressed [key $name] }
+
+    ;;; Was the named key released this frame?
+    proc key_released? {name} { raylib::is_key_released [key $name] }
+
+    ;;; Is the mouse button held down?
+    proc mouse_down? {name} { raylib::is_mouse_button_down [mouse_button $name] }
+
+    ;;; Was the mouse button pressed this frame?
+    proc mouse_pressed? {name} { raylib::is_mouse_button_pressed [mouse_button $name] }
+
+    ;;; Mouse position as an `(x y)` list.
+    proc mouse_pos {} {
+        let p [raylib::get_mouse_position]
+
+        list [raylib::vector2_x $p] [raylib::vector2_y $p]
+    }
+
+    ;;; Screen size as a `(w h)` list.
+    proc screen_size {} { list [raylib::get_screen_width] [raylib::get_screen_height] }
+
+    ;; ---------------------------------------------------------------
+    ;; Bracket procs: begin/end pairs that always close.
+    ;; ---------------------------------------------------------------
+
+    ;; Run `body`, then `after`; re-raise the body's error afterwards.
+    proc _bracket {body after} {
+        let failed [catch {eval $body} result msg]
+
+        eval $after
+
+        if $failed { error $msg }
+
+        $result
+    }
+
+    ;;; Run `body` between begin_drawing / end_drawing.
+    proc draw {body} {
+        raylib::begin_drawing
+        _bracket $body { raylib::end_drawing }
+    }
+
+    ;;; Run `body` in 2D camera mode.
+    proc mode_2d {camera body} {
+        raylib::begin_mode_2d $camera
+
+        _bracket $body { raylib::end_mode_2d }
+    }
+
+    ;;; Run `body` in 3D camera mode.
+    proc mode_3d {camera body} {
+        raylib::begin_mode_3d $camera
+        _bracket $body { raylib::end_mode_3d }
+    }
+
+    ;;; Run `body` drawing into a render texture.
+    proc texture_mode {target body} {
+        raylib::begin_texture_mode $target
+        _bracket $body { raylib::end_texture_mode }
+    }
+
+    ;;; Run `body` with a custom shader.
+    proc shader {sh body} {
+        raylib::begin_shader_mode $sh
+        _bracket $body { raylib::end_shader_mode }
+    }
+
+    ;;; Run `body` with a blend mode (`raylib::BLEND_*`).
+    proc blend {mode body} {
+        raylib::begin_blend_mode $mode
+        _bracket $body { raylib::end_blend_mode }
+    }
+
+    ;;; Run `body` clipped to the rectangle `(x y w h)`.
+    proc scissor {rect body} {
+        raylib::begin_scissor_mode [get $rect 0] [get $rect 1] [get $rect 2] [get $rect 3]
+        _bracket $body { raylib::end_scissor_mode }
+    }
+
+    ;; ---------------------------------------------------------------
+    ;; Assets
+    ;; ---------------------------------------------------------------
+
+    ;;; Load a resource and register it for unloading at `close!`.
+    ;;;
+    ;;; `kind` is one of `texture`, `image`, `font`, `sound`, `music`,
+    ;;; `wave`, `model`, `shader` (path is `(vs fs)`), `render_texture`
+    ;;; (path is `(w h)`). Returns the loaded value.
+    proc asset {kind path} {
+        let v [case $kind
+                 {texture}        [raylib::load_texture $path]
+                 {image}          [raylib::load_image $path]
+                 {font}           [raylib::load_font $path]
+                 {sound}          [raylib::load_sound $path]
+                 {music}          [raylib::load_music_stream $path]
+                 {wave}           [raylib::load_wave $path]
+                 {model}          [raylib::load_model $path]
+                 {shader}         [raylib::load_shader [get $path 0] [get $path 1]]
+                 {render_texture} [raylib::load_render_texture [get $path 0] [get $path 1]]
+                 else             [error "asset: unknown kind \"$kind\""]]
+
+        set! _assets [List::push $_assets ($kind $v)]
+
+        $v
+    }
+
+    ;;; Register an already-loaded value for unloading at `close!`.
+    proc track! {kind value} {
+        set! _assets [List::push $_assets ($kind $value)]
+        $value
+    }
+
+    proc _unload {kind v} {
+        case $kind \
+            {texture}        [raylib::unload_texture $v] \
+            {image}          [raylib::unload_image $v] \
+            {font}           [raylib::unload_font $v] \
+            {sound}          [raylib::unload_sound $v] \
+            {music}          [raylib::unload_music_stream $v] \
+            {wave}           [raylib::unload_wave $v] \
+            {model}          [raylib::unload_model $v] \
+            {shader}         [raylib::unload_shader $v] \
+            {render_texture} [raylib::unload_render_texture $v] \
+            else             {}
+    }
+
+    ;;; Unload every tracked asset, most recent first.
+    proc unload_all! {} {
+        foreach a [List::reverse $_assets] {
+            _unload [get $a 0] [get $a 1]
+        }
+        
+        set! _assets ()
+    }
+
+    ;; ---------------------------------------------------------------
+    ;; App / loop
+    ;; ---------------------------------------------------------------
+
+    ;;; Set the target frame rate (before or inside `app`).
+    proc fps {n} {
+        set! _target_fps $n
+
+        if [raylib::is_window_ready] {
+            raylib::set_target_fps $n
+        }
+    }
+
+    ;;; Set the clear colour used before each frame's `on_draw`.
+    proc background {spec} { set! _bg [color $spec] }
+
+    ;;; Register an update handler `{dt} { ... }`, run once per frame
+    ;;; before drawing with the frame time in seconds.
+    proc on_update {params body} { set! _updates [List::push $_updates [lambda $params $body]] }
+
+    ;;; Register a draw handler; runs inside begin/end_drawing after the
+    ;;; background clear. Several handlers draw in registration order.
+    proc on_draw {body} { set! _draws [List::push $_draws [lambda {} $body]] }
+
+    ;;; Run `body` on the frame the key (see `key`) is pressed.
+    proc on_key_pressed {name body} { set! _key_pressed [List::push $_key_pressed ([key $name] $body)] }
+
+    ;;; Run `body` every frame the key is held.
+    proc on_key_down {name body} { set! _key_down [List::push $_key_down ([key $name] $body)] }
+
+    ;;; Run `body` when the app closes (before assets are unloaded).
+    proc on_exit {body} { set! _on_exit [List::push $_on_exit $body] }
+
+    ;;; Ask the loop to stop after the current frame.
+    proc quit! {} { set! _running 0 }
+
+    ;;; Is the app loop running?
+    proc running? {} { $_running }
+
+    ;;; Tell `app` that the host drives the loop: `app` returns right
+    ;;; after running its setup body, and the host calls `step!` per
+    ;;; frame and `close!` at the end (Emscripten's main-loop model).
+    proc hosted! {} { set! _hosted 1 }
+
+    proc _reset! {} {
+        set! _updates ()
+        set! _draws ()
+        set! _key_pressed ()
+        set! _key_down ()
+        set! _on_exit ()
+        set! _assets ()
+        set! _running 0
+    }
+
+    ;;; Run one frame: input handlers, updates, then draw. Returns 1
+    ;;; while the app should keep going, 0 once it has stopped. Errors
+    ;;; raised by handlers close the window and are re-raised.
+    proc step! {} {
+        if [not $_running] { return 0 }
+
+        if [raylib::window_should_close] {
+            set! _running 0
+
+            return 0
+        }
+
+        let failed [catch {
+            let dt [raylib::get_frame_time]
+
+            foreach h $_key_pressed {
+                if [raylib::is_key_pressed [get $h 0]] {
+                    eval [get $h 1]
+                }
+            }
+
+            foreach h $_key_down {
+                if [raylib::is_key_down [get $h 0]] {
+                    eval [get $h 1]
+                }
+            }
+
+            foreach f $_updates {
+                apply $f $dt
+            }
+
+            draw {
+                raylib::clear_background $_bg
+                foreach f $_draws { apply $f }
+            }
+
+        } result msg]
+
+        if $failed {
+            close!
+            error $msg
+        }
+
+        $_running
+    }
+
+    ;;; Stop the loop, run `on_exit` handlers, unload assets, close the window.
+    proc close! {} {
+        set! _running 0
+
+        foreach h $_on_exit {
+            catch {eval $h} r m
+        }
+
+        unload_all!
+
+        if [raylib::is_window_ready] {
+            raylib::close_window
+        }
+    }
+
+    ;;; Open a window, run `body` to set things up (register handlers,
+    ;;; load assets), then run the frame loop until the window is closed
+    ;;; or `quit!` is called; finally `close!`.
+    ;;;
+    ;;; Setup runs with the window open, so drawing-dependent calls
+    ;;; (`asset texture ...`, `raylib::get_screen_width`) are fine there.
+    proc app {width height title body} {
+        _reset!
+
+        raylib::init_window $width $height $title
+        raylib::set_target_fps $_target_fps
+
+        set! _running 1
+
+        let failed [catch {eval $body} result msg]
+
+        if $failed { close!; error $msg }
+
+        if $_hosted { return 1 }
+
+        while {[step!]} {}
+
+        close!
+        1
+    }
+
+    ;;; Draw `str` at `(x, y)` with the default font.
+    proc text {str x y (size 20) (spec "darkgray")} {
+        raylib::draw_text $str $x $y $size [color $spec]
+    }
+}

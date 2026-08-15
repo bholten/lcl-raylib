@@ -1,0 +1,72 @@
+;; DSL demo: bouncing balls -- run with: build/lcl-raylib examples/bounce.lcl
+;;
+;;   click        add a ball at the mouse
+;;   space        reverse everything
+;;   escape       quit
+;;
+;; Uses the Raylib:: layer (embedded in the runner; `require
+;; lib/raylib/src/Raylib.lcl` from other hosts).
+import Raylib
+
+let W 800
+let H 600
+let R 16
+
+var balls ()          ;; each ball: #{pos (x y) vel (vx vy) color (r g b a)}
+
+proc spawn! {at} {
+    let vx [- [raylib::get_random_value 0 400] 200]
+    let vy [- [raylib::get_random_value 0 400] 200]
+    let c  [color ([raylib::get_random_value 50 255] [raylib::get_random_value 50 255] [raylib::get_random_value 50 255])]
+
+    set! balls [List::push $balls #{pos $at vel ($vx $vy) color $c}]
+}
+
+;; Move one ball, bouncing off the walls. Returns the updated ball dict.
+proc step_ball {b dt} {
+    var pos [Vec::add [get $b pos] [Vec::scale [get $b vel] $dt]]
+    var vel [get $b vel]
+
+    if [or [< [get $pos 0] $R] [> [get $pos 0] [- $W $R]]] {
+        set! vel [Vec::mul $vel (-1 1)]
+    }
+
+    if [or [< [get $pos 1] $R] [> [get $pos 1] [- $H $R]]] {
+        set! vel [Vec::mul $vel (1 -1)]
+    }
+
+    set! pos [Vec::clamp $pos ($R $R) ([- $W $R] [- $H $R])]
+
+    put [put $b pos $pos] vel $vel
+}
+
+app $W $H "Lcl + raylib: bounce" {
+    fps 60
+    background "#1e1e2e"
+
+    foreach _ [List::range 0 5] {
+        spawn! ([raylib::get_random_value $R [- $W $R]] [raylib::get_random_value $R [- $H $R]])
+    }
+
+    on_key_pressed space {
+        set! balls [List::map $balls [lambda {b} { put $b vel [Vec::neg [get $b vel]] }]]
+    }
+
+    on_update {dt} {
+        if [mouse_pressed? left] {
+            spawn! [mouse_pos]
+        }
+
+        set! balls [List::map $balls [lambda {b} { step_ball $b $dt }]]
+    }
+
+    on_draw {
+        foreach b $balls {
+            raylib::draw_circle_v [get $b pos] $R [get $b color]
+        }
+
+        text "balls: [len $balls]   click: add   space: reverse" 10 10 20 raywhite
+
+        raylib::draw_fps [- $W 90] 10
+    }
+}
