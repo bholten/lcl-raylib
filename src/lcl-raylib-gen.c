@@ -20,13 +20,13 @@ lcl_value *rl_new_Vector2(Vector2 v) {
   return lcl_opaque_new(p, RL_TAG_Vector2, free);
 }
 
-int rl_ptr_Vector2(lcl_interp *interp, lcl_value *v, Vector2 **out) {
+lcl_return_code rl_ptr_Vector2(lcl_interp *interp, lcl_value *v, Vector2 **out) {
   (void)interp;
   if (lcl_opaque_get(v, RL_TAG_Vector2, (void **)out) != LCL_OK) return LCL_RC_ERR;
   return LCL_RC_OK;
 }
 
-int rl_get_Vector2(lcl_interp *interp, lcl_value *v, Vector2 *out) {
+lcl_return_code rl_get_Vector2(lcl_interp *interp, lcl_value *v, Vector2 *out) {
   Vector2 *p;
   (void)interp;
   if (lcl_opaque_get(v, RL_TAG_Vector2, (void **)&p) == LCL_OK) {
@@ -68,13 +68,13 @@ lcl_value *rl_new_Vector3(Vector3 v) {
   return lcl_opaque_new(p, RL_TAG_Vector3, free);
 }
 
-int rl_ptr_Vector3(lcl_interp *interp, lcl_value *v, Vector3 **out) {
+lcl_return_code rl_ptr_Vector3(lcl_interp *interp, lcl_value *v, Vector3 **out) {
   (void)interp;
   if (lcl_opaque_get(v, RL_TAG_Vector3, (void **)out) != LCL_OK) return LCL_RC_ERR;
   return LCL_RC_OK;
 }
 
-int rl_get_Vector3(lcl_interp *interp, lcl_value *v, Vector3 *out) {
+lcl_return_code rl_get_Vector3(lcl_interp *interp, lcl_value *v, Vector3 *out) {
   Vector3 *p;
   (void)interp;
   if (lcl_opaque_get(v, RL_TAG_Vector3, (void **)&p) == LCL_OK) {
@@ -120,13 +120,13 @@ lcl_value *rl_new_Vector4(Vector4 v) {
   return lcl_opaque_new(p, RL_TAG_Vector4, free);
 }
 
-int rl_ptr_Vector4(lcl_interp *interp, lcl_value *v, Vector4 **out) {
+lcl_return_code rl_ptr_Vector4(lcl_interp *interp, lcl_value *v, Vector4 **out) {
   (void)interp;
   if (lcl_opaque_get(v, RL_TAG_Vector4, (void **)out) != LCL_OK) return LCL_RC_ERR;
   return LCL_RC_OK;
 }
 
-int rl_get_Vector4(lcl_interp *interp, lcl_value *v, Vector4 *out) {
+lcl_return_code rl_get_Vector4(lcl_interp *interp, lcl_value *v, Vector4 *out) {
   Vector4 *p;
   (void)interp;
   if (lcl_opaque_get(v, RL_TAG_Vector4, (void **)&p) == LCL_OK) {
@@ -176,13 +176,13 @@ lcl_value *rl_new_Matrix(Matrix v) {
   return lcl_opaque_new(p, RL_TAG_Matrix, free);
 }
 
-int rl_ptr_Matrix(lcl_interp *interp, lcl_value *v, Matrix **out) {
+lcl_return_code rl_ptr_Matrix(lcl_interp *interp, lcl_value *v, Matrix **out) {
   (void)interp;
   if (lcl_opaque_get(v, RL_TAG_Matrix, (void **)out) != LCL_OK) return LCL_RC_ERR;
   return LCL_RC_OK;
 }
 
-int rl_get_Matrix(lcl_interp *interp, lcl_value *v, Matrix *out) {
+lcl_return_code rl_get_Matrix(lcl_interp *interp, lcl_value *v, Matrix *out) {
   Matrix *p;
   (void)interp;
   if (lcl_opaque_get(v, RL_TAG_Matrix, (void **)&p) == LCL_OK) {
@@ -280,13 +280,13 @@ lcl_value *rl_new_Color(Color v) {
   return lcl_opaque_new(p, RL_TAG_Color, free);
 }
 
-int rl_ptr_Color(lcl_interp *interp, lcl_value *v, Color **out) {
+lcl_return_code rl_ptr_Color(lcl_interp *interp, lcl_value *v, Color **out) {
   (void)interp;
   if (lcl_opaque_get(v, RL_TAG_Color, (void **)out) != LCL_OK) return LCL_RC_ERR;
   return LCL_RC_OK;
 }
 
-int rl_get_Color(lcl_interp *interp, lcl_value *v, Color *out) {
+lcl_return_code rl_get_Color(lcl_interp *interp, lcl_value *v, Color *out) {
   Color *p;
   (void)interp;
   if (lcl_opaque_get(v, RL_TAG_Color, (void **)&p) == LCL_OK) {
@@ -336,13 +336,13 @@ lcl_value *rl_new_Rectangle(Rectangle v) {
   return lcl_opaque_new(p, RL_TAG_Rectangle, free);
 }
 
-int rl_ptr_Rectangle(lcl_interp *interp, lcl_value *v, Rectangle **out) {
+lcl_return_code rl_ptr_Rectangle(lcl_interp *interp, lcl_value *v, Rectangle **out) {
   (void)interp;
   if (lcl_opaque_get(v, RL_TAG_Rectangle, (void **)out) != LCL_OK) return LCL_RC_ERR;
   return LCL_RC_OK;
 }
 
-int rl_get_Rectangle(lcl_interp *interp, lcl_value *v, Rectangle *out) {
+lcl_return_code rl_get_Rectangle(lcl_interp *interp, lcl_value *v, Rectangle *out) {
   Rectangle *p;
   (void)interp;
   if (lcl_opaque_get(v, RL_TAG_Rectangle, (void **)&p) == LCL_OK) {
@@ -392,13 +392,13 @@ lcl_value *rl_new_Image(Image v) {
   return lcl_opaque_new(p, RL_TAG_Image, free);
 }
 
-int rl_ptr_Image(lcl_interp *interp, lcl_value *v, Image **out) {
+lcl_return_code rl_ptr_Image(lcl_interp *interp, lcl_value *v, Image **out) {
   (void)interp;
   if (lcl_opaque_get(v, RL_TAG_Image, (void **)out) != LCL_OK) return LCL_RC_ERR;
   return LCL_RC_OK;
 }
 
-int rl_get_Image(lcl_interp *interp, lcl_value *v, Image *out) {
+lcl_return_code rl_get_Image(lcl_interp *interp, lcl_value *v, Image *out) {
   Image *p;
   (void)interp;
   if (lcl_opaque_get(v, RL_TAG_Image, (void **)&p) == LCL_OK) {
@@ -416,13 +416,13 @@ lcl_value *rl_new_Texture(Texture v) {
   return lcl_opaque_new(p, RL_TAG_Texture, free);
 }
 
-int rl_ptr_Texture(lcl_interp *interp, lcl_value *v, Texture **out) {
+lcl_return_code rl_ptr_Texture(lcl_interp *interp, lcl_value *v, Texture **out) {
   (void)interp;
   if (lcl_opaque_get(v, RL_TAG_Texture, (void **)out) != LCL_OK) return LCL_RC_ERR;
   return LCL_RC_OK;
 }
 
-int rl_get_Texture(lcl_interp *interp, lcl_value *v, Texture *out) {
+lcl_return_code rl_get_Texture(lcl_interp *interp, lcl_value *v, Texture *out) {
   Texture *p;
   (void)interp;
   if (lcl_opaque_get(v, RL_TAG_Texture, (void **)&p) == LCL_OK) {
@@ -476,13 +476,13 @@ lcl_value *rl_new_RenderTexture(RenderTexture v) {
   return lcl_opaque_new(p, RL_TAG_RenderTexture, free);
 }
 
-int rl_ptr_RenderTexture(lcl_interp *interp, lcl_value *v, RenderTexture **out) {
+lcl_return_code rl_ptr_RenderTexture(lcl_interp *interp, lcl_value *v, RenderTexture **out) {
   (void)interp;
   if (lcl_opaque_get(v, RL_TAG_RenderTexture, (void **)out) != LCL_OK) return LCL_RC_ERR;
   return LCL_RC_OK;
 }
 
-int rl_get_RenderTexture(lcl_interp *interp, lcl_value *v, RenderTexture *out) {
+lcl_return_code rl_get_RenderTexture(lcl_interp *interp, lcl_value *v, RenderTexture *out) {
   RenderTexture *p;
   (void)interp;
   if (lcl_opaque_get(v, RL_TAG_RenderTexture, (void **)&p) == LCL_OK) {
@@ -516,13 +516,13 @@ lcl_value *rl_new_NPatchInfo(NPatchInfo v) {
   return lcl_opaque_new(p, RL_TAG_NPatchInfo, free);
 }
 
-int rl_ptr_NPatchInfo(lcl_interp *interp, lcl_value *v, NPatchInfo **out) {
+lcl_return_code rl_ptr_NPatchInfo(lcl_interp *interp, lcl_value *v, NPatchInfo **out) {
   (void)interp;
   if (lcl_opaque_get(v, RL_TAG_NPatchInfo, (void **)out) != LCL_OK) return LCL_RC_ERR;
   return LCL_RC_OK;
 }
 
-int rl_get_NPatchInfo(lcl_interp *interp, lcl_value *v, NPatchInfo *out) {
+lcl_return_code rl_get_NPatchInfo(lcl_interp *interp, lcl_value *v, NPatchInfo *out) {
   NPatchInfo *p;
   (void)interp;
   if (lcl_opaque_get(v, RL_TAG_NPatchInfo, (void **)&p) == LCL_OK) {
@@ -565,13 +565,13 @@ lcl_value *rl_new_GlyphInfo(GlyphInfo v) {
   return lcl_opaque_new(p, RL_TAG_GlyphInfo, free);
 }
 
-int rl_ptr_GlyphInfo(lcl_interp *interp, lcl_value *v, GlyphInfo **out) {
+lcl_return_code rl_ptr_GlyphInfo(lcl_interp *interp, lcl_value *v, GlyphInfo **out) {
   (void)interp;
   if (lcl_opaque_get(v, RL_TAG_GlyphInfo, (void **)out) != LCL_OK) return LCL_RC_ERR;
   return LCL_RC_OK;
 }
 
-int rl_get_GlyphInfo(lcl_interp *interp, lcl_value *v, GlyphInfo *out) {
+lcl_return_code rl_get_GlyphInfo(lcl_interp *interp, lcl_value *v, GlyphInfo *out) {
   GlyphInfo *p;
   (void)interp;
   if (lcl_opaque_get(v, RL_TAG_GlyphInfo, (void **)&p) == LCL_OK) {
@@ -589,13 +589,13 @@ lcl_value *rl_new_Font(Font v) {
   return lcl_opaque_new(p, RL_TAG_Font, free);
 }
 
-int rl_ptr_Font(lcl_interp *interp, lcl_value *v, Font **out) {
+lcl_return_code rl_ptr_Font(lcl_interp *interp, lcl_value *v, Font **out) {
   (void)interp;
   if (lcl_opaque_get(v, RL_TAG_Font, (void **)out) != LCL_OK) return LCL_RC_ERR;
   return LCL_RC_OK;
 }
 
-int rl_get_Font(lcl_interp *interp, lcl_value *v, Font *out) {
+lcl_return_code rl_get_Font(lcl_interp *interp, lcl_value *v, Font *out) {
   Font *p;
   (void)interp;
   if (lcl_opaque_get(v, RL_TAG_Font, (void **)&p) == LCL_OK) {
@@ -613,13 +613,13 @@ lcl_value *rl_new_Camera3D(Camera3D v) {
   return lcl_opaque_new(p, RL_TAG_Camera3D, free);
 }
 
-int rl_ptr_Camera3D(lcl_interp *interp, lcl_value *v, Camera3D **out) {
+lcl_return_code rl_ptr_Camera3D(lcl_interp *interp, lcl_value *v, Camera3D **out) {
   (void)interp;
   if (lcl_opaque_get(v, RL_TAG_Camera3D, (void **)out) != LCL_OK) return LCL_RC_ERR;
   return LCL_RC_OK;
 }
 
-int rl_get_Camera3D(lcl_interp *interp, lcl_value *v, Camera3D *out) {
+lcl_return_code rl_get_Camera3D(lcl_interp *interp, lcl_value *v, Camera3D *out) {
   Camera3D *p;
   (void)interp;
   if (lcl_opaque_get(v, RL_TAG_Camera3D, (void **)&p) == LCL_OK) {
@@ -659,13 +659,13 @@ lcl_value *rl_new_Camera2D(Camera2D v) {
   return lcl_opaque_new(p, RL_TAG_Camera2D, free);
 }
 
-int rl_ptr_Camera2D(lcl_interp *interp, lcl_value *v, Camera2D **out) {
+lcl_return_code rl_ptr_Camera2D(lcl_interp *interp, lcl_value *v, Camera2D **out) {
   (void)interp;
   if (lcl_opaque_get(v, RL_TAG_Camera2D, (void **)out) != LCL_OK) return LCL_RC_ERR;
   return LCL_RC_OK;
 }
 
-int rl_get_Camera2D(lcl_interp *interp, lcl_value *v, Camera2D *out) {
+lcl_return_code rl_get_Camera2D(lcl_interp *interp, lcl_value *v, Camera2D *out) {
   Camera2D *p;
   (void)interp;
   if (lcl_opaque_get(v, RL_TAG_Camera2D, (void **)&p) == LCL_OK) {
@@ -702,13 +702,13 @@ lcl_value *rl_new_Mesh(Mesh v) {
   return lcl_opaque_new(p, RL_TAG_Mesh, free);
 }
 
-int rl_ptr_Mesh(lcl_interp *interp, lcl_value *v, Mesh **out) {
+lcl_return_code rl_ptr_Mesh(lcl_interp *interp, lcl_value *v, Mesh **out) {
   (void)interp;
   if (lcl_opaque_get(v, RL_TAG_Mesh, (void **)out) != LCL_OK) return LCL_RC_ERR;
   return LCL_RC_OK;
 }
 
-int rl_get_Mesh(lcl_interp *interp, lcl_value *v, Mesh *out) {
+lcl_return_code rl_get_Mesh(lcl_interp *interp, lcl_value *v, Mesh *out) {
   Mesh *p;
   (void)interp;
   if (lcl_opaque_get(v, RL_TAG_Mesh, (void **)&p) == LCL_OK) {
@@ -726,13 +726,13 @@ lcl_value *rl_new_Shader(Shader v) {
   return lcl_opaque_new(p, RL_TAG_Shader, free);
 }
 
-int rl_ptr_Shader(lcl_interp *interp, lcl_value *v, Shader **out) {
+lcl_return_code rl_ptr_Shader(lcl_interp *interp, lcl_value *v, Shader **out) {
   (void)interp;
   if (lcl_opaque_get(v, RL_TAG_Shader, (void **)out) != LCL_OK) return LCL_RC_ERR;
   return LCL_RC_OK;
 }
 
-int rl_get_Shader(lcl_interp *interp, lcl_value *v, Shader *out) {
+lcl_return_code rl_get_Shader(lcl_interp *interp, lcl_value *v, Shader *out) {
   Shader *p;
   (void)interp;
   if (lcl_opaque_get(v, RL_TAG_Shader, (void **)&p) == LCL_OK) {
@@ -750,13 +750,13 @@ lcl_value *rl_new_MaterialMap(MaterialMap v) {
   return lcl_opaque_new(p, RL_TAG_MaterialMap, free);
 }
 
-int rl_ptr_MaterialMap(lcl_interp *interp, lcl_value *v, MaterialMap **out) {
+lcl_return_code rl_ptr_MaterialMap(lcl_interp *interp, lcl_value *v, MaterialMap **out) {
   (void)interp;
   if (lcl_opaque_get(v, RL_TAG_MaterialMap, (void **)out) != LCL_OK) return LCL_RC_ERR;
   return LCL_RC_OK;
 }
 
-int rl_get_MaterialMap(lcl_interp *interp, lcl_value *v, MaterialMap *out) {
+lcl_return_code rl_get_MaterialMap(lcl_interp *interp, lcl_value *v, MaterialMap *out) {
   MaterialMap *p;
   (void)interp;
   if (lcl_opaque_get(v, RL_TAG_MaterialMap, (void **)&p) == LCL_OK) {
@@ -790,13 +790,13 @@ lcl_value *rl_new_Material(Material v) {
   return lcl_opaque_new(p, RL_TAG_Material, free);
 }
 
-int rl_ptr_Material(lcl_interp *interp, lcl_value *v, Material **out) {
+lcl_return_code rl_ptr_Material(lcl_interp *interp, lcl_value *v, Material **out) {
   (void)interp;
   if (lcl_opaque_get(v, RL_TAG_Material, (void **)out) != LCL_OK) return LCL_RC_ERR;
   return LCL_RC_OK;
 }
 
-int rl_get_Material(lcl_interp *interp, lcl_value *v, Material *out) {
+lcl_return_code rl_get_Material(lcl_interp *interp, lcl_value *v, Material *out) {
   Material *p;
   (void)interp;
   if (lcl_opaque_get(v, RL_TAG_Material, (void **)&p) == LCL_OK) {
@@ -814,13 +814,13 @@ lcl_value *rl_new_Transform(Transform v) {
   return lcl_opaque_new(p, RL_TAG_Transform, free);
 }
 
-int rl_ptr_Transform(lcl_interp *interp, lcl_value *v, Transform **out) {
+lcl_return_code rl_ptr_Transform(lcl_interp *interp, lcl_value *v, Transform **out) {
   (void)interp;
   if (lcl_opaque_get(v, RL_TAG_Transform, (void **)out) != LCL_OK) return LCL_RC_ERR;
   return LCL_RC_OK;
 }
 
-int rl_get_Transform(lcl_interp *interp, lcl_value *v, Transform *out) {
+lcl_return_code rl_get_Transform(lcl_interp *interp, lcl_value *v, Transform *out) {
   Transform *p;
   (void)interp;
   if (lcl_opaque_get(v, RL_TAG_Transform, (void **)&p) == LCL_OK) {
@@ -854,13 +854,13 @@ lcl_value *rl_new_BoneInfo(BoneInfo v) {
   return lcl_opaque_new(p, RL_TAG_BoneInfo, free);
 }
 
-int rl_ptr_BoneInfo(lcl_interp *interp, lcl_value *v, BoneInfo **out) {
+lcl_return_code rl_ptr_BoneInfo(lcl_interp *interp, lcl_value *v, BoneInfo **out) {
   (void)interp;
   if (lcl_opaque_get(v, RL_TAG_BoneInfo, (void **)out) != LCL_OK) return LCL_RC_ERR;
   return LCL_RC_OK;
 }
 
-int rl_get_BoneInfo(lcl_interp *interp, lcl_value *v, BoneInfo *out) {
+lcl_return_code rl_get_BoneInfo(lcl_interp *interp, lcl_value *v, BoneInfo *out) {
   BoneInfo *p;
   (void)interp;
   if (lcl_opaque_get(v, RL_TAG_BoneInfo, (void **)&p) == LCL_OK) {
@@ -878,13 +878,13 @@ lcl_value *rl_new_ModelSkeleton(ModelSkeleton v) {
   return lcl_opaque_new(p, RL_TAG_ModelSkeleton, free);
 }
 
-int rl_ptr_ModelSkeleton(lcl_interp *interp, lcl_value *v, ModelSkeleton **out) {
+lcl_return_code rl_ptr_ModelSkeleton(lcl_interp *interp, lcl_value *v, ModelSkeleton **out) {
   (void)interp;
   if (lcl_opaque_get(v, RL_TAG_ModelSkeleton, (void **)out) != LCL_OK) return LCL_RC_ERR;
   return LCL_RC_OK;
 }
 
-int rl_get_ModelSkeleton(lcl_interp *interp, lcl_value *v, ModelSkeleton *out) {
+lcl_return_code rl_get_ModelSkeleton(lcl_interp *interp, lcl_value *v, ModelSkeleton *out) {
   ModelSkeleton *p;
   (void)interp;
   if (lcl_opaque_get(v, RL_TAG_ModelSkeleton, (void **)&p) == LCL_OK) {
@@ -902,13 +902,13 @@ lcl_value *rl_new_Model(Model v) {
   return lcl_opaque_new(p, RL_TAG_Model, free);
 }
 
-int rl_ptr_Model(lcl_interp *interp, lcl_value *v, Model **out) {
+lcl_return_code rl_ptr_Model(lcl_interp *interp, lcl_value *v, Model **out) {
   (void)interp;
   if (lcl_opaque_get(v, RL_TAG_Model, (void **)out) != LCL_OK) return LCL_RC_ERR;
   return LCL_RC_OK;
 }
 
-int rl_get_Model(lcl_interp *interp, lcl_value *v, Model *out) {
+lcl_return_code rl_get_Model(lcl_interp *interp, lcl_value *v, Model *out) {
   Model *p;
   (void)interp;
   if (lcl_opaque_get(v, RL_TAG_Model, (void **)&p) == LCL_OK) {
@@ -926,13 +926,13 @@ lcl_value *rl_new_ModelAnimation(ModelAnimation v) {
   return lcl_opaque_new(p, RL_TAG_ModelAnimation, free);
 }
 
-int rl_ptr_ModelAnimation(lcl_interp *interp, lcl_value *v, ModelAnimation **out) {
+lcl_return_code rl_ptr_ModelAnimation(lcl_interp *interp, lcl_value *v, ModelAnimation **out) {
   (void)interp;
   if (lcl_opaque_get(v, RL_TAG_ModelAnimation, (void **)out) != LCL_OK) return LCL_RC_ERR;
   return LCL_RC_OK;
 }
 
-int rl_get_ModelAnimation(lcl_interp *interp, lcl_value *v, ModelAnimation *out) {
+lcl_return_code rl_get_ModelAnimation(lcl_interp *interp, lcl_value *v, ModelAnimation *out) {
   ModelAnimation *p;
   (void)interp;
   if (lcl_opaque_get(v, RL_TAG_ModelAnimation, (void **)&p) == LCL_OK) {
@@ -950,13 +950,13 @@ lcl_value *rl_new_Ray(Ray v) {
   return lcl_opaque_new(p, RL_TAG_Ray, free);
 }
 
-int rl_ptr_Ray(lcl_interp *interp, lcl_value *v, Ray **out) {
+lcl_return_code rl_ptr_Ray(lcl_interp *interp, lcl_value *v, Ray **out) {
   (void)interp;
   if (lcl_opaque_get(v, RL_TAG_Ray, (void **)out) != LCL_OK) return LCL_RC_ERR;
   return LCL_RC_OK;
 }
 
-int rl_get_Ray(lcl_interp *interp, lcl_value *v, Ray *out) {
+lcl_return_code rl_get_Ray(lcl_interp *interp, lcl_value *v, Ray *out) {
   Ray *p;
   (void)interp;
   if (lcl_opaque_get(v, RL_TAG_Ray, (void **)&p) == LCL_OK) {
@@ -987,13 +987,13 @@ lcl_value *rl_new_RayCollision(RayCollision v) {
   return lcl_opaque_new(p, RL_TAG_RayCollision, free);
 }
 
-int rl_ptr_RayCollision(lcl_interp *interp, lcl_value *v, RayCollision **out) {
+lcl_return_code rl_ptr_RayCollision(lcl_interp *interp, lcl_value *v, RayCollision **out) {
   (void)interp;
   if (lcl_opaque_get(v, RL_TAG_RayCollision, (void **)out) != LCL_OK) return LCL_RC_ERR;
   return LCL_RC_OK;
 }
 
-int rl_get_RayCollision(lcl_interp *interp, lcl_value *v, RayCollision *out) {
+lcl_return_code rl_get_RayCollision(lcl_interp *interp, lcl_value *v, RayCollision *out) {
   RayCollision *p;
   (void)interp;
   if (lcl_opaque_get(v, RL_TAG_RayCollision, (void **)&p) == LCL_OK) {
@@ -1030,13 +1030,13 @@ lcl_value *rl_new_BoundingBox(BoundingBox v) {
   return lcl_opaque_new(p, RL_TAG_BoundingBox, free);
 }
 
-int rl_ptr_BoundingBox(lcl_interp *interp, lcl_value *v, BoundingBox **out) {
+lcl_return_code rl_ptr_BoundingBox(lcl_interp *interp, lcl_value *v, BoundingBox **out) {
   (void)interp;
   if (lcl_opaque_get(v, RL_TAG_BoundingBox, (void **)out) != LCL_OK) return LCL_RC_ERR;
   return LCL_RC_OK;
 }
 
-int rl_get_BoundingBox(lcl_interp *interp, lcl_value *v, BoundingBox *out) {
+lcl_return_code rl_get_BoundingBox(lcl_interp *interp, lcl_value *v, BoundingBox *out) {
   BoundingBox *p;
   (void)interp;
   if (lcl_opaque_get(v, RL_TAG_BoundingBox, (void **)&p) == LCL_OK) {
@@ -1067,13 +1067,13 @@ lcl_value *rl_new_Wave(Wave v) {
   return lcl_opaque_new(p, RL_TAG_Wave, free);
 }
 
-int rl_ptr_Wave(lcl_interp *interp, lcl_value *v, Wave **out) {
+lcl_return_code rl_ptr_Wave(lcl_interp *interp, lcl_value *v, Wave **out) {
   (void)interp;
   if (lcl_opaque_get(v, RL_TAG_Wave, (void **)out) != LCL_OK) return LCL_RC_ERR;
   return LCL_RC_OK;
 }
 
-int rl_get_Wave(lcl_interp *interp, lcl_value *v, Wave *out) {
+lcl_return_code rl_get_Wave(lcl_interp *interp, lcl_value *v, Wave *out) {
   Wave *p;
   (void)interp;
   if (lcl_opaque_get(v, RL_TAG_Wave, (void **)&p) == LCL_OK) {
@@ -1091,13 +1091,13 @@ lcl_value *rl_new_AudioStream(AudioStream v) {
   return lcl_opaque_new(p, RL_TAG_AudioStream, free);
 }
 
-int rl_ptr_AudioStream(lcl_interp *interp, lcl_value *v, AudioStream **out) {
+lcl_return_code rl_ptr_AudioStream(lcl_interp *interp, lcl_value *v, AudioStream **out) {
   (void)interp;
   if (lcl_opaque_get(v, RL_TAG_AudioStream, (void **)out) != LCL_OK) return LCL_RC_ERR;
   return LCL_RC_OK;
 }
 
-int rl_get_AudioStream(lcl_interp *interp, lcl_value *v, AudioStream *out) {
+lcl_return_code rl_get_AudioStream(lcl_interp *interp, lcl_value *v, AudioStream *out) {
   AudioStream *p;
   (void)interp;
   if (lcl_opaque_get(v, RL_TAG_AudioStream, (void **)&p) == LCL_OK) {
@@ -1115,13 +1115,13 @@ lcl_value *rl_new_Sound(Sound v) {
   return lcl_opaque_new(p, RL_TAG_Sound, free);
 }
 
-int rl_ptr_Sound(lcl_interp *interp, lcl_value *v, Sound **out) {
+lcl_return_code rl_ptr_Sound(lcl_interp *interp, lcl_value *v, Sound **out) {
   (void)interp;
   if (lcl_opaque_get(v, RL_TAG_Sound, (void **)out) != LCL_OK) return LCL_RC_ERR;
   return LCL_RC_OK;
 }
 
-int rl_get_Sound(lcl_interp *interp, lcl_value *v, Sound *out) {
+lcl_return_code rl_get_Sound(lcl_interp *interp, lcl_value *v, Sound *out) {
   Sound *p;
   (void)interp;
   if (lcl_opaque_get(v, RL_TAG_Sound, (void **)&p) == LCL_OK) {
@@ -1139,13 +1139,13 @@ lcl_value *rl_new_Music(Music v) {
   return lcl_opaque_new(p, RL_TAG_Music, free);
 }
 
-int rl_ptr_Music(lcl_interp *interp, lcl_value *v, Music **out) {
+lcl_return_code rl_ptr_Music(lcl_interp *interp, lcl_value *v, Music **out) {
   (void)interp;
   if (lcl_opaque_get(v, RL_TAG_Music, (void **)out) != LCL_OK) return LCL_RC_ERR;
   return LCL_RC_OK;
 }
 
-int rl_get_Music(lcl_interp *interp, lcl_value *v, Music *out) {
+lcl_return_code rl_get_Music(lcl_interp *interp, lcl_value *v, Music *out) {
   Music *p;
   (void)interp;
   if (lcl_opaque_get(v, RL_TAG_Music, (void **)&p) == LCL_OK) {
@@ -1163,13 +1163,13 @@ lcl_value *rl_new_VrDeviceInfo(VrDeviceInfo v) {
   return lcl_opaque_new(p, RL_TAG_VrDeviceInfo, free);
 }
 
-int rl_ptr_VrDeviceInfo(lcl_interp *interp, lcl_value *v, VrDeviceInfo **out) {
+lcl_return_code rl_ptr_VrDeviceInfo(lcl_interp *interp, lcl_value *v, VrDeviceInfo **out) {
   (void)interp;
   if (lcl_opaque_get(v, RL_TAG_VrDeviceInfo, (void **)out) != LCL_OK) return LCL_RC_ERR;
   return LCL_RC_OK;
 }
 
-int rl_get_VrDeviceInfo(lcl_interp *interp, lcl_value *v, VrDeviceInfo *out) {
+lcl_return_code rl_get_VrDeviceInfo(lcl_interp *interp, lcl_value *v, VrDeviceInfo *out) {
   VrDeviceInfo *p;
   (void)interp;
   if (lcl_opaque_get(v, RL_TAG_VrDeviceInfo, (void **)&p) == LCL_OK) {
@@ -1187,13 +1187,13 @@ lcl_value *rl_new_VrStereoConfig(VrStereoConfig v) {
   return lcl_opaque_new(p, RL_TAG_VrStereoConfig, free);
 }
 
-int rl_ptr_VrStereoConfig(lcl_interp *interp, lcl_value *v, VrStereoConfig **out) {
+lcl_return_code rl_ptr_VrStereoConfig(lcl_interp *interp, lcl_value *v, VrStereoConfig **out) {
   (void)interp;
   if (lcl_opaque_get(v, RL_TAG_VrStereoConfig, (void **)out) != LCL_OK) return LCL_RC_ERR;
   return LCL_RC_OK;
 }
 
-int rl_get_VrStereoConfig(lcl_interp *interp, lcl_value *v, VrStereoConfig *out) {
+lcl_return_code rl_get_VrStereoConfig(lcl_interp *interp, lcl_value *v, VrStereoConfig *out) {
   VrStereoConfig *p;
   (void)interp;
   if (lcl_opaque_get(v, RL_TAG_VrStereoConfig, (void **)&p) == LCL_OK) {
@@ -1211,13 +1211,13 @@ lcl_value *rl_new_FilePathList(FilePathList v) {
   return lcl_opaque_new(p, RL_TAG_FilePathList, free);
 }
 
-int rl_ptr_FilePathList(lcl_interp *interp, lcl_value *v, FilePathList **out) {
+lcl_return_code rl_ptr_FilePathList(lcl_interp *interp, lcl_value *v, FilePathList **out) {
   (void)interp;
   if (lcl_opaque_get(v, RL_TAG_FilePathList, (void **)out) != LCL_OK) return LCL_RC_ERR;
   return LCL_RC_OK;
 }
 
-int rl_get_FilePathList(lcl_interp *interp, lcl_value *v, FilePathList *out) {
+lcl_return_code rl_get_FilePathList(lcl_interp *interp, lcl_value *v, FilePathList *out) {
   FilePathList *p;
   (void)interp;
   if (lcl_opaque_get(v, RL_TAG_FilePathList, (void **)&p) == LCL_OK) {
@@ -1235,13 +1235,13 @@ lcl_value *rl_new_AutomationEvent(AutomationEvent v) {
   return lcl_opaque_new(p, RL_TAG_AutomationEvent, free);
 }
 
-int rl_ptr_AutomationEvent(lcl_interp *interp, lcl_value *v, AutomationEvent **out) {
+lcl_return_code rl_ptr_AutomationEvent(lcl_interp *interp, lcl_value *v, AutomationEvent **out) {
   (void)interp;
   if (lcl_opaque_get(v, RL_TAG_AutomationEvent, (void **)out) != LCL_OK) return LCL_RC_ERR;
   return LCL_RC_OK;
 }
 
-int rl_get_AutomationEvent(lcl_interp *interp, lcl_value *v, AutomationEvent *out) {
+lcl_return_code rl_get_AutomationEvent(lcl_interp *interp, lcl_value *v, AutomationEvent *out) {
   AutomationEvent *p;
   (void)interp;
   if (lcl_opaque_get(v, RL_TAG_AutomationEvent, (void **)&p) == LCL_OK) {
@@ -1259,13 +1259,13 @@ lcl_value *rl_new_AutomationEventList(AutomationEventList v) {
   return lcl_opaque_new(p, RL_TAG_AutomationEventList, free);
 }
 
-int rl_ptr_AutomationEventList(lcl_interp *interp, lcl_value *v, AutomationEventList **out) {
+lcl_return_code rl_ptr_AutomationEventList(lcl_interp *interp, lcl_value *v, AutomationEventList **out) {
   (void)interp;
   if (lcl_opaque_get(v, RL_TAG_AutomationEventList, (void **)out) != LCL_OK) return LCL_RC_ERR;
   return LCL_RC_OK;
 }
 
-int rl_get_AutomationEventList(lcl_interp *interp, lcl_value *v, AutomationEventList *out) {
+lcl_return_code rl_get_AutomationEventList(lcl_interp *interp, lcl_value *v, AutomationEventList *out) {
   AutomationEventList *p;
   (void)interp;
   if (lcl_opaque_get(v, RL_TAG_AutomationEventList, (void **)&p) == LCL_OK) {
@@ -1275,7 +1275,7 @@ int rl_get_AutomationEventList(lcl_interp *interp, lcl_value *v, AutomationEvent
   return LCL_RC_ERR;
 }
 
-static int rl_ctor_Vector2(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_ctor_Vector2(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector2 v;
   memset(&v, 0, sizeof(v));
   if (argc != 2) return rl_arity_error(interp, "raylib::vector2", 2, argc);
@@ -1285,7 +1285,7 @@ static int rl_ctor_Vector2(lcl_interp *interp, int argc, lcl_value **argv, lcl_v
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_get_Vector2_x(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_Vector2_x(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector2 s;
   if (argc != 1) return rl_arity_error(interp, "raylib::vector2_x", 1, argc);
   if (rl_get_Vector2(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::vector2_x", 1, "vector2", "Vector2");
@@ -1293,7 +1293,7 @@ static int rl_get_Vector2_x(lcl_interp *interp, int argc, lcl_value **argv, lcl_
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_Vector2_x(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_Vector2_x(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector2 *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::vector2_set_x", 2, argc);
@@ -1302,7 +1302,7 @@ static int rl_set_Vector2_x(lcl_interp *interp, int argc, lcl_value **argv, lcl_
   return LCL_RC_OK;
 }
 
-static int rl_get_Vector2_y(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_Vector2_y(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector2 s;
   if (argc != 1) return rl_arity_error(interp, "raylib::vector2_y", 1, argc);
   if (rl_get_Vector2(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::vector2_y", 1, "vector2", "Vector2");
@@ -1310,7 +1310,7 @@ static int rl_get_Vector2_y(lcl_interp *interp, int argc, lcl_value **argv, lcl_
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_Vector2_y(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_Vector2_y(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector2 *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::vector2_set_y", 2, argc);
@@ -1319,7 +1319,7 @@ static int rl_set_Vector2_y(lcl_interp *interp, int argc, lcl_value **argv, lcl_
   return LCL_RC_OK;
 }
 
-static int rl_ctor_Vector3(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_ctor_Vector3(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector3 v;
   memset(&v, 0, sizeof(v));
   if (argc != 3) return rl_arity_error(interp, "raylib::vector3", 3, argc);
@@ -1330,7 +1330,7 @@ static int rl_ctor_Vector3(lcl_interp *interp, int argc, lcl_value **argv, lcl_v
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_get_Vector3_x(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_Vector3_x(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector3 s;
   if (argc != 1) return rl_arity_error(interp, "raylib::vector3_x", 1, argc);
   if (rl_get_Vector3(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::vector3_x", 1, "vector3", "Vector3");
@@ -1338,7 +1338,7 @@ static int rl_get_Vector3_x(lcl_interp *interp, int argc, lcl_value **argv, lcl_
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_Vector3_x(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_Vector3_x(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector3 *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::vector3_set_x", 2, argc);
@@ -1347,7 +1347,7 @@ static int rl_set_Vector3_x(lcl_interp *interp, int argc, lcl_value **argv, lcl_
   return LCL_RC_OK;
 }
 
-static int rl_get_Vector3_y(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_Vector3_y(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector3 s;
   if (argc != 1) return rl_arity_error(interp, "raylib::vector3_y", 1, argc);
   if (rl_get_Vector3(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::vector3_y", 1, "vector3", "Vector3");
@@ -1355,7 +1355,7 @@ static int rl_get_Vector3_y(lcl_interp *interp, int argc, lcl_value **argv, lcl_
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_Vector3_y(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_Vector3_y(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector3 *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::vector3_set_y", 2, argc);
@@ -1364,7 +1364,7 @@ static int rl_set_Vector3_y(lcl_interp *interp, int argc, lcl_value **argv, lcl_
   return LCL_RC_OK;
 }
 
-static int rl_get_Vector3_z(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_Vector3_z(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector3 s;
   if (argc != 1) return rl_arity_error(interp, "raylib::vector3_z", 1, argc);
   if (rl_get_Vector3(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::vector3_z", 1, "vector3", "Vector3");
@@ -1372,7 +1372,7 @@ static int rl_get_Vector3_z(lcl_interp *interp, int argc, lcl_value **argv, lcl_
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_Vector3_z(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_Vector3_z(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector3 *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::vector3_set_z", 2, argc);
@@ -1381,7 +1381,7 @@ static int rl_set_Vector3_z(lcl_interp *interp, int argc, lcl_value **argv, lcl_
   return LCL_RC_OK;
 }
 
-static int rl_ctor_Vector4(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_ctor_Vector4(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector4 v;
   memset(&v, 0, sizeof(v));
   if (argc != 4) return rl_arity_error(interp, "raylib::vector4", 4, argc);
@@ -1393,7 +1393,7 @@ static int rl_ctor_Vector4(lcl_interp *interp, int argc, lcl_value **argv, lcl_v
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_get_Vector4_x(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_Vector4_x(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector4 s;
   if (argc != 1) return rl_arity_error(interp, "raylib::vector4_x", 1, argc);
   if (rl_get_Vector4(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::vector4_x", 1, "vector4", "Vector4");
@@ -1401,7 +1401,7 @@ static int rl_get_Vector4_x(lcl_interp *interp, int argc, lcl_value **argv, lcl_
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_Vector4_x(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_Vector4_x(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector4 *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::vector4_set_x", 2, argc);
@@ -1410,7 +1410,7 @@ static int rl_set_Vector4_x(lcl_interp *interp, int argc, lcl_value **argv, lcl_
   return LCL_RC_OK;
 }
 
-static int rl_get_Vector4_y(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_Vector4_y(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector4 s;
   if (argc != 1) return rl_arity_error(interp, "raylib::vector4_y", 1, argc);
   if (rl_get_Vector4(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::vector4_y", 1, "vector4", "Vector4");
@@ -1418,7 +1418,7 @@ static int rl_get_Vector4_y(lcl_interp *interp, int argc, lcl_value **argv, lcl_
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_Vector4_y(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_Vector4_y(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector4 *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::vector4_set_y", 2, argc);
@@ -1427,7 +1427,7 @@ static int rl_set_Vector4_y(lcl_interp *interp, int argc, lcl_value **argv, lcl_
   return LCL_RC_OK;
 }
 
-static int rl_get_Vector4_z(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_Vector4_z(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector4 s;
   if (argc != 1) return rl_arity_error(interp, "raylib::vector4_z", 1, argc);
   if (rl_get_Vector4(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::vector4_z", 1, "vector4", "Vector4");
@@ -1435,7 +1435,7 @@ static int rl_get_Vector4_z(lcl_interp *interp, int argc, lcl_value **argv, lcl_
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_Vector4_z(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_Vector4_z(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector4 *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::vector4_set_z", 2, argc);
@@ -1444,7 +1444,7 @@ static int rl_set_Vector4_z(lcl_interp *interp, int argc, lcl_value **argv, lcl_
   return LCL_RC_OK;
 }
 
-static int rl_get_Vector4_w(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_Vector4_w(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector4 s;
   if (argc != 1) return rl_arity_error(interp, "raylib::vector4_w", 1, argc);
   if (rl_get_Vector4(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::vector4_w", 1, "vector4", "Vector4");
@@ -1452,7 +1452,7 @@ static int rl_get_Vector4_w(lcl_interp *interp, int argc, lcl_value **argv, lcl_
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_Vector4_w(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_Vector4_w(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector4 *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::vector4_set_w", 2, argc);
@@ -1461,7 +1461,7 @@ static int rl_set_Vector4_w(lcl_interp *interp, int argc, lcl_value **argv, lcl_
   return LCL_RC_OK;
 }
 
-static int rl_ctor_Matrix(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_ctor_Matrix(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Matrix v;
   memset(&v, 0, sizeof(v));
   if (argc != 16) return rl_arity_error(interp, "raylib::matrix", 16, argc);
@@ -1485,7 +1485,7 @@ static int rl_ctor_Matrix(lcl_interp *interp, int argc, lcl_value **argv, lcl_va
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_get_Matrix_m0(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_Matrix_m0(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Matrix s;
   if (argc != 1) return rl_arity_error(interp, "raylib::matrix_m0", 1, argc);
   if (rl_get_Matrix(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::matrix_m0", 1, "matrix", "Matrix");
@@ -1493,7 +1493,7 @@ static int rl_get_Matrix_m0(lcl_interp *interp, int argc, lcl_value **argv, lcl_
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_Matrix_m0(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_Matrix_m0(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Matrix *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::matrix_set_m0", 2, argc);
@@ -1502,7 +1502,7 @@ static int rl_set_Matrix_m0(lcl_interp *interp, int argc, lcl_value **argv, lcl_
   return LCL_RC_OK;
 }
 
-static int rl_get_Matrix_m4(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_Matrix_m4(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Matrix s;
   if (argc != 1) return rl_arity_error(interp, "raylib::matrix_m4", 1, argc);
   if (rl_get_Matrix(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::matrix_m4", 1, "matrix", "Matrix");
@@ -1510,7 +1510,7 @@ static int rl_get_Matrix_m4(lcl_interp *interp, int argc, lcl_value **argv, lcl_
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_Matrix_m4(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_Matrix_m4(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Matrix *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::matrix_set_m4", 2, argc);
@@ -1519,7 +1519,7 @@ static int rl_set_Matrix_m4(lcl_interp *interp, int argc, lcl_value **argv, lcl_
   return LCL_RC_OK;
 }
 
-static int rl_get_Matrix_m8(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_Matrix_m8(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Matrix s;
   if (argc != 1) return rl_arity_error(interp, "raylib::matrix_m8", 1, argc);
   if (rl_get_Matrix(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::matrix_m8", 1, "matrix", "Matrix");
@@ -1527,7 +1527,7 @@ static int rl_get_Matrix_m8(lcl_interp *interp, int argc, lcl_value **argv, lcl_
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_Matrix_m8(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_Matrix_m8(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Matrix *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::matrix_set_m8", 2, argc);
@@ -1536,7 +1536,7 @@ static int rl_set_Matrix_m8(lcl_interp *interp, int argc, lcl_value **argv, lcl_
   return LCL_RC_OK;
 }
 
-static int rl_get_Matrix_m12(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_Matrix_m12(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Matrix s;
   if (argc != 1) return rl_arity_error(interp, "raylib::matrix_m12", 1, argc);
   if (rl_get_Matrix(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::matrix_m12", 1, "matrix", "Matrix");
@@ -1544,7 +1544,7 @@ static int rl_get_Matrix_m12(lcl_interp *interp, int argc, lcl_value **argv, lcl
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_Matrix_m12(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_Matrix_m12(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Matrix *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::matrix_set_m12", 2, argc);
@@ -1553,7 +1553,7 @@ static int rl_set_Matrix_m12(lcl_interp *interp, int argc, lcl_value **argv, lcl
   return LCL_RC_OK;
 }
 
-static int rl_get_Matrix_m1(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_Matrix_m1(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Matrix s;
   if (argc != 1) return rl_arity_error(interp, "raylib::matrix_m1", 1, argc);
   if (rl_get_Matrix(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::matrix_m1", 1, "matrix", "Matrix");
@@ -1561,7 +1561,7 @@ static int rl_get_Matrix_m1(lcl_interp *interp, int argc, lcl_value **argv, lcl_
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_Matrix_m1(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_Matrix_m1(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Matrix *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::matrix_set_m1", 2, argc);
@@ -1570,7 +1570,7 @@ static int rl_set_Matrix_m1(lcl_interp *interp, int argc, lcl_value **argv, lcl_
   return LCL_RC_OK;
 }
 
-static int rl_get_Matrix_m5(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_Matrix_m5(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Matrix s;
   if (argc != 1) return rl_arity_error(interp, "raylib::matrix_m5", 1, argc);
   if (rl_get_Matrix(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::matrix_m5", 1, "matrix", "Matrix");
@@ -1578,7 +1578,7 @@ static int rl_get_Matrix_m5(lcl_interp *interp, int argc, lcl_value **argv, lcl_
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_Matrix_m5(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_Matrix_m5(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Matrix *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::matrix_set_m5", 2, argc);
@@ -1587,7 +1587,7 @@ static int rl_set_Matrix_m5(lcl_interp *interp, int argc, lcl_value **argv, lcl_
   return LCL_RC_OK;
 }
 
-static int rl_get_Matrix_m9(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_Matrix_m9(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Matrix s;
   if (argc != 1) return rl_arity_error(interp, "raylib::matrix_m9", 1, argc);
   if (rl_get_Matrix(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::matrix_m9", 1, "matrix", "Matrix");
@@ -1595,7 +1595,7 @@ static int rl_get_Matrix_m9(lcl_interp *interp, int argc, lcl_value **argv, lcl_
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_Matrix_m9(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_Matrix_m9(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Matrix *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::matrix_set_m9", 2, argc);
@@ -1604,7 +1604,7 @@ static int rl_set_Matrix_m9(lcl_interp *interp, int argc, lcl_value **argv, lcl_
   return LCL_RC_OK;
 }
 
-static int rl_get_Matrix_m13(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_Matrix_m13(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Matrix s;
   if (argc != 1) return rl_arity_error(interp, "raylib::matrix_m13", 1, argc);
   if (rl_get_Matrix(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::matrix_m13", 1, "matrix", "Matrix");
@@ -1612,7 +1612,7 @@ static int rl_get_Matrix_m13(lcl_interp *interp, int argc, lcl_value **argv, lcl
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_Matrix_m13(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_Matrix_m13(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Matrix *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::matrix_set_m13", 2, argc);
@@ -1621,7 +1621,7 @@ static int rl_set_Matrix_m13(lcl_interp *interp, int argc, lcl_value **argv, lcl
   return LCL_RC_OK;
 }
 
-static int rl_get_Matrix_m2(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_Matrix_m2(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Matrix s;
   if (argc != 1) return rl_arity_error(interp, "raylib::matrix_m2", 1, argc);
   if (rl_get_Matrix(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::matrix_m2", 1, "matrix", "Matrix");
@@ -1629,7 +1629,7 @@ static int rl_get_Matrix_m2(lcl_interp *interp, int argc, lcl_value **argv, lcl_
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_Matrix_m2(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_Matrix_m2(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Matrix *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::matrix_set_m2", 2, argc);
@@ -1638,7 +1638,7 @@ static int rl_set_Matrix_m2(lcl_interp *interp, int argc, lcl_value **argv, lcl_
   return LCL_RC_OK;
 }
 
-static int rl_get_Matrix_m6(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_Matrix_m6(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Matrix s;
   if (argc != 1) return rl_arity_error(interp, "raylib::matrix_m6", 1, argc);
   if (rl_get_Matrix(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::matrix_m6", 1, "matrix", "Matrix");
@@ -1646,7 +1646,7 @@ static int rl_get_Matrix_m6(lcl_interp *interp, int argc, lcl_value **argv, lcl_
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_Matrix_m6(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_Matrix_m6(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Matrix *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::matrix_set_m6", 2, argc);
@@ -1655,7 +1655,7 @@ static int rl_set_Matrix_m6(lcl_interp *interp, int argc, lcl_value **argv, lcl_
   return LCL_RC_OK;
 }
 
-static int rl_get_Matrix_m10(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_Matrix_m10(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Matrix s;
   if (argc != 1) return rl_arity_error(interp, "raylib::matrix_m10", 1, argc);
   if (rl_get_Matrix(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::matrix_m10", 1, "matrix", "Matrix");
@@ -1663,7 +1663,7 @@ static int rl_get_Matrix_m10(lcl_interp *interp, int argc, lcl_value **argv, lcl
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_Matrix_m10(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_Matrix_m10(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Matrix *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::matrix_set_m10", 2, argc);
@@ -1672,7 +1672,7 @@ static int rl_set_Matrix_m10(lcl_interp *interp, int argc, lcl_value **argv, lcl
   return LCL_RC_OK;
 }
 
-static int rl_get_Matrix_m14(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_Matrix_m14(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Matrix s;
   if (argc != 1) return rl_arity_error(interp, "raylib::matrix_m14", 1, argc);
   if (rl_get_Matrix(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::matrix_m14", 1, "matrix", "Matrix");
@@ -1680,7 +1680,7 @@ static int rl_get_Matrix_m14(lcl_interp *interp, int argc, lcl_value **argv, lcl
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_Matrix_m14(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_Matrix_m14(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Matrix *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::matrix_set_m14", 2, argc);
@@ -1689,7 +1689,7 @@ static int rl_set_Matrix_m14(lcl_interp *interp, int argc, lcl_value **argv, lcl
   return LCL_RC_OK;
 }
 
-static int rl_get_Matrix_m3(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_Matrix_m3(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Matrix s;
   if (argc != 1) return rl_arity_error(interp, "raylib::matrix_m3", 1, argc);
   if (rl_get_Matrix(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::matrix_m3", 1, "matrix", "Matrix");
@@ -1697,7 +1697,7 @@ static int rl_get_Matrix_m3(lcl_interp *interp, int argc, lcl_value **argv, lcl_
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_Matrix_m3(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_Matrix_m3(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Matrix *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::matrix_set_m3", 2, argc);
@@ -1706,7 +1706,7 @@ static int rl_set_Matrix_m3(lcl_interp *interp, int argc, lcl_value **argv, lcl_
   return LCL_RC_OK;
 }
 
-static int rl_get_Matrix_m7(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_Matrix_m7(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Matrix s;
   if (argc != 1) return rl_arity_error(interp, "raylib::matrix_m7", 1, argc);
   if (rl_get_Matrix(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::matrix_m7", 1, "matrix", "Matrix");
@@ -1714,7 +1714,7 @@ static int rl_get_Matrix_m7(lcl_interp *interp, int argc, lcl_value **argv, lcl_
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_Matrix_m7(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_Matrix_m7(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Matrix *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::matrix_set_m7", 2, argc);
@@ -1723,7 +1723,7 @@ static int rl_set_Matrix_m7(lcl_interp *interp, int argc, lcl_value **argv, lcl_
   return LCL_RC_OK;
 }
 
-static int rl_get_Matrix_m11(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_Matrix_m11(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Matrix s;
   if (argc != 1) return rl_arity_error(interp, "raylib::matrix_m11", 1, argc);
   if (rl_get_Matrix(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::matrix_m11", 1, "matrix", "Matrix");
@@ -1731,7 +1731,7 @@ static int rl_get_Matrix_m11(lcl_interp *interp, int argc, lcl_value **argv, lcl
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_Matrix_m11(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_Matrix_m11(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Matrix *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::matrix_set_m11", 2, argc);
@@ -1740,7 +1740,7 @@ static int rl_set_Matrix_m11(lcl_interp *interp, int argc, lcl_value **argv, lcl
   return LCL_RC_OK;
 }
 
-static int rl_get_Matrix_m15(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_Matrix_m15(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Matrix s;
   if (argc != 1) return rl_arity_error(interp, "raylib::matrix_m15", 1, argc);
   if (rl_get_Matrix(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::matrix_m15", 1, "matrix", "Matrix");
@@ -1748,7 +1748,7 @@ static int rl_get_Matrix_m15(lcl_interp *interp, int argc, lcl_value **argv, lcl
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_Matrix_m15(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_Matrix_m15(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Matrix *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::matrix_set_m15", 2, argc);
@@ -1757,7 +1757,7 @@ static int rl_set_Matrix_m15(lcl_interp *interp, int argc, lcl_value **argv, lcl
   return LCL_RC_OK;
 }
 
-static int rl_ctor_Color(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_ctor_Color(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Color v;
   memset(&v, 0, sizeof(v));
   if (argc != 4) return rl_arity_error(interp, "raylib::color", 4, argc);
@@ -1769,7 +1769,7 @@ static int rl_ctor_Color(lcl_interp *interp, int argc, lcl_value **argv, lcl_val
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_get_Color_r(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_Color_r(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Color s;
   if (argc != 1) return rl_arity_error(interp, "raylib::color_r", 1, argc);
   if (rl_get_Color(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::color_r", 1, "color", "Color");
@@ -1777,7 +1777,7 @@ static int rl_get_Color_r(lcl_interp *interp, int argc, lcl_value **argv, lcl_va
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_Color_r(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_Color_r(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Color *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::color_set_r", 2, argc);
@@ -1786,7 +1786,7 @@ static int rl_set_Color_r(lcl_interp *interp, int argc, lcl_value **argv, lcl_va
   return LCL_RC_OK;
 }
 
-static int rl_get_Color_g(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_Color_g(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Color s;
   if (argc != 1) return rl_arity_error(interp, "raylib::color_g", 1, argc);
   if (rl_get_Color(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::color_g", 1, "color", "Color");
@@ -1794,7 +1794,7 @@ static int rl_get_Color_g(lcl_interp *interp, int argc, lcl_value **argv, lcl_va
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_Color_g(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_Color_g(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Color *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::color_set_g", 2, argc);
@@ -1803,7 +1803,7 @@ static int rl_set_Color_g(lcl_interp *interp, int argc, lcl_value **argv, lcl_va
   return LCL_RC_OK;
 }
 
-static int rl_get_Color_b(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_Color_b(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Color s;
   if (argc != 1) return rl_arity_error(interp, "raylib::color_b", 1, argc);
   if (rl_get_Color(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::color_b", 1, "color", "Color");
@@ -1811,7 +1811,7 @@ static int rl_get_Color_b(lcl_interp *interp, int argc, lcl_value **argv, lcl_va
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_Color_b(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_Color_b(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Color *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::color_set_b", 2, argc);
@@ -1820,7 +1820,7 @@ static int rl_set_Color_b(lcl_interp *interp, int argc, lcl_value **argv, lcl_va
   return LCL_RC_OK;
 }
 
-static int rl_get_Color_a(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_Color_a(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Color s;
   if (argc != 1) return rl_arity_error(interp, "raylib::color_a", 1, argc);
   if (rl_get_Color(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::color_a", 1, "color", "Color");
@@ -1828,7 +1828,7 @@ static int rl_get_Color_a(lcl_interp *interp, int argc, lcl_value **argv, lcl_va
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_Color_a(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_Color_a(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Color *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::color_set_a", 2, argc);
@@ -1837,7 +1837,7 @@ static int rl_set_Color_a(lcl_interp *interp, int argc, lcl_value **argv, lcl_va
   return LCL_RC_OK;
 }
 
-static int rl_ctor_Rectangle(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_ctor_Rectangle(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Rectangle v;
   memset(&v, 0, sizeof(v));
   if (argc != 4) return rl_arity_error(interp, "raylib::rectangle", 4, argc);
@@ -1849,7 +1849,7 @@ static int rl_ctor_Rectangle(lcl_interp *interp, int argc, lcl_value **argv, lcl
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_get_Rectangle_x(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_Rectangle_x(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Rectangle s;
   if (argc != 1) return rl_arity_error(interp, "raylib::rectangle_x", 1, argc);
   if (rl_get_Rectangle(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::rectangle_x", 1, "rectangle", "Rectangle");
@@ -1857,7 +1857,7 @@ static int rl_get_Rectangle_x(lcl_interp *interp, int argc, lcl_value **argv, lc
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_Rectangle_x(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_Rectangle_x(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Rectangle *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::rectangle_set_x", 2, argc);
@@ -1866,7 +1866,7 @@ static int rl_set_Rectangle_x(lcl_interp *interp, int argc, lcl_value **argv, lc
   return LCL_RC_OK;
 }
 
-static int rl_get_Rectangle_y(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_Rectangle_y(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Rectangle s;
   if (argc != 1) return rl_arity_error(interp, "raylib::rectangle_y", 1, argc);
   if (rl_get_Rectangle(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::rectangle_y", 1, "rectangle", "Rectangle");
@@ -1874,7 +1874,7 @@ static int rl_get_Rectangle_y(lcl_interp *interp, int argc, lcl_value **argv, lc
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_Rectangle_y(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_Rectangle_y(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Rectangle *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::rectangle_set_y", 2, argc);
@@ -1883,7 +1883,7 @@ static int rl_set_Rectangle_y(lcl_interp *interp, int argc, lcl_value **argv, lc
   return LCL_RC_OK;
 }
 
-static int rl_get_Rectangle_width(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_Rectangle_width(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Rectangle s;
   if (argc != 1) return rl_arity_error(interp, "raylib::rectangle_width", 1, argc);
   if (rl_get_Rectangle(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::rectangle_width", 1, "rectangle", "Rectangle");
@@ -1891,7 +1891,7 @@ static int rl_get_Rectangle_width(lcl_interp *interp, int argc, lcl_value **argv
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_Rectangle_width(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_Rectangle_width(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Rectangle *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::rectangle_set_width", 2, argc);
@@ -1900,7 +1900,7 @@ static int rl_set_Rectangle_width(lcl_interp *interp, int argc, lcl_value **argv
   return LCL_RC_OK;
 }
 
-static int rl_get_Rectangle_height(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_Rectangle_height(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Rectangle s;
   if (argc != 1) return rl_arity_error(interp, "raylib::rectangle_height", 1, argc);
   if (rl_get_Rectangle(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::rectangle_height", 1, "rectangle", "Rectangle");
@@ -1908,7 +1908,7 @@ static int rl_get_Rectangle_height(lcl_interp *interp, int argc, lcl_value **arg
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_Rectangle_height(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_Rectangle_height(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Rectangle *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::rectangle_set_height", 2, argc);
@@ -1917,7 +1917,7 @@ static int rl_set_Rectangle_height(lcl_interp *interp, int argc, lcl_value **arg
   return LCL_RC_OK;
 }
 
-static int rl_get_Image_width(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_Image_width(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Image s;
   if (argc != 1) return rl_arity_error(interp, "raylib::image_width", 1, argc);
   if (rl_get_Image(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::image_width", 1, "image", "Image");
@@ -1925,7 +1925,7 @@ static int rl_get_Image_width(lcl_interp *interp, int argc, lcl_value **argv, lc
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_Image_width(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_Image_width(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Image *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::image_set_width", 2, argc);
@@ -1934,7 +1934,7 @@ static int rl_set_Image_width(lcl_interp *interp, int argc, lcl_value **argv, lc
   return LCL_RC_OK;
 }
 
-static int rl_get_Image_height(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_Image_height(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Image s;
   if (argc != 1) return rl_arity_error(interp, "raylib::image_height", 1, argc);
   if (rl_get_Image(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::image_height", 1, "image", "Image");
@@ -1942,7 +1942,7 @@ static int rl_get_Image_height(lcl_interp *interp, int argc, lcl_value **argv, l
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_Image_height(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_Image_height(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Image *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::image_set_height", 2, argc);
@@ -1951,7 +1951,7 @@ static int rl_set_Image_height(lcl_interp *interp, int argc, lcl_value **argv, l
   return LCL_RC_OK;
 }
 
-static int rl_get_Image_mipmaps(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_Image_mipmaps(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Image s;
   if (argc != 1) return rl_arity_error(interp, "raylib::image_mipmaps", 1, argc);
   if (rl_get_Image(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::image_mipmaps", 1, "image", "Image");
@@ -1959,7 +1959,7 @@ static int rl_get_Image_mipmaps(lcl_interp *interp, int argc, lcl_value **argv, 
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_Image_mipmaps(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_Image_mipmaps(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Image *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::image_set_mipmaps", 2, argc);
@@ -1968,7 +1968,7 @@ static int rl_set_Image_mipmaps(lcl_interp *interp, int argc, lcl_value **argv, 
   return LCL_RC_OK;
 }
 
-static int rl_get_Image_format(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_Image_format(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Image s;
   if (argc != 1) return rl_arity_error(interp, "raylib::image_format", 1, argc);
   if (rl_get_Image(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::image_format", 1, "image", "Image");
@@ -1976,7 +1976,7 @@ static int rl_get_Image_format(lcl_interp *interp, int argc, lcl_value **argv, l
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_Image_format(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_Image_format(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Image *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::image_set_format", 2, argc);
@@ -1985,7 +1985,7 @@ static int rl_set_Image_format(lcl_interp *interp, int argc, lcl_value **argv, l
   return LCL_RC_OK;
 }
 
-static int rl_ctor_Texture(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_ctor_Texture(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Texture v;
   memset(&v, 0, sizeof(v));
   if (argc != 5) return rl_arity_error(interp, "raylib::texture", 5, argc);
@@ -1998,7 +1998,7 @@ static int rl_ctor_Texture(lcl_interp *interp, int argc, lcl_value **argv, lcl_v
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_get_Texture_id(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_Texture_id(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Texture s;
   if (argc != 1) return rl_arity_error(interp, "raylib::texture_id", 1, argc);
   if (rl_get_Texture(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::texture_id", 1, "texture", "Texture");
@@ -2006,7 +2006,7 @@ static int rl_get_Texture_id(lcl_interp *interp, int argc, lcl_value **argv, lcl
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_Texture_id(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_Texture_id(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Texture *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::texture_set_id", 2, argc);
@@ -2015,7 +2015,7 @@ static int rl_set_Texture_id(lcl_interp *interp, int argc, lcl_value **argv, lcl
   return LCL_RC_OK;
 }
 
-static int rl_get_Texture_width(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_Texture_width(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Texture s;
   if (argc != 1) return rl_arity_error(interp, "raylib::texture_width", 1, argc);
   if (rl_get_Texture(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::texture_width", 1, "texture", "Texture");
@@ -2023,7 +2023,7 @@ static int rl_get_Texture_width(lcl_interp *interp, int argc, lcl_value **argv, 
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_Texture_width(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_Texture_width(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Texture *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::texture_set_width", 2, argc);
@@ -2032,7 +2032,7 @@ static int rl_set_Texture_width(lcl_interp *interp, int argc, lcl_value **argv, 
   return LCL_RC_OK;
 }
 
-static int rl_get_Texture_height(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_Texture_height(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Texture s;
   if (argc != 1) return rl_arity_error(interp, "raylib::texture_height", 1, argc);
   if (rl_get_Texture(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::texture_height", 1, "texture", "Texture");
@@ -2040,7 +2040,7 @@ static int rl_get_Texture_height(lcl_interp *interp, int argc, lcl_value **argv,
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_Texture_height(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_Texture_height(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Texture *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::texture_set_height", 2, argc);
@@ -2049,7 +2049,7 @@ static int rl_set_Texture_height(lcl_interp *interp, int argc, lcl_value **argv,
   return LCL_RC_OK;
 }
 
-static int rl_get_Texture_mipmaps(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_Texture_mipmaps(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Texture s;
   if (argc != 1) return rl_arity_error(interp, "raylib::texture_mipmaps", 1, argc);
   if (rl_get_Texture(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::texture_mipmaps", 1, "texture", "Texture");
@@ -2057,7 +2057,7 @@ static int rl_get_Texture_mipmaps(lcl_interp *interp, int argc, lcl_value **argv
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_Texture_mipmaps(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_Texture_mipmaps(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Texture *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::texture_set_mipmaps", 2, argc);
@@ -2066,7 +2066,7 @@ static int rl_set_Texture_mipmaps(lcl_interp *interp, int argc, lcl_value **argv
   return LCL_RC_OK;
 }
 
-static int rl_get_Texture_format(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_Texture_format(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Texture s;
   if (argc != 1) return rl_arity_error(interp, "raylib::texture_format", 1, argc);
   if (rl_get_Texture(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::texture_format", 1, "texture", "Texture");
@@ -2074,7 +2074,7 @@ static int rl_get_Texture_format(lcl_interp *interp, int argc, lcl_value **argv,
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_Texture_format(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_Texture_format(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Texture *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::texture_set_format", 2, argc);
@@ -2083,7 +2083,7 @@ static int rl_set_Texture_format(lcl_interp *interp, int argc, lcl_value **argv,
   return LCL_RC_OK;
 }
 
-static int rl_ctor_RenderTexture(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_ctor_RenderTexture(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   RenderTexture v;
   memset(&v, 0, sizeof(v));
   if (argc != 3) return rl_arity_error(interp, "raylib::render_texture", 3, argc);
@@ -2094,7 +2094,7 @@ static int rl_ctor_RenderTexture(lcl_interp *interp, int argc, lcl_value **argv,
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_get_RenderTexture_id(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_RenderTexture_id(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   RenderTexture s;
   if (argc != 1) return rl_arity_error(interp, "raylib::render_texture_id", 1, argc);
   if (rl_get_RenderTexture(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::render_texture_id", 1, "render_texture", "RenderTexture");
@@ -2102,7 +2102,7 @@ static int rl_get_RenderTexture_id(lcl_interp *interp, int argc, lcl_value **arg
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_RenderTexture_id(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_RenderTexture_id(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   RenderTexture *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::render_texture_set_id", 2, argc);
@@ -2111,7 +2111,7 @@ static int rl_set_RenderTexture_id(lcl_interp *interp, int argc, lcl_value **arg
   return LCL_RC_OK;
 }
 
-static int rl_get_RenderTexture_texture(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_RenderTexture_texture(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   RenderTexture s;
   if (argc != 1) return rl_arity_error(interp, "raylib::render_texture_texture", 1, argc);
   if (rl_get_RenderTexture(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::render_texture_texture", 1, "render_texture", "RenderTexture");
@@ -2119,7 +2119,7 @@ static int rl_get_RenderTexture_texture(lcl_interp *interp, int argc, lcl_value 
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_RenderTexture_texture(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_RenderTexture_texture(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   RenderTexture *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::render_texture_set_texture", 2, argc);
@@ -2128,7 +2128,7 @@ static int rl_set_RenderTexture_texture(lcl_interp *interp, int argc, lcl_value 
   return LCL_RC_OK;
 }
 
-static int rl_get_RenderTexture_depth(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_RenderTexture_depth(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   RenderTexture s;
   if (argc != 1) return rl_arity_error(interp, "raylib::render_texture_depth", 1, argc);
   if (rl_get_RenderTexture(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::render_texture_depth", 1, "render_texture", "RenderTexture");
@@ -2136,7 +2136,7 @@ static int rl_get_RenderTexture_depth(lcl_interp *interp, int argc, lcl_value **
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_RenderTexture_depth(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_RenderTexture_depth(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   RenderTexture *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::render_texture_set_depth", 2, argc);
@@ -2145,7 +2145,7 @@ static int rl_set_RenderTexture_depth(lcl_interp *interp, int argc, lcl_value **
   return LCL_RC_OK;
 }
 
-static int rl_ctor_NPatchInfo(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_ctor_NPatchInfo(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   NPatchInfo v;
   memset(&v, 0, sizeof(v));
   if (argc != 6) return rl_arity_error(interp, "raylib::npatch_info", 6, argc);
@@ -2159,7 +2159,7 @@ static int rl_ctor_NPatchInfo(lcl_interp *interp, int argc, lcl_value **argv, lc
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_get_NPatchInfo_source(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_NPatchInfo_source(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   NPatchInfo s;
   if (argc != 1) return rl_arity_error(interp, "raylib::npatch_info_source", 1, argc);
   if (rl_get_NPatchInfo(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::npatch_info_source", 1, "npatch_info", "NPatchInfo");
@@ -2167,7 +2167,7 @@ static int rl_get_NPatchInfo_source(lcl_interp *interp, int argc, lcl_value **ar
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_NPatchInfo_source(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_NPatchInfo_source(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   NPatchInfo *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::npatch_info_set_source", 2, argc);
@@ -2176,7 +2176,7 @@ static int rl_set_NPatchInfo_source(lcl_interp *interp, int argc, lcl_value **ar
   return LCL_RC_OK;
 }
 
-static int rl_get_NPatchInfo_left(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_NPatchInfo_left(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   NPatchInfo s;
   if (argc != 1) return rl_arity_error(interp, "raylib::npatch_info_left", 1, argc);
   if (rl_get_NPatchInfo(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::npatch_info_left", 1, "npatch_info", "NPatchInfo");
@@ -2184,7 +2184,7 @@ static int rl_get_NPatchInfo_left(lcl_interp *interp, int argc, lcl_value **argv
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_NPatchInfo_left(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_NPatchInfo_left(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   NPatchInfo *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::npatch_info_set_left", 2, argc);
@@ -2193,7 +2193,7 @@ static int rl_set_NPatchInfo_left(lcl_interp *interp, int argc, lcl_value **argv
   return LCL_RC_OK;
 }
 
-static int rl_get_NPatchInfo_top(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_NPatchInfo_top(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   NPatchInfo s;
   if (argc != 1) return rl_arity_error(interp, "raylib::npatch_info_top", 1, argc);
   if (rl_get_NPatchInfo(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::npatch_info_top", 1, "npatch_info", "NPatchInfo");
@@ -2201,7 +2201,7 @@ static int rl_get_NPatchInfo_top(lcl_interp *interp, int argc, lcl_value **argv,
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_NPatchInfo_top(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_NPatchInfo_top(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   NPatchInfo *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::npatch_info_set_top", 2, argc);
@@ -2210,7 +2210,7 @@ static int rl_set_NPatchInfo_top(lcl_interp *interp, int argc, lcl_value **argv,
   return LCL_RC_OK;
 }
 
-static int rl_get_NPatchInfo_right(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_NPatchInfo_right(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   NPatchInfo s;
   if (argc != 1) return rl_arity_error(interp, "raylib::npatch_info_right", 1, argc);
   if (rl_get_NPatchInfo(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::npatch_info_right", 1, "npatch_info", "NPatchInfo");
@@ -2218,7 +2218,7 @@ static int rl_get_NPatchInfo_right(lcl_interp *interp, int argc, lcl_value **arg
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_NPatchInfo_right(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_NPatchInfo_right(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   NPatchInfo *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::npatch_info_set_right", 2, argc);
@@ -2227,7 +2227,7 @@ static int rl_set_NPatchInfo_right(lcl_interp *interp, int argc, lcl_value **arg
   return LCL_RC_OK;
 }
 
-static int rl_get_NPatchInfo_bottom(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_NPatchInfo_bottom(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   NPatchInfo s;
   if (argc != 1) return rl_arity_error(interp, "raylib::npatch_info_bottom", 1, argc);
   if (rl_get_NPatchInfo(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::npatch_info_bottom", 1, "npatch_info", "NPatchInfo");
@@ -2235,7 +2235,7 @@ static int rl_get_NPatchInfo_bottom(lcl_interp *interp, int argc, lcl_value **ar
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_NPatchInfo_bottom(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_NPatchInfo_bottom(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   NPatchInfo *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::npatch_info_set_bottom", 2, argc);
@@ -2244,7 +2244,7 @@ static int rl_set_NPatchInfo_bottom(lcl_interp *interp, int argc, lcl_value **ar
   return LCL_RC_OK;
 }
 
-static int rl_get_NPatchInfo_layout(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_NPatchInfo_layout(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   NPatchInfo s;
   if (argc != 1) return rl_arity_error(interp, "raylib::npatch_info_layout", 1, argc);
   if (rl_get_NPatchInfo(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::npatch_info_layout", 1, "npatch_info", "NPatchInfo");
@@ -2252,7 +2252,7 @@ static int rl_get_NPatchInfo_layout(lcl_interp *interp, int argc, lcl_value **ar
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_NPatchInfo_layout(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_NPatchInfo_layout(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   NPatchInfo *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::npatch_info_set_layout", 2, argc);
@@ -2261,7 +2261,7 @@ static int rl_set_NPatchInfo_layout(lcl_interp *interp, int argc, lcl_value **ar
   return LCL_RC_OK;
 }
 
-static int rl_get_GlyphInfo_value(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_GlyphInfo_value(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   GlyphInfo s;
   if (argc != 1) return rl_arity_error(interp, "raylib::glyph_info_value", 1, argc);
   if (rl_get_GlyphInfo(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::glyph_info_value", 1, "glyph_info", "GlyphInfo");
@@ -2269,7 +2269,7 @@ static int rl_get_GlyphInfo_value(lcl_interp *interp, int argc, lcl_value **argv
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_GlyphInfo_value(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_GlyphInfo_value(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   GlyphInfo *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::glyph_info_set_value", 2, argc);
@@ -2278,7 +2278,7 @@ static int rl_set_GlyphInfo_value(lcl_interp *interp, int argc, lcl_value **argv
   return LCL_RC_OK;
 }
 
-static int rl_get_GlyphInfo_offsetX(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_GlyphInfo_offsetX(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   GlyphInfo s;
   if (argc != 1) return rl_arity_error(interp, "raylib::glyph_info_offset_x", 1, argc);
   if (rl_get_GlyphInfo(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::glyph_info_offset_x", 1, "glyph_info", "GlyphInfo");
@@ -2286,7 +2286,7 @@ static int rl_get_GlyphInfo_offsetX(lcl_interp *interp, int argc, lcl_value **ar
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_GlyphInfo_offsetX(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_GlyphInfo_offsetX(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   GlyphInfo *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::glyph_info_set_offset_x", 2, argc);
@@ -2295,7 +2295,7 @@ static int rl_set_GlyphInfo_offsetX(lcl_interp *interp, int argc, lcl_value **ar
   return LCL_RC_OK;
 }
 
-static int rl_get_GlyphInfo_offsetY(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_GlyphInfo_offsetY(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   GlyphInfo s;
   if (argc != 1) return rl_arity_error(interp, "raylib::glyph_info_offset_y", 1, argc);
   if (rl_get_GlyphInfo(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::glyph_info_offset_y", 1, "glyph_info", "GlyphInfo");
@@ -2303,7 +2303,7 @@ static int rl_get_GlyphInfo_offsetY(lcl_interp *interp, int argc, lcl_value **ar
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_GlyphInfo_offsetY(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_GlyphInfo_offsetY(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   GlyphInfo *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::glyph_info_set_offset_y", 2, argc);
@@ -2312,7 +2312,7 @@ static int rl_set_GlyphInfo_offsetY(lcl_interp *interp, int argc, lcl_value **ar
   return LCL_RC_OK;
 }
 
-static int rl_get_GlyphInfo_advanceX(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_GlyphInfo_advanceX(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   GlyphInfo s;
   if (argc != 1) return rl_arity_error(interp, "raylib::glyph_info_advance_x", 1, argc);
   if (rl_get_GlyphInfo(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::glyph_info_advance_x", 1, "glyph_info", "GlyphInfo");
@@ -2320,7 +2320,7 @@ static int rl_get_GlyphInfo_advanceX(lcl_interp *interp, int argc, lcl_value **a
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_GlyphInfo_advanceX(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_GlyphInfo_advanceX(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   GlyphInfo *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::glyph_info_set_advance_x", 2, argc);
@@ -2329,7 +2329,7 @@ static int rl_set_GlyphInfo_advanceX(lcl_interp *interp, int argc, lcl_value **a
   return LCL_RC_OK;
 }
 
-static int rl_get_GlyphInfo_image(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_GlyphInfo_image(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   GlyphInfo s;
   if (argc != 1) return rl_arity_error(interp, "raylib::glyph_info_image", 1, argc);
   if (rl_get_GlyphInfo(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::glyph_info_image", 1, "glyph_info", "GlyphInfo");
@@ -2337,7 +2337,7 @@ static int rl_get_GlyphInfo_image(lcl_interp *interp, int argc, lcl_value **argv
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_GlyphInfo_image(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_GlyphInfo_image(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   GlyphInfo *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::glyph_info_set_image", 2, argc);
@@ -2346,7 +2346,7 @@ static int rl_set_GlyphInfo_image(lcl_interp *interp, int argc, lcl_value **argv
   return LCL_RC_OK;
 }
 
-static int rl_get_Font_baseSize(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_Font_baseSize(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Font s;
   if (argc != 1) return rl_arity_error(interp, "raylib::font_base_size", 1, argc);
   if (rl_get_Font(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::font_base_size", 1, "font", "Font");
@@ -2354,7 +2354,7 @@ static int rl_get_Font_baseSize(lcl_interp *interp, int argc, lcl_value **argv, 
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_Font_baseSize(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_Font_baseSize(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Font *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::font_set_base_size", 2, argc);
@@ -2363,7 +2363,7 @@ static int rl_set_Font_baseSize(lcl_interp *interp, int argc, lcl_value **argv, 
   return LCL_RC_OK;
 }
 
-static int rl_get_Font_glyphCount(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_Font_glyphCount(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Font s;
   if (argc != 1) return rl_arity_error(interp, "raylib::font_glyph_count", 1, argc);
   if (rl_get_Font(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::font_glyph_count", 1, "font", "Font");
@@ -2371,7 +2371,7 @@ static int rl_get_Font_glyphCount(lcl_interp *interp, int argc, lcl_value **argv
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_Font_glyphCount(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_Font_glyphCount(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Font *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::font_set_glyph_count", 2, argc);
@@ -2380,7 +2380,7 @@ static int rl_set_Font_glyphCount(lcl_interp *interp, int argc, lcl_value **argv
   return LCL_RC_OK;
 }
 
-static int rl_get_Font_glyphPadding(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_Font_glyphPadding(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Font s;
   if (argc != 1) return rl_arity_error(interp, "raylib::font_glyph_padding", 1, argc);
   if (rl_get_Font(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::font_glyph_padding", 1, "font", "Font");
@@ -2388,7 +2388,7 @@ static int rl_get_Font_glyphPadding(lcl_interp *interp, int argc, lcl_value **ar
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_Font_glyphPadding(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_Font_glyphPadding(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Font *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::font_set_glyph_padding", 2, argc);
@@ -2397,7 +2397,7 @@ static int rl_set_Font_glyphPadding(lcl_interp *interp, int argc, lcl_value **ar
   return LCL_RC_OK;
 }
 
-static int rl_get_Font_texture(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_Font_texture(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Font s;
   if (argc != 1) return rl_arity_error(interp, "raylib::font_texture", 1, argc);
   if (rl_get_Font(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::font_texture", 1, "font", "Font");
@@ -2405,7 +2405,7 @@ static int rl_get_Font_texture(lcl_interp *interp, int argc, lcl_value **argv, l
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_Font_texture(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_Font_texture(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Font *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::font_set_texture", 2, argc);
@@ -2414,7 +2414,7 @@ static int rl_set_Font_texture(lcl_interp *interp, int argc, lcl_value **argv, l
   return LCL_RC_OK;
 }
 
-static int rl_ctor_Camera3D(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_ctor_Camera3D(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Camera3D v;
   memset(&v, 0, sizeof(v));
   if (argc != 5) return rl_arity_error(interp, "raylib::camera_3d", 5, argc);
@@ -2427,7 +2427,7 @@ static int rl_ctor_Camera3D(lcl_interp *interp, int argc, lcl_value **argv, lcl_
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_get_Camera3D_position(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_Camera3D_position(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Camera3D s;
   if (argc != 1) return rl_arity_error(interp, "raylib::camera_3d_position", 1, argc);
   if (rl_get_Camera3D(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::camera_3d_position", 1, "camera_3d", "Camera3D");
@@ -2435,7 +2435,7 @@ static int rl_get_Camera3D_position(lcl_interp *interp, int argc, lcl_value **ar
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_Camera3D_position(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_Camera3D_position(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Camera3D *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::camera_3d_set_position", 2, argc);
@@ -2444,7 +2444,7 @@ static int rl_set_Camera3D_position(lcl_interp *interp, int argc, lcl_value **ar
   return LCL_RC_OK;
 }
 
-static int rl_get_Camera3D_target(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_Camera3D_target(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Camera3D s;
   if (argc != 1) return rl_arity_error(interp, "raylib::camera_3d_target", 1, argc);
   if (rl_get_Camera3D(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::camera_3d_target", 1, "camera_3d", "Camera3D");
@@ -2452,7 +2452,7 @@ static int rl_get_Camera3D_target(lcl_interp *interp, int argc, lcl_value **argv
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_Camera3D_target(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_Camera3D_target(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Camera3D *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::camera_3d_set_target", 2, argc);
@@ -2461,7 +2461,7 @@ static int rl_set_Camera3D_target(lcl_interp *interp, int argc, lcl_value **argv
   return LCL_RC_OK;
 }
 
-static int rl_get_Camera3D_up(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_Camera3D_up(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Camera3D s;
   if (argc != 1) return rl_arity_error(interp, "raylib::camera_3d_up", 1, argc);
   if (rl_get_Camera3D(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::camera_3d_up", 1, "camera_3d", "Camera3D");
@@ -2469,7 +2469,7 @@ static int rl_get_Camera3D_up(lcl_interp *interp, int argc, lcl_value **argv, lc
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_Camera3D_up(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_Camera3D_up(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Camera3D *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::camera_3d_set_up", 2, argc);
@@ -2478,7 +2478,7 @@ static int rl_set_Camera3D_up(lcl_interp *interp, int argc, lcl_value **argv, lc
   return LCL_RC_OK;
 }
 
-static int rl_get_Camera3D_fovy(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_Camera3D_fovy(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Camera3D s;
   if (argc != 1) return rl_arity_error(interp, "raylib::camera_3d_fovy", 1, argc);
   if (rl_get_Camera3D(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::camera_3d_fovy", 1, "camera_3d", "Camera3D");
@@ -2486,7 +2486,7 @@ static int rl_get_Camera3D_fovy(lcl_interp *interp, int argc, lcl_value **argv, 
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_Camera3D_fovy(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_Camera3D_fovy(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Camera3D *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::camera_3d_set_fovy", 2, argc);
@@ -2495,7 +2495,7 @@ static int rl_set_Camera3D_fovy(lcl_interp *interp, int argc, lcl_value **argv, 
   return LCL_RC_OK;
 }
 
-static int rl_get_Camera3D_projection(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_Camera3D_projection(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Camera3D s;
   if (argc != 1) return rl_arity_error(interp, "raylib::camera_3d_projection", 1, argc);
   if (rl_get_Camera3D(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::camera_3d_projection", 1, "camera_3d", "Camera3D");
@@ -2503,7 +2503,7 @@ static int rl_get_Camera3D_projection(lcl_interp *interp, int argc, lcl_value **
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_Camera3D_projection(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_Camera3D_projection(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Camera3D *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::camera_3d_set_projection", 2, argc);
@@ -2512,7 +2512,7 @@ static int rl_set_Camera3D_projection(lcl_interp *interp, int argc, lcl_value **
   return LCL_RC_OK;
 }
 
-static int rl_ctor_Camera2D(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_ctor_Camera2D(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Camera2D v;
   memset(&v, 0, sizeof(v));
   if (argc != 4) return rl_arity_error(interp, "raylib::camera_2d", 4, argc);
@@ -2524,7 +2524,7 @@ static int rl_ctor_Camera2D(lcl_interp *interp, int argc, lcl_value **argv, lcl_
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_get_Camera2D_offset(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_Camera2D_offset(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Camera2D s;
   if (argc != 1) return rl_arity_error(interp, "raylib::camera_2d_offset", 1, argc);
   if (rl_get_Camera2D(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::camera_2d_offset", 1, "camera_2d", "Camera2D");
@@ -2532,7 +2532,7 @@ static int rl_get_Camera2D_offset(lcl_interp *interp, int argc, lcl_value **argv
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_Camera2D_offset(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_Camera2D_offset(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Camera2D *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::camera_2d_set_offset", 2, argc);
@@ -2541,7 +2541,7 @@ static int rl_set_Camera2D_offset(lcl_interp *interp, int argc, lcl_value **argv
   return LCL_RC_OK;
 }
 
-static int rl_get_Camera2D_target(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_Camera2D_target(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Camera2D s;
   if (argc != 1) return rl_arity_error(interp, "raylib::camera_2d_target", 1, argc);
   if (rl_get_Camera2D(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::camera_2d_target", 1, "camera_2d", "Camera2D");
@@ -2549,7 +2549,7 @@ static int rl_get_Camera2D_target(lcl_interp *interp, int argc, lcl_value **argv
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_Camera2D_target(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_Camera2D_target(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Camera2D *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::camera_2d_set_target", 2, argc);
@@ -2558,7 +2558,7 @@ static int rl_set_Camera2D_target(lcl_interp *interp, int argc, lcl_value **argv
   return LCL_RC_OK;
 }
 
-static int rl_get_Camera2D_rotation(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_Camera2D_rotation(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Camera2D s;
   if (argc != 1) return rl_arity_error(interp, "raylib::camera_2d_rotation", 1, argc);
   if (rl_get_Camera2D(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::camera_2d_rotation", 1, "camera_2d", "Camera2D");
@@ -2566,7 +2566,7 @@ static int rl_get_Camera2D_rotation(lcl_interp *interp, int argc, lcl_value **ar
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_Camera2D_rotation(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_Camera2D_rotation(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Camera2D *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::camera_2d_set_rotation", 2, argc);
@@ -2575,7 +2575,7 @@ static int rl_set_Camera2D_rotation(lcl_interp *interp, int argc, lcl_value **ar
   return LCL_RC_OK;
 }
 
-static int rl_get_Camera2D_zoom(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_Camera2D_zoom(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Camera2D s;
   if (argc != 1) return rl_arity_error(interp, "raylib::camera_2d_zoom", 1, argc);
   if (rl_get_Camera2D(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::camera_2d_zoom", 1, "camera_2d", "Camera2D");
@@ -2583,7 +2583,7 @@ static int rl_get_Camera2D_zoom(lcl_interp *interp, int argc, lcl_value **argv, 
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_Camera2D_zoom(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_Camera2D_zoom(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Camera2D *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::camera_2d_set_zoom", 2, argc);
@@ -2592,7 +2592,7 @@ static int rl_set_Camera2D_zoom(lcl_interp *interp, int argc, lcl_value **argv, 
   return LCL_RC_OK;
 }
 
-static int rl_get_Mesh_vertexCount(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_Mesh_vertexCount(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Mesh s;
   if (argc != 1) return rl_arity_error(interp, "raylib::mesh_vertex_count", 1, argc);
   if (rl_get_Mesh(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::mesh_vertex_count", 1, "mesh", "Mesh");
@@ -2600,7 +2600,7 @@ static int rl_get_Mesh_vertexCount(lcl_interp *interp, int argc, lcl_value **arg
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_Mesh_vertexCount(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_Mesh_vertexCount(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Mesh *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::mesh_set_vertex_count", 2, argc);
@@ -2609,7 +2609,7 @@ static int rl_set_Mesh_vertexCount(lcl_interp *interp, int argc, lcl_value **arg
   return LCL_RC_OK;
 }
 
-static int rl_get_Mesh_triangleCount(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_Mesh_triangleCount(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Mesh s;
   if (argc != 1) return rl_arity_error(interp, "raylib::mesh_triangle_count", 1, argc);
   if (rl_get_Mesh(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::mesh_triangle_count", 1, "mesh", "Mesh");
@@ -2617,7 +2617,7 @@ static int rl_get_Mesh_triangleCount(lcl_interp *interp, int argc, lcl_value **a
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_Mesh_triangleCount(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_Mesh_triangleCount(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Mesh *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::mesh_set_triangle_count", 2, argc);
@@ -2626,7 +2626,7 @@ static int rl_set_Mesh_triangleCount(lcl_interp *interp, int argc, lcl_value **a
   return LCL_RC_OK;
 }
 
-static int rl_get_Mesh_boneCount(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_Mesh_boneCount(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Mesh s;
   if (argc != 1) return rl_arity_error(interp, "raylib::mesh_bone_count", 1, argc);
   if (rl_get_Mesh(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::mesh_bone_count", 1, "mesh", "Mesh");
@@ -2634,7 +2634,7 @@ static int rl_get_Mesh_boneCount(lcl_interp *interp, int argc, lcl_value **argv,
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_Mesh_boneCount(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_Mesh_boneCount(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Mesh *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::mesh_set_bone_count", 2, argc);
@@ -2643,7 +2643,7 @@ static int rl_set_Mesh_boneCount(lcl_interp *interp, int argc, lcl_value **argv,
   return LCL_RC_OK;
 }
 
-static int rl_get_Mesh_vaoId(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_Mesh_vaoId(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Mesh s;
   if (argc != 1) return rl_arity_error(interp, "raylib::mesh_vao_id", 1, argc);
   if (rl_get_Mesh(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::mesh_vao_id", 1, "mesh", "Mesh");
@@ -2651,7 +2651,7 @@ static int rl_get_Mesh_vaoId(lcl_interp *interp, int argc, lcl_value **argv, lcl
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_Mesh_vaoId(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_Mesh_vaoId(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Mesh *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::mesh_set_vao_id", 2, argc);
@@ -2660,7 +2660,7 @@ static int rl_set_Mesh_vaoId(lcl_interp *interp, int argc, lcl_value **argv, lcl
   return LCL_RC_OK;
 }
 
-static int rl_get_Shader_id(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_Shader_id(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Shader s;
   if (argc != 1) return rl_arity_error(interp, "raylib::shader_id", 1, argc);
   if (rl_get_Shader(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::shader_id", 1, "shader", "Shader");
@@ -2668,7 +2668,7 @@ static int rl_get_Shader_id(lcl_interp *interp, int argc, lcl_value **argv, lcl_
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_Shader_id(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_Shader_id(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Shader *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::shader_set_id", 2, argc);
@@ -2677,7 +2677,7 @@ static int rl_set_Shader_id(lcl_interp *interp, int argc, lcl_value **argv, lcl_
   return LCL_RC_OK;
 }
 
-static int rl_ctor_MaterialMap(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_ctor_MaterialMap(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   MaterialMap v;
   memset(&v, 0, sizeof(v));
   if (argc != 3) return rl_arity_error(interp, "raylib::material_map", 3, argc);
@@ -2688,7 +2688,7 @@ static int rl_ctor_MaterialMap(lcl_interp *interp, int argc, lcl_value **argv, l
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_get_MaterialMap_texture(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_MaterialMap_texture(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   MaterialMap s;
   if (argc != 1) return rl_arity_error(interp, "raylib::material_map_texture", 1, argc);
   if (rl_get_MaterialMap(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::material_map_texture", 1, "material_map", "MaterialMap");
@@ -2696,7 +2696,7 @@ static int rl_get_MaterialMap_texture(lcl_interp *interp, int argc, lcl_value **
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_MaterialMap_texture(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_MaterialMap_texture(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   MaterialMap *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::material_map_set_texture", 2, argc);
@@ -2705,7 +2705,7 @@ static int rl_set_MaterialMap_texture(lcl_interp *interp, int argc, lcl_value **
   return LCL_RC_OK;
 }
 
-static int rl_get_MaterialMap_color(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_MaterialMap_color(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   MaterialMap s;
   if (argc != 1) return rl_arity_error(interp, "raylib::material_map_color", 1, argc);
   if (rl_get_MaterialMap(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::material_map_color", 1, "material_map", "MaterialMap");
@@ -2713,7 +2713,7 @@ static int rl_get_MaterialMap_color(lcl_interp *interp, int argc, lcl_value **ar
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_MaterialMap_color(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_MaterialMap_color(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   MaterialMap *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::material_map_set_color", 2, argc);
@@ -2722,7 +2722,7 @@ static int rl_set_MaterialMap_color(lcl_interp *interp, int argc, lcl_value **ar
   return LCL_RC_OK;
 }
 
-static int rl_get_MaterialMap_value(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_MaterialMap_value(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   MaterialMap s;
   if (argc != 1) return rl_arity_error(interp, "raylib::material_map_value", 1, argc);
   if (rl_get_MaterialMap(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::material_map_value", 1, "material_map", "MaterialMap");
@@ -2730,7 +2730,7 @@ static int rl_get_MaterialMap_value(lcl_interp *interp, int argc, lcl_value **ar
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_MaterialMap_value(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_MaterialMap_value(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   MaterialMap *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::material_map_set_value", 2, argc);
@@ -2739,7 +2739,7 @@ static int rl_set_MaterialMap_value(lcl_interp *interp, int argc, lcl_value **ar
   return LCL_RC_OK;
 }
 
-static int rl_get_Material_shader(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_Material_shader(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Material s;
   if (argc != 1) return rl_arity_error(interp, "raylib::material_shader", 1, argc);
   if (rl_get_Material(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::material_shader", 1, "material", "Material");
@@ -2747,7 +2747,7 @@ static int rl_get_Material_shader(lcl_interp *interp, int argc, lcl_value **argv
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_Material_shader(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_Material_shader(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Material *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::material_set_shader", 2, argc);
@@ -2756,7 +2756,7 @@ static int rl_set_Material_shader(lcl_interp *interp, int argc, lcl_value **argv
   return LCL_RC_OK;
 }
 
-static int rl_get_Material_params(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_Material_params(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Material *p;
   lcl_value *lst;
   int i;
@@ -2774,7 +2774,7 @@ static int rl_get_Material_params(lcl_interp *interp, int argc, lcl_value **argv
   return LCL_RC_OK;
 }
 
-static int rl_set_Material_params(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_Material_params(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Material *p;
   int i;
   (void)out;
@@ -2791,7 +2791,7 @@ static int rl_set_Material_params(lcl_interp *interp, int argc, lcl_value **argv
   return LCL_RC_OK;
 }
 
-static int rl_ctor_Transform(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_ctor_Transform(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Transform v;
   memset(&v, 0, sizeof(v));
   if (argc != 3) return rl_arity_error(interp, "raylib::transform", 3, argc);
@@ -2802,7 +2802,7 @@ static int rl_ctor_Transform(lcl_interp *interp, int argc, lcl_value **argv, lcl
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_get_Transform_translation(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_Transform_translation(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Transform s;
   if (argc != 1) return rl_arity_error(interp, "raylib::transform_translation", 1, argc);
   if (rl_get_Transform(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::transform_translation", 1, "transform", "Transform");
@@ -2810,7 +2810,7 @@ static int rl_get_Transform_translation(lcl_interp *interp, int argc, lcl_value 
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_Transform_translation(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_Transform_translation(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Transform *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::transform_set_translation", 2, argc);
@@ -2819,7 +2819,7 @@ static int rl_set_Transform_translation(lcl_interp *interp, int argc, lcl_value 
   return LCL_RC_OK;
 }
 
-static int rl_get_Transform_rotation(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_Transform_rotation(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Transform s;
   if (argc != 1) return rl_arity_error(interp, "raylib::transform_rotation", 1, argc);
   if (rl_get_Transform(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::transform_rotation", 1, "transform", "Transform");
@@ -2827,7 +2827,7 @@ static int rl_get_Transform_rotation(lcl_interp *interp, int argc, lcl_value **a
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_Transform_rotation(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_Transform_rotation(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Transform *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::transform_set_rotation", 2, argc);
@@ -2836,7 +2836,7 @@ static int rl_set_Transform_rotation(lcl_interp *interp, int argc, lcl_value **a
   return LCL_RC_OK;
 }
 
-static int rl_get_Transform_scale(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_Transform_scale(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Transform s;
   if (argc != 1) return rl_arity_error(interp, "raylib::transform_scale", 1, argc);
   if (rl_get_Transform(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::transform_scale", 1, "transform", "Transform");
@@ -2844,7 +2844,7 @@ static int rl_get_Transform_scale(lcl_interp *interp, int argc, lcl_value **argv
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_Transform_scale(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_Transform_scale(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Transform *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::transform_set_scale", 2, argc);
@@ -2853,7 +2853,7 @@ static int rl_set_Transform_scale(lcl_interp *interp, int argc, lcl_value **argv
   return LCL_RC_OK;
 }
 
-static int rl_get_BoneInfo_name(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_BoneInfo_name(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   BoneInfo *p;
   char buf[33];
   if (argc != 1) return rl_arity_error(interp, "raylib::bone_info_name", 1, argc);
@@ -2864,7 +2864,7 @@ static int rl_get_BoneInfo_name(lcl_interp *interp, int argc, lcl_value **argv, 
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_get_BoneInfo_parent(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_BoneInfo_parent(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   BoneInfo s;
   if (argc != 1) return rl_arity_error(interp, "raylib::bone_info_parent", 1, argc);
   if (rl_get_BoneInfo(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::bone_info_parent", 1, "bone_info", "BoneInfo");
@@ -2872,7 +2872,7 @@ static int rl_get_BoneInfo_parent(lcl_interp *interp, int argc, lcl_value **argv
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_BoneInfo_parent(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_BoneInfo_parent(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   BoneInfo *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::bone_info_set_parent", 2, argc);
@@ -2881,7 +2881,7 @@ static int rl_set_BoneInfo_parent(lcl_interp *interp, int argc, lcl_value **argv
   return LCL_RC_OK;
 }
 
-static int rl_get_ModelSkeleton_boneCount(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_ModelSkeleton_boneCount(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   ModelSkeleton s;
   if (argc != 1) return rl_arity_error(interp, "raylib::model_skeleton_bone_count", 1, argc);
   if (rl_get_ModelSkeleton(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::model_skeleton_bone_count", 1, "model_skeleton", "ModelSkeleton");
@@ -2889,7 +2889,7 @@ static int rl_get_ModelSkeleton_boneCount(lcl_interp *interp, int argc, lcl_valu
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_ModelSkeleton_boneCount(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_ModelSkeleton_boneCount(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   ModelSkeleton *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::model_skeleton_set_bone_count", 2, argc);
@@ -2898,7 +2898,7 @@ static int rl_set_ModelSkeleton_boneCount(lcl_interp *interp, int argc, lcl_valu
   return LCL_RC_OK;
 }
 
-static int rl_get_Model_transform(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_Model_transform(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Model s;
   if (argc != 1) return rl_arity_error(interp, "raylib::model_transform", 1, argc);
   if (rl_get_Model(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::model_transform", 1, "model", "Model");
@@ -2906,7 +2906,7 @@ static int rl_get_Model_transform(lcl_interp *interp, int argc, lcl_value **argv
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_Model_transform(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_Model_transform(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Model *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::model_set_transform", 2, argc);
@@ -2915,7 +2915,7 @@ static int rl_set_Model_transform(lcl_interp *interp, int argc, lcl_value **argv
   return LCL_RC_OK;
 }
 
-static int rl_get_Model_meshCount(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_Model_meshCount(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Model s;
   if (argc != 1) return rl_arity_error(interp, "raylib::model_mesh_count", 1, argc);
   if (rl_get_Model(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::model_mesh_count", 1, "model", "Model");
@@ -2923,7 +2923,7 @@ static int rl_get_Model_meshCount(lcl_interp *interp, int argc, lcl_value **argv
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_Model_meshCount(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_Model_meshCount(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Model *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::model_set_mesh_count", 2, argc);
@@ -2932,7 +2932,7 @@ static int rl_set_Model_meshCount(lcl_interp *interp, int argc, lcl_value **argv
   return LCL_RC_OK;
 }
 
-static int rl_get_Model_materialCount(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_Model_materialCount(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Model s;
   if (argc != 1) return rl_arity_error(interp, "raylib::model_material_count", 1, argc);
   if (rl_get_Model(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::model_material_count", 1, "model", "Model");
@@ -2940,7 +2940,7 @@ static int rl_get_Model_materialCount(lcl_interp *interp, int argc, lcl_value **
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_Model_materialCount(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_Model_materialCount(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Model *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::model_set_material_count", 2, argc);
@@ -2949,7 +2949,7 @@ static int rl_set_Model_materialCount(lcl_interp *interp, int argc, lcl_value **
   return LCL_RC_OK;
 }
 
-static int rl_get_Model_skeleton(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_Model_skeleton(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Model s;
   if (argc != 1) return rl_arity_error(interp, "raylib::model_skeleton", 1, argc);
   if (rl_get_Model(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::model_skeleton", 1, "model", "Model");
@@ -2957,7 +2957,7 @@ static int rl_get_Model_skeleton(lcl_interp *interp, int argc, lcl_value **argv,
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_Model_skeleton(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_Model_skeleton(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Model *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::model_set_skeleton", 2, argc);
@@ -2966,7 +2966,7 @@ static int rl_set_Model_skeleton(lcl_interp *interp, int argc, lcl_value **argv,
   return LCL_RC_OK;
 }
 
-static int rl_get_ModelAnimation_name(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_ModelAnimation_name(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   ModelAnimation *p;
   char buf[33];
   if (argc != 1) return rl_arity_error(interp, "raylib::model_animation_name", 1, argc);
@@ -2977,7 +2977,7 @@ static int rl_get_ModelAnimation_name(lcl_interp *interp, int argc, lcl_value **
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_get_ModelAnimation_boneCount(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_ModelAnimation_boneCount(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   ModelAnimation s;
   if (argc != 1) return rl_arity_error(interp, "raylib::model_animation_bone_count", 1, argc);
   if (rl_get_ModelAnimation(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::model_animation_bone_count", 1, "model_animation", "ModelAnimation");
@@ -2985,7 +2985,7 @@ static int rl_get_ModelAnimation_boneCount(lcl_interp *interp, int argc, lcl_val
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_ModelAnimation_boneCount(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_ModelAnimation_boneCount(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   ModelAnimation *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::model_animation_set_bone_count", 2, argc);
@@ -2994,7 +2994,7 @@ static int rl_set_ModelAnimation_boneCount(lcl_interp *interp, int argc, lcl_val
   return LCL_RC_OK;
 }
 
-static int rl_get_ModelAnimation_keyframeCount(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_ModelAnimation_keyframeCount(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   ModelAnimation s;
   if (argc != 1) return rl_arity_error(interp, "raylib::model_animation_keyframe_count", 1, argc);
   if (rl_get_ModelAnimation(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::model_animation_keyframe_count", 1, "model_animation", "ModelAnimation");
@@ -3002,7 +3002,7 @@ static int rl_get_ModelAnimation_keyframeCount(lcl_interp *interp, int argc, lcl
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_ModelAnimation_keyframeCount(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_ModelAnimation_keyframeCount(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   ModelAnimation *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::model_animation_set_keyframe_count", 2, argc);
@@ -3011,7 +3011,7 @@ static int rl_set_ModelAnimation_keyframeCount(lcl_interp *interp, int argc, lcl
   return LCL_RC_OK;
 }
 
-static int rl_ctor_Ray(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_ctor_Ray(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Ray v;
   memset(&v, 0, sizeof(v));
   if (argc != 2) return rl_arity_error(interp, "raylib::ray", 2, argc);
@@ -3021,7 +3021,7 @@ static int rl_ctor_Ray(lcl_interp *interp, int argc, lcl_value **argv, lcl_value
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_get_Ray_position(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_Ray_position(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Ray s;
   if (argc != 1) return rl_arity_error(interp, "raylib::ray_position", 1, argc);
   if (rl_get_Ray(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::ray_position", 1, "ray", "Ray");
@@ -3029,7 +3029,7 @@ static int rl_get_Ray_position(lcl_interp *interp, int argc, lcl_value **argv, l
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_Ray_position(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_Ray_position(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Ray *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::ray_set_position", 2, argc);
@@ -3038,7 +3038,7 @@ static int rl_set_Ray_position(lcl_interp *interp, int argc, lcl_value **argv, l
   return LCL_RC_OK;
 }
 
-static int rl_get_Ray_direction(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_Ray_direction(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Ray s;
   if (argc != 1) return rl_arity_error(interp, "raylib::ray_direction", 1, argc);
   if (rl_get_Ray(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::ray_direction", 1, "ray", "Ray");
@@ -3046,7 +3046,7 @@ static int rl_get_Ray_direction(lcl_interp *interp, int argc, lcl_value **argv, 
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_Ray_direction(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_Ray_direction(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Ray *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::ray_set_direction", 2, argc);
@@ -3055,7 +3055,7 @@ static int rl_set_Ray_direction(lcl_interp *interp, int argc, lcl_value **argv, 
   return LCL_RC_OK;
 }
 
-static int rl_ctor_RayCollision(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_ctor_RayCollision(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   RayCollision v;
   memset(&v, 0, sizeof(v));
   if (argc != 4) return rl_arity_error(interp, "raylib::ray_collision", 4, argc);
@@ -3067,7 +3067,7 @@ static int rl_ctor_RayCollision(lcl_interp *interp, int argc, lcl_value **argv, 
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_get_RayCollision_hit(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_RayCollision_hit(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   RayCollision s;
   if (argc != 1) return rl_arity_error(interp, "raylib::ray_collision_hit", 1, argc);
   if (rl_get_RayCollision(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::ray_collision_hit", 1, "ray_collision", "RayCollision");
@@ -3075,7 +3075,7 @@ static int rl_get_RayCollision_hit(lcl_interp *interp, int argc, lcl_value **arg
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_RayCollision_hit(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_RayCollision_hit(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   RayCollision *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::ray_collision_set_hit", 2, argc);
@@ -3084,7 +3084,7 @@ static int rl_set_RayCollision_hit(lcl_interp *interp, int argc, lcl_value **arg
   return LCL_RC_OK;
 }
 
-static int rl_get_RayCollision_distance(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_RayCollision_distance(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   RayCollision s;
   if (argc != 1) return rl_arity_error(interp, "raylib::ray_collision_distance", 1, argc);
   if (rl_get_RayCollision(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::ray_collision_distance", 1, "ray_collision", "RayCollision");
@@ -3092,7 +3092,7 @@ static int rl_get_RayCollision_distance(lcl_interp *interp, int argc, lcl_value 
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_RayCollision_distance(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_RayCollision_distance(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   RayCollision *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::ray_collision_set_distance", 2, argc);
@@ -3101,7 +3101,7 @@ static int rl_set_RayCollision_distance(lcl_interp *interp, int argc, lcl_value 
   return LCL_RC_OK;
 }
 
-static int rl_get_RayCollision_point(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_RayCollision_point(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   RayCollision s;
   if (argc != 1) return rl_arity_error(interp, "raylib::ray_collision_point", 1, argc);
   if (rl_get_RayCollision(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::ray_collision_point", 1, "ray_collision", "RayCollision");
@@ -3109,7 +3109,7 @@ static int rl_get_RayCollision_point(lcl_interp *interp, int argc, lcl_value **a
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_RayCollision_point(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_RayCollision_point(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   RayCollision *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::ray_collision_set_point", 2, argc);
@@ -3118,7 +3118,7 @@ static int rl_set_RayCollision_point(lcl_interp *interp, int argc, lcl_value **a
   return LCL_RC_OK;
 }
 
-static int rl_get_RayCollision_normal(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_RayCollision_normal(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   RayCollision s;
   if (argc != 1) return rl_arity_error(interp, "raylib::ray_collision_normal", 1, argc);
   if (rl_get_RayCollision(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::ray_collision_normal", 1, "ray_collision", "RayCollision");
@@ -3126,7 +3126,7 @@ static int rl_get_RayCollision_normal(lcl_interp *interp, int argc, lcl_value **
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_RayCollision_normal(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_RayCollision_normal(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   RayCollision *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::ray_collision_set_normal", 2, argc);
@@ -3135,7 +3135,7 @@ static int rl_set_RayCollision_normal(lcl_interp *interp, int argc, lcl_value **
   return LCL_RC_OK;
 }
 
-static int rl_ctor_BoundingBox(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_ctor_BoundingBox(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   BoundingBox v;
   memset(&v, 0, sizeof(v));
   if (argc != 2) return rl_arity_error(interp, "raylib::bounding_box", 2, argc);
@@ -3145,7 +3145,7 @@ static int rl_ctor_BoundingBox(lcl_interp *interp, int argc, lcl_value **argv, l
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_get_BoundingBox_min(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_BoundingBox_min(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   BoundingBox s;
   if (argc != 1) return rl_arity_error(interp, "raylib::bounding_box_min", 1, argc);
   if (rl_get_BoundingBox(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::bounding_box_min", 1, "bounding_box", "BoundingBox");
@@ -3153,7 +3153,7 @@ static int rl_get_BoundingBox_min(lcl_interp *interp, int argc, lcl_value **argv
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_BoundingBox_min(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_BoundingBox_min(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   BoundingBox *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::bounding_box_set_min", 2, argc);
@@ -3162,7 +3162,7 @@ static int rl_set_BoundingBox_min(lcl_interp *interp, int argc, lcl_value **argv
   return LCL_RC_OK;
 }
 
-static int rl_get_BoundingBox_max(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_BoundingBox_max(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   BoundingBox s;
   if (argc != 1) return rl_arity_error(interp, "raylib::bounding_box_max", 1, argc);
   if (rl_get_BoundingBox(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::bounding_box_max", 1, "bounding_box", "BoundingBox");
@@ -3170,7 +3170,7 @@ static int rl_get_BoundingBox_max(lcl_interp *interp, int argc, lcl_value **argv
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_BoundingBox_max(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_BoundingBox_max(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   BoundingBox *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::bounding_box_set_max", 2, argc);
@@ -3179,7 +3179,7 @@ static int rl_set_BoundingBox_max(lcl_interp *interp, int argc, lcl_value **argv
   return LCL_RC_OK;
 }
 
-static int rl_get_Wave_frameCount(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_Wave_frameCount(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Wave s;
   if (argc != 1) return rl_arity_error(interp, "raylib::wave_frame_count", 1, argc);
   if (rl_get_Wave(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::wave_frame_count", 1, "wave", "Wave");
@@ -3187,7 +3187,7 @@ static int rl_get_Wave_frameCount(lcl_interp *interp, int argc, lcl_value **argv
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_Wave_frameCount(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_Wave_frameCount(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Wave *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::wave_set_frame_count", 2, argc);
@@ -3196,7 +3196,7 @@ static int rl_set_Wave_frameCount(lcl_interp *interp, int argc, lcl_value **argv
   return LCL_RC_OK;
 }
 
-static int rl_get_Wave_sampleRate(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_Wave_sampleRate(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Wave s;
   if (argc != 1) return rl_arity_error(interp, "raylib::wave_sample_rate", 1, argc);
   if (rl_get_Wave(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::wave_sample_rate", 1, "wave", "Wave");
@@ -3204,7 +3204,7 @@ static int rl_get_Wave_sampleRate(lcl_interp *interp, int argc, lcl_value **argv
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_Wave_sampleRate(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_Wave_sampleRate(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Wave *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::wave_set_sample_rate", 2, argc);
@@ -3213,7 +3213,7 @@ static int rl_set_Wave_sampleRate(lcl_interp *interp, int argc, lcl_value **argv
   return LCL_RC_OK;
 }
 
-static int rl_get_Wave_sampleSize(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_Wave_sampleSize(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Wave s;
   if (argc != 1) return rl_arity_error(interp, "raylib::wave_sample_size", 1, argc);
   if (rl_get_Wave(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::wave_sample_size", 1, "wave", "Wave");
@@ -3221,7 +3221,7 @@ static int rl_get_Wave_sampleSize(lcl_interp *interp, int argc, lcl_value **argv
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_Wave_sampleSize(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_Wave_sampleSize(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Wave *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::wave_set_sample_size", 2, argc);
@@ -3230,7 +3230,7 @@ static int rl_set_Wave_sampleSize(lcl_interp *interp, int argc, lcl_value **argv
   return LCL_RC_OK;
 }
 
-static int rl_get_Wave_channels(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_Wave_channels(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Wave s;
   if (argc != 1) return rl_arity_error(interp, "raylib::wave_channels", 1, argc);
   if (rl_get_Wave(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::wave_channels", 1, "wave", "Wave");
@@ -3238,7 +3238,7 @@ static int rl_get_Wave_channels(lcl_interp *interp, int argc, lcl_value **argv, 
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_Wave_channels(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_Wave_channels(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Wave *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::wave_set_channels", 2, argc);
@@ -3247,7 +3247,7 @@ static int rl_set_Wave_channels(lcl_interp *interp, int argc, lcl_value **argv, 
   return LCL_RC_OK;
 }
 
-static int rl_get_AudioStream_sampleRate(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_AudioStream_sampleRate(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   AudioStream s;
   if (argc != 1) return rl_arity_error(interp, "raylib::audio_stream_sample_rate", 1, argc);
   if (rl_get_AudioStream(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::audio_stream_sample_rate", 1, "audio_stream", "AudioStream");
@@ -3255,7 +3255,7 @@ static int rl_get_AudioStream_sampleRate(lcl_interp *interp, int argc, lcl_value
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_AudioStream_sampleRate(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_AudioStream_sampleRate(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   AudioStream *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::audio_stream_set_sample_rate", 2, argc);
@@ -3264,7 +3264,7 @@ static int rl_set_AudioStream_sampleRate(lcl_interp *interp, int argc, lcl_value
   return LCL_RC_OK;
 }
 
-static int rl_get_AudioStream_sampleSize(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_AudioStream_sampleSize(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   AudioStream s;
   if (argc != 1) return rl_arity_error(interp, "raylib::audio_stream_sample_size", 1, argc);
   if (rl_get_AudioStream(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::audio_stream_sample_size", 1, "audio_stream", "AudioStream");
@@ -3272,7 +3272,7 @@ static int rl_get_AudioStream_sampleSize(lcl_interp *interp, int argc, lcl_value
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_AudioStream_sampleSize(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_AudioStream_sampleSize(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   AudioStream *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::audio_stream_set_sample_size", 2, argc);
@@ -3281,7 +3281,7 @@ static int rl_set_AudioStream_sampleSize(lcl_interp *interp, int argc, lcl_value
   return LCL_RC_OK;
 }
 
-static int rl_get_AudioStream_channels(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_AudioStream_channels(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   AudioStream s;
   if (argc != 1) return rl_arity_error(interp, "raylib::audio_stream_channels", 1, argc);
   if (rl_get_AudioStream(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::audio_stream_channels", 1, "audio_stream", "AudioStream");
@@ -3289,7 +3289,7 @@ static int rl_get_AudioStream_channels(lcl_interp *interp, int argc, lcl_value *
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_AudioStream_channels(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_AudioStream_channels(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   AudioStream *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::audio_stream_set_channels", 2, argc);
@@ -3298,7 +3298,7 @@ static int rl_set_AudioStream_channels(lcl_interp *interp, int argc, lcl_value *
   return LCL_RC_OK;
 }
 
-static int rl_get_Sound_stream(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_Sound_stream(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Sound s;
   if (argc != 1) return rl_arity_error(interp, "raylib::sound_stream", 1, argc);
   if (rl_get_Sound(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::sound_stream", 1, "sound", "Sound");
@@ -3306,7 +3306,7 @@ static int rl_get_Sound_stream(lcl_interp *interp, int argc, lcl_value **argv, l
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_Sound_stream(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_Sound_stream(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Sound *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::sound_set_stream", 2, argc);
@@ -3315,7 +3315,7 @@ static int rl_set_Sound_stream(lcl_interp *interp, int argc, lcl_value **argv, l
   return LCL_RC_OK;
 }
 
-static int rl_get_Sound_frameCount(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_Sound_frameCount(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Sound s;
   if (argc != 1) return rl_arity_error(interp, "raylib::sound_frame_count", 1, argc);
   if (rl_get_Sound(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::sound_frame_count", 1, "sound", "Sound");
@@ -3323,7 +3323,7 @@ static int rl_get_Sound_frameCount(lcl_interp *interp, int argc, lcl_value **arg
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_Sound_frameCount(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_Sound_frameCount(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Sound *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::sound_set_frame_count", 2, argc);
@@ -3332,7 +3332,7 @@ static int rl_set_Sound_frameCount(lcl_interp *interp, int argc, lcl_value **arg
   return LCL_RC_OK;
 }
 
-static int rl_get_Music_stream(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_Music_stream(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Music s;
   if (argc != 1) return rl_arity_error(interp, "raylib::music_stream", 1, argc);
   if (rl_get_Music(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::music_stream", 1, "music", "Music");
@@ -3340,7 +3340,7 @@ static int rl_get_Music_stream(lcl_interp *interp, int argc, lcl_value **argv, l
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_Music_stream(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_Music_stream(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Music *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::music_set_stream", 2, argc);
@@ -3349,7 +3349,7 @@ static int rl_set_Music_stream(lcl_interp *interp, int argc, lcl_value **argv, l
   return LCL_RC_OK;
 }
 
-static int rl_get_Music_frameCount(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_Music_frameCount(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Music s;
   if (argc != 1) return rl_arity_error(interp, "raylib::music_frame_count", 1, argc);
   if (rl_get_Music(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::music_frame_count", 1, "music", "Music");
@@ -3357,7 +3357,7 @@ static int rl_get_Music_frameCount(lcl_interp *interp, int argc, lcl_value **arg
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_Music_frameCount(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_Music_frameCount(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Music *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::music_set_frame_count", 2, argc);
@@ -3366,7 +3366,7 @@ static int rl_set_Music_frameCount(lcl_interp *interp, int argc, lcl_value **arg
   return LCL_RC_OK;
 }
 
-static int rl_get_Music_looping(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_Music_looping(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Music s;
   if (argc != 1) return rl_arity_error(interp, "raylib::music_looping", 1, argc);
   if (rl_get_Music(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::music_looping", 1, "music", "Music");
@@ -3374,7 +3374,7 @@ static int rl_get_Music_looping(lcl_interp *interp, int argc, lcl_value **argv, 
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_Music_looping(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_Music_looping(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Music *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::music_set_looping", 2, argc);
@@ -3383,7 +3383,7 @@ static int rl_set_Music_looping(lcl_interp *interp, int argc, lcl_value **argv, 
   return LCL_RC_OK;
 }
 
-static int rl_get_Music_ctxType(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_Music_ctxType(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Music s;
   if (argc != 1) return rl_arity_error(interp, "raylib::music_ctx_type", 1, argc);
   if (rl_get_Music(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::music_ctx_type", 1, "music", "Music");
@@ -3391,7 +3391,7 @@ static int rl_get_Music_ctxType(lcl_interp *interp, int argc, lcl_value **argv, 
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_Music_ctxType(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_Music_ctxType(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Music *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::music_set_ctx_type", 2, argc);
@@ -3400,7 +3400,7 @@ static int rl_set_Music_ctxType(lcl_interp *interp, int argc, lcl_value **argv, 
   return LCL_RC_OK;
 }
 
-static int rl_get_VrDeviceInfo_hResolution(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_VrDeviceInfo_hResolution(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   VrDeviceInfo s;
   if (argc != 1) return rl_arity_error(interp, "raylib::vr_device_info_h_resolution", 1, argc);
   if (rl_get_VrDeviceInfo(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::vr_device_info_h_resolution", 1, "vr_device_info", "VrDeviceInfo");
@@ -3408,7 +3408,7 @@ static int rl_get_VrDeviceInfo_hResolution(lcl_interp *interp, int argc, lcl_val
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_VrDeviceInfo_hResolution(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_VrDeviceInfo_hResolution(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   VrDeviceInfo *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::vr_device_info_set_h_resolution", 2, argc);
@@ -3417,7 +3417,7 @@ static int rl_set_VrDeviceInfo_hResolution(lcl_interp *interp, int argc, lcl_val
   return LCL_RC_OK;
 }
 
-static int rl_get_VrDeviceInfo_vResolution(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_VrDeviceInfo_vResolution(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   VrDeviceInfo s;
   if (argc != 1) return rl_arity_error(interp, "raylib::vr_device_info_v_resolution", 1, argc);
   if (rl_get_VrDeviceInfo(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::vr_device_info_v_resolution", 1, "vr_device_info", "VrDeviceInfo");
@@ -3425,7 +3425,7 @@ static int rl_get_VrDeviceInfo_vResolution(lcl_interp *interp, int argc, lcl_val
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_VrDeviceInfo_vResolution(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_VrDeviceInfo_vResolution(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   VrDeviceInfo *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::vr_device_info_set_v_resolution", 2, argc);
@@ -3434,7 +3434,7 @@ static int rl_set_VrDeviceInfo_vResolution(lcl_interp *interp, int argc, lcl_val
   return LCL_RC_OK;
 }
 
-static int rl_get_VrDeviceInfo_hScreenSize(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_VrDeviceInfo_hScreenSize(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   VrDeviceInfo s;
   if (argc != 1) return rl_arity_error(interp, "raylib::vr_device_info_h_screen_size", 1, argc);
   if (rl_get_VrDeviceInfo(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::vr_device_info_h_screen_size", 1, "vr_device_info", "VrDeviceInfo");
@@ -3442,7 +3442,7 @@ static int rl_get_VrDeviceInfo_hScreenSize(lcl_interp *interp, int argc, lcl_val
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_VrDeviceInfo_hScreenSize(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_VrDeviceInfo_hScreenSize(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   VrDeviceInfo *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::vr_device_info_set_h_screen_size", 2, argc);
@@ -3451,7 +3451,7 @@ static int rl_set_VrDeviceInfo_hScreenSize(lcl_interp *interp, int argc, lcl_val
   return LCL_RC_OK;
 }
 
-static int rl_get_VrDeviceInfo_vScreenSize(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_VrDeviceInfo_vScreenSize(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   VrDeviceInfo s;
   if (argc != 1) return rl_arity_error(interp, "raylib::vr_device_info_v_screen_size", 1, argc);
   if (rl_get_VrDeviceInfo(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::vr_device_info_v_screen_size", 1, "vr_device_info", "VrDeviceInfo");
@@ -3459,7 +3459,7 @@ static int rl_get_VrDeviceInfo_vScreenSize(lcl_interp *interp, int argc, lcl_val
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_VrDeviceInfo_vScreenSize(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_VrDeviceInfo_vScreenSize(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   VrDeviceInfo *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::vr_device_info_set_v_screen_size", 2, argc);
@@ -3468,7 +3468,7 @@ static int rl_set_VrDeviceInfo_vScreenSize(lcl_interp *interp, int argc, lcl_val
   return LCL_RC_OK;
 }
 
-static int rl_get_VrDeviceInfo_eyeToScreenDistance(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_VrDeviceInfo_eyeToScreenDistance(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   VrDeviceInfo s;
   if (argc != 1) return rl_arity_error(interp, "raylib::vr_device_info_eye_to_screen_distance", 1, argc);
   if (rl_get_VrDeviceInfo(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::vr_device_info_eye_to_screen_distance", 1, "vr_device_info", "VrDeviceInfo");
@@ -3476,7 +3476,7 @@ static int rl_get_VrDeviceInfo_eyeToScreenDistance(lcl_interp *interp, int argc,
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_VrDeviceInfo_eyeToScreenDistance(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_VrDeviceInfo_eyeToScreenDistance(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   VrDeviceInfo *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::vr_device_info_set_eye_to_screen_distance", 2, argc);
@@ -3485,7 +3485,7 @@ static int rl_set_VrDeviceInfo_eyeToScreenDistance(lcl_interp *interp, int argc,
   return LCL_RC_OK;
 }
 
-static int rl_get_VrDeviceInfo_lensSeparationDistance(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_VrDeviceInfo_lensSeparationDistance(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   VrDeviceInfo s;
   if (argc != 1) return rl_arity_error(interp, "raylib::vr_device_info_lens_separation_distance", 1, argc);
   if (rl_get_VrDeviceInfo(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::vr_device_info_lens_separation_distance", 1, "vr_device_info", "VrDeviceInfo");
@@ -3493,7 +3493,7 @@ static int rl_get_VrDeviceInfo_lensSeparationDistance(lcl_interp *interp, int ar
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_VrDeviceInfo_lensSeparationDistance(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_VrDeviceInfo_lensSeparationDistance(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   VrDeviceInfo *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::vr_device_info_set_lens_separation_distance", 2, argc);
@@ -3502,7 +3502,7 @@ static int rl_set_VrDeviceInfo_lensSeparationDistance(lcl_interp *interp, int ar
   return LCL_RC_OK;
 }
 
-static int rl_get_VrDeviceInfo_interpupillaryDistance(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_VrDeviceInfo_interpupillaryDistance(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   VrDeviceInfo s;
   if (argc != 1) return rl_arity_error(interp, "raylib::vr_device_info_interpupillary_distance", 1, argc);
   if (rl_get_VrDeviceInfo(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::vr_device_info_interpupillary_distance", 1, "vr_device_info", "VrDeviceInfo");
@@ -3510,7 +3510,7 @@ static int rl_get_VrDeviceInfo_interpupillaryDistance(lcl_interp *interp, int ar
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_VrDeviceInfo_interpupillaryDistance(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_VrDeviceInfo_interpupillaryDistance(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   VrDeviceInfo *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::vr_device_info_set_interpupillary_distance", 2, argc);
@@ -3519,7 +3519,7 @@ static int rl_set_VrDeviceInfo_interpupillaryDistance(lcl_interp *interp, int ar
   return LCL_RC_OK;
 }
 
-static int rl_get_VrDeviceInfo_lensDistortionValues(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_VrDeviceInfo_lensDistortionValues(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   VrDeviceInfo *p;
   lcl_value *lst;
   int i;
@@ -3537,7 +3537,7 @@ static int rl_get_VrDeviceInfo_lensDistortionValues(lcl_interp *interp, int argc
   return LCL_RC_OK;
 }
 
-static int rl_set_VrDeviceInfo_lensDistortionValues(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_VrDeviceInfo_lensDistortionValues(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   VrDeviceInfo *p;
   int i;
   (void)out;
@@ -3554,7 +3554,7 @@ static int rl_set_VrDeviceInfo_lensDistortionValues(lcl_interp *interp, int argc
   return LCL_RC_OK;
 }
 
-static int rl_get_VrDeviceInfo_chromaAbCorrection(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_VrDeviceInfo_chromaAbCorrection(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   VrDeviceInfo *p;
   lcl_value *lst;
   int i;
@@ -3572,7 +3572,7 @@ static int rl_get_VrDeviceInfo_chromaAbCorrection(lcl_interp *interp, int argc, 
   return LCL_RC_OK;
 }
 
-static int rl_set_VrDeviceInfo_chromaAbCorrection(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_VrDeviceInfo_chromaAbCorrection(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   VrDeviceInfo *p;
   int i;
   (void)out;
@@ -3589,7 +3589,7 @@ static int rl_set_VrDeviceInfo_chromaAbCorrection(lcl_interp *interp, int argc, 
   return LCL_RC_OK;
 }
 
-static int rl_get_VrStereoConfig_leftLensCenter(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_VrStereoConfig_leftLensCenter(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   VrStereoConfig *p;
   lcl_value *lst;
   int i;
@@ -3607,7 +3607,7 @@ static int rl_get_VrStereoConfig_leftLensCenter(lcl_interp *interp, int argc, lc
   return LCL_RC_OK;
 }
 
-static int rl_set_VrStereoConfig_leftLensCenter(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_VrStereoConfig_leftLensCenter(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   VrStereoConfig *p;
   int i;
   (void)out;
@@ -3624,7 +3624,7 @@ static int rl_set_VrStereoConfig_leftLensCenter(lcl_interp *interp, int argc, lc
   return LCL_RC_OK;
 }
 
-static int rl_get_VrStereoConfig_rightLensCenter(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_VrStereoConfig_rightLensCenter(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   VrStereoConfig *p;
   lcl_value *lst;
   int i;
@@ -3642,7 +3642,7 @@ static int rl_get_VrStereoConfig_rightLensCenter(lcl_interp *interp, int argc, l
   return LCL_RC_OK;
 }
 
-static int rl_set_VrStereoConfig_rightLensCenter(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_VrStereoConfig_rightLensCenter(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   VrStereoConfig *p;
   int i;
   (void)out;
@@ -3659,7 +3659,7 @@ static int rl_set_VrStereoConfig_rightLensCenter(lcl_interp *interp, int argc, l
   return LCL_RC_OK;
 }
 
-static int rl_get_VrStereoConfig_leftScreenCenter(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_VrStereoConfig_leftScreenCenter(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   VrStereoConfig *p;
   lcl_value *lst;
   int i;
@@ -3677,7 +3677,7 @@ static int rl_get_VrStereoConfig_leftScreenCenter(lcl_interp *interp, int argc, 
   return LCL_RC_OK;
 }
 
-static int rl_set_VrStereoConfig_leftScreenCenter(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_VrStereoConfig_leftScreenCenter(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   VrStereoConfig *p;
   int i;
   (void)out;
@@ -3694,7 +3694,7 @@ static int rl_set_VrStereoConfig_leftScreenCenter(lcl_interp *interp, int argc, 
   return LCL_RC_OK;
 }
 
-static int rl_get_VrStereoConfig_rightScreenCenter(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_VrStereoConfig_rightScreenCenter(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   VrStereoConfig *p;
   lcl_value *lst;
   int i;
@@ -3712,7 +3712,7 @@ static int rl_get_VrStereoConfig_rightScreenCenter(lcl_interp *interp, int argc,
   return LCL_RC_OK;
 }
 
-static int rl_set_VrStereoConfig_rightScreenCenter(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_VrStereoConfig_rightScreenCenter(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   VrStereoConfig *p;
   int i;
   (void)out;
@@ -3729,7 +3729,7 @@ static int rl_set_VrStereoConfig_rightScreenCenter(lcl_interp *interp, int argc,
   return LCL_RC_OK;
 }
 
-static int rl_get_VrStereoConfig_scale(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_VrStereoConfig_scale(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   VrStereoConfig *p;
   lcl_value *lst;
   int i;
@@ -3747,7 +3747,7 @@ static int rl_get_VrStereoConfig_scale(lcl_interp *interp, int argc, lcl_value *
   return LCL_RC_OK;
 }
 
-static int rl_set_VrStereoConfig_scale(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_VrStereoConfig_scale(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   VrStereoConfig *p;
   int i;
   (void)out;
@@ -3764,7 +3764,7 @@ static int rl_set_VrStereoConfig_scale(lcl_interp *interp, int argc, lcl_value *
   return LCL_RC_OK;
 }
 
-static int rl_get_VrStereoConfig_scaleIn(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_VrStereoConfig_scaleIn(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   VrStereoConfig *p;
   lcl_value *lst;
   int i;
@@ -3782,7 +3782,7 @@ static int rl_get_VrStereoConfig_scaleIn(lcl_interp *interp, int argc, lcl_value
   return LCL_RC_OK;
 }
 
-static int rl_set_VrStereoConfig_scaleIn(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_VrStereoConfig_scaleIn(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   VrStereoConfig *p;
   int i;
   (void)out;
@@ -3799,7 +3799,7 @@ static int rl_set_VrStereoConfig_scaleIn(lcl_interp *interp, int argc, lcl_value
   return LCL_RC_OK;
 }
 
-static int rl_get_FilePathList_count(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_FilePathList_count(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   FilePathList s;
   if (argc != 1) return rl_arity_error(interp, "raylib::file_path_list_count", 1, argc);
   if (rl_get_FilePathList(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::file_path_list_count", 1, "file_path_list", "FilePathList");
@@ -3807,7 +3807,7 @@ static int rl_get_FilePathList_count(lcl_interp *interp, int argc, lcl_value **a
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_FilePathList_count(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_FilePathList_count(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   FilePathList *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::file_path_list_set_count", 2, argc);
@@ -3816,7 +3816,7 @@ static int rl_set_FilePathList_count(lcl_interp *interp, int argc, lcl_value **a
   return LCL_RC_OK;
 }
 
-static int rl_get_AutomationEvent_frame(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_AutomationEvent_frame(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   AutomationEvent s;
   if (argc != 1) return rl_arity_error(interp, "raylib::automation_event_frame", 1, argc);
   if (rl_get_AutomationEvent(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::automation_event_frame", 1, "automation_event", "AutomationEvent");
@@ -3824,7 +3824,7 @@ static int rl_get_AutomationEvent_frame(lcl_interp *interp, int argc, lcl_value 
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_AutomationEvent_frame(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_AutomationEvent_frame(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   AutomationEvent *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::automation_event_set_frame", 2, argc);
@@ -3833,7 +3833,7 @@ static int rl_set_AutomationEvent_frame(lcl_interp *interp, int argc, lcl_value 
   return LCL_RC_OK;
 }
 
-static int rl_get_AutomationEvent_type(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_AutomationEvent_type(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   AutomationEvent s;
   if (argc != 1) return rl_arity_error(interp, "raylib::automation_event_type", 1, argc);
   if (rl_get_AutomationEvent(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::automation_event_type", 1, "automation_event", "AutomationEvent");
@@ -3841,7 +3841,7 @@ static int rl_get_AutomationEvent_type(lcl_interp *interp, int argc, lcl_value *
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_AutomationEvent_type(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_AutomationEvent_type(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   AutomationEvent *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::automation_event_set_type", 2, argc);
@@ -3850,7 +3850,7 @@ static int rl_set_AutomationEvent_type(lcl_interp *interp, int argc, lcl_value *
   return LCL_RC_OK;
 }
 
-static int rl_get_AutomationEvent_params(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_AutomationEvent_params(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   AutomationEvent *p;
   lcl_value *lst;
   int i;
@@ -3868,7 +3868,7 @@ static int rl_get_AutomationEvent_params(lcl_interp *interp, int argc, lcl_value
   return LCL_RC_OK;
 }
 
-static int rl_set_AutomationEvent_params(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_AutomationEvent_params(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   AutomationEvent *p;
   int i;
   (void)out;
@@ -3885,7 +3885,7 @@ static int rl_set_AutomationEvent_params(lcl_interp *interp, int argc, lcl_value
   return LCL_RC_OK;
 }
 
-static int rl_get_AutomationEventList_capacity(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_AutomationEventList_capacity(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   AutomationEventList s;
   if (argc != 1) return rl_arity_error(interp, "raylib::automation_event_list_capacity", 1, argc);
   if (rl_get_AutomationEventList(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::automation_event_list_capacity", 1, "automation_event_list", "AutomationEventList");
@@ -3893,7 +3893,7 @@ static int rl_get_AutomationEventList_capacity(lcl_interp *interp, int argc, lcl
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_AutomationEventList_capacity(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_AutomationEventList_capacity(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   AutomationEventList *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::automation_event_list_set_capacity", 2, argc);
@@ -3902,7 +3902,7 @@ static int rl_set_AutomationEventList_capacity(lcl_interp *interp, int argc, lcl
   return LCL_RC_OK;
 }
 
-static int rl_get_AutomationEventList_count(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_get_AutomationEventList_count(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   AutomationEventList s;
   if (argc != 1) return rl_arity_error(interp, "raylib::automation_event_list_count", 1, argc);
   if (rl_get_AutomationEventList(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, "raylib::automation_event_list_count", 1, "automation_event_list", "AutomationEventList");
@@ -3910,7 +3910,7 @@ static int rl_get_AutomationEventList_count(lcl_interp *interp, int argc, lcl_va
   return *out ? LCL_RC_OK : LCL_RC_ERR;
 }
 
-static int rl_set_AutomationEventList_count(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_set_AutomationEventList_count(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   AutomationEventList *p;
   (void)out;
   if (argc != 2) return rl_arity_error(interp, "raylib::automation_event_list_set_count", 2, argc);
@@ -3920,7 +3920,7 @@ static int rl_set_AutomationEventList_count(lcl_interp *interp, int argc, lcl_va
 }
 
 /* InitWindow: Initialize window and OpenGL context */
-static int rl_fn_InitWindow(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_InitWindow(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   long a0;
   long a1;
   const char *a2;
@@ -3934,7 +3934,7 @@ static int rl_fn_InitWindow(lcl_interp *interp, int argc, lcl_value **argv, lcl_
 }
 
 /* CloseWindow: Close window and unload OpenGL context */
-static int rl_fn_CloseWindow(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_CloseWindow(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   (void)out;
   (void)argv;
   if (argc != 0) return rl_arity_error(interp, "raylib::close_window", 0, argc);
@@ -3943,7 +3943,7 @@ static int rl_fn_CloseWindow(lcl_interp *interp, int argc, lcl_value **argv, lcl
 }
 
 /* WindowShouldClose: Check if application should close (KEY_ESCAPE pressed or windows close icon clicked) */
-static int rl_fn_WindowShouldClose(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_WindowShouldClose(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   bool r;
   (void)argv;
   if (argc != 0) return rl_arity_error(interp, "raylib::window_should_close", 0, argc);
@@ -3953,7 +3953,7 @@ static int rl_fn_WindowShouldClose(lcl_interp *interp, int argc, lcl_value **arg
 }
 
 /* IsWindowReady: Check if window has been initialized successfully */
-static int rl_fn_IsWindowReady(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_IsWindowReady(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   bool r;
   (void)argv;
   if (argc != 0) return rl_arity_error(interp, "raylib::is_window_ready", 0, argc);
@@ -3963,7 +3963,7 @@ static int rl_fn_IsWindowReady(lcl_interp *interp, int argc, lcl_value **argv, l
 }
 
 /* IsWindowFullscreen: Check if window is currently fullscreen */
-static int rl_fn_IsWindowFullscreen(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_IsWindowFullscreen(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   bool r;
   (void)argv;
   if (argc != 0) return rl_arity_error(interp, "raylib::is_window_fullscreen", 0, argc);
@@ -3973,7 +3973,7 @@ static int rl_fn_IsWindowFullscreen(lcl_interp *interp, int argc, lcl_value **ar
 }
 
 /* IsWindowHidden: Check if window is currently hidden */
-static int rl_fn_IsWindowHidden(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_IsWindowHidden(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   bool r;
   (void)argv;
   if (argc != 0) return rl_arity_error(interp, "raylib::is_window_hidden", 0, argc);
@@ -3983,7 +3983,7 @@ static int rl_fn_IsWindowHidden(lcl_interp *interp, int argc, lcl_value **argv, 
 }
 
 /* IsWindowMinimized: Check if window is currently minimized */
-static int rl_fn_IsWindowMinimized(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_IsWindowMinimized(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   bool r;
   (void)argv;
   if (argc != 0) return rl_arity_error(interp, "raylib::is_window_minimized", 0, argc);
@@ -3993,7 +3993,7 @@ static int rl_fn_IsWindowMinimized(lcl_interp *interp, int argc, lcl_value **arg
 }
 
 /* IsWindowMaximized: Check if window is currently maximized */
-static int rl_fn_IsWindowMaximized(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_IsWindowMaximized(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   bool r;
   (void)argv;
   if (argc != 0) return rl_arity_error(interp, "raylib::is_window_maximized", 0, argc);
@@ -4003,7 +4003,7 @@ static int rl_fn_IsWindowMaximized(lcl_interp *interp, int argc, lcl_value **arg
 }
 
 /* IsWindowFocused: Check if window is currently focused */
-static int rl_fn_IsWindowFocused(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_IsWindowFocused(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   bool r;
   (void)argv;
   if (argc != 0) return rl_arity_error(interp, "raylib::is_window_focused", 0, argc);
@@ -4013,7 +4013,7 @@ static int rl_fn_IsWindowFocused(lcl_interp *interp, int argc, lcl_value **argv,
 }
 
 /* IsWindowResized: Check if window has been resized last frame */
-static int rl_fn_IsWindowResized(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_IsWindowResized(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   bool r;
   (void)argv;
   if (argc != 0) return rl_arity_error(interp, "raylib::is_window_resized", 0, argc);
@@ -4023,7 +4023,7 @@ static int rl_fn_IsWindowResized(lcl_interp *interp, int argc, lcl_value **argv,
 }
 
 /* IsWindowState: Check if one specific window flag is enabled */
-static int rl_fn_IsWindowState(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_IsWindowState(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   long a0;
   bool r;
   if (argc != 1) return rl_arity_error(interp, "raylib::is_window_state", 1, argc);
@@ -4034,7 +4034,7 @@ static int rl_fn_IsWindowState(lcl_interp *interp, int argc, lcl_value **argv, l
 }
 
 /* SetWindowState: Set window configuration state using flags */
-static int rl_fn_SetWindowState(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_SetWindowState(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   long a0;
   (void)out;
   if (argc != 1) return rl_arity_error(interp, "raylib::set_window_state", 1, argc);
@@ -4044,7 +4044,7 @@ static int rl_fn_SetWindowState(lcl_interp *interp, int argc, lcl_value **argv, 
 }
 
 /* ClearWindowState: Clear window configuration state flags */
-static int rl_fn_ClearWindowState(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_ClearWindowState(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   long a0;
   (void)out;
   if (argc != 1) return rl_arity_error(interp, "raylib::clear_window_state", 1, argc);
@@ -4054,7 +4054,7 @@ static int rl_fn_ClearWindowState(lcl_interp *interp, int argc, lcl_value **argv
 }
 
 /* ToggleFullscreen: Toggle window state: fullscreen/windowed, resizes monitor to match window resolution */
-static int rl_fn_ToggleFullscreen(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_ToggleFullscreen(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   (void)out;
   (void)argv;
   if (argc != 0) return rl_arity_error(interp, "raylib::toggle_fullscreen", 0, argc);
@@ -4063,7 +4063,7 @@ static int rl_fn_ToggleFullscreen(lcl_interp *interp, int argc, lcl_value **argv
 }
 
 /* ToggleBorderlessWindowed: Toggle window state: borderless windowed, resizes window to match monitor resolution */
-static int rl_fn_ToggleBorderlessWindowed(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_ToggleBorderlessWindowed(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   (void)out;
   (void)argv;
   if (argc != 0) return rl_arity_error(interp, "raylib::toggle_borderless_windowed", 0, argc);
@@ -4072,7 +4072,7 @@ static int rl_fn_ToggleBorderlessWindowed(lcl_interp *interp, int argc, lcl_valu
 }
 
 /* MaximizeWindow: Set window state: maximized, if resizable */
-static int rl_fn_MaximizeWindow(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_MaximizeWindow(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   (void)out;
   (void)argv;
   if (argc != 0) return rl_arity_error(interp, "raylib::maximize_window", 0, argc);
@@ -4081,7 +4081,7 @@ static int rl_fn_MaximizeWindow(lcl_interp *interp, int argc, lcl_value **argv, 
 }
 
 /* MinimizeWindow: Set window state: minimized, if resizable */
-static int rl_fn_MinimizeWindow(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_MinimizeWindow(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   (void)out;
   (void)argv;
   if (argc != 0) return rl_arity_error(interp, "raylib::minimize_window", 0, argc);
@@ -4090,7 +4090,7 @@ static int rl_fn_MinimizeWindow(lcl_interp *interp, int argc, lcl_value **argv, 
 }
 
 /* RestoreWindow: Restore window from being minimized/maximized */
-static int rl_fn_RestoreWindow(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_RestoreWindow(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   (void)out;
   (void)argv;
   if (argc != 0) return rl_arity_error(interp, "raylib::restore_window", 0, argc);
@@ -4099,7 +4099,7 @@ static int rl_fn_RestoreWindow(lcl_interp *interp, int argc, lcl_value **argv, l
 }
 
 /* SetWindowIcon: Set icon for window (single image, RGBA 32bit) */
-static int rl_fn_SetWindowIcon(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_SetWindowIcon(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Image a0;
   (void)out;
   if (argc != 1) return rl_arity_error(interp, "raylib::set_window_icon", 1, argc);
@@ -4109,7 +4109,7 @@ static int rl_fn_SetWindowIcon(lcl_interp *interp, int argc, lcl_value **argv, l
 }
 
 /* SetWindowIcons: Set icon for window (multiple images, RGBA 32bit) */
-static int rl_fn_SetWindowIcons(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_SetWindowIcons(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Image *a0 = NULL;
   int n0 = 0;
   (void)out;
@@ -4136,7 +4136,7 @@ cleanup:
 }
 
 /* SetWindowTitle: Set title for window */
-static int rl_fn_SetWindowTitle(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_SetWindowTitle(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   const char *a0;
   (void)out;
   if (argc != 1) return rl_arity_error(interp, "raylib::set_window_title", 1, argc);
@@ -4146,7 +4146,7 @@ static int rl_fn_SetWindowTitle(lcl_interp *interp, int argc, lcl_value **argv, 
 }
 
 /* SetWindowPosition: Set window position on screen */
-static int rl_fn_SetWindowPosition(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_SetWindowPosition(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   long a0;
   long a1;
   (void)out;
@@ -4158,7 +4158,7 @@ static int rl_fn_SetWindowPosition(lcl_interp *interp, int argc, lcl_value **arg
 }
 
 /* SetWindowMonitor: Set monitor for the current window */
-static int rl_fn_SetWindowMonitor(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_SetWindowMonitor(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   long a0;
   (void)out;
   if (argc != 1) return rl_arity_error(interp, "raylib::set_window_monitor", 1, argc);
@@ -4168,7 +4168,7 @@ static int rl_fn_SetWindowMonitor(lcl_interp *interp, int argc, lcl_value **argv
 }
 
 /* SetWindowMinSize: Set window minimum dimensions (for FLAG_WINDOW_RESIZABLE) */
-static int rl_fn_SetWindowMinSize(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_SetWindowMinSize(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   long a0;
   long a1;
   (void)out;
@@ -4180,7 +4180,7 @@ static int rl_fn_SetWindowMinSize(lcl_interp *interp, int argc, lcl_value **argv
 }
 
 /* SetWindowMaxSize: Set window maximum dimensions (for FLAG_WINDOW_RESIZABLE) */
-static int rl_fn_SetWindowMaxSize(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_SetWindowMaxSize(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   long a0;
   long a1;
   (void)out;
@@ -4192,7 +4192,7 @@ static int rl_fn_SetWindowMaxSize(lcl_interp *interp, int argc, lcl_value **argv
 }
 
 /* SetWindowSize: Set window dimensions */
-static int rl_fn_SetWindowSize(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_SetWindowSize(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   long a0;
   long a1;
   (void)out;
@@ -4204,7 +4204,7 @@ static int rl_fn_SetWindowSize(lcl_interp *interp, int argc, lcl_value **argv, l
 }
 
 /* SetWindowOpacity: Set window opacity [0.0f..1.0f] */
-static int rl_fn_SetWindowOpacity(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_SetWindowOpacity(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   double a0;
   (void)out;
   if (argc != 1) return rl_arity_error(interp, "raylib::set_window_opacity", 1, argc);
@@ -4214,7 +4214,7 @@ static int rl_fn_SetWindowOpacity(lcl_interp *interp, int argc, lcl_value **argv
 }
 
 /* SetWindowFocused: Set window focused */
-static int rl_fn_SetWindowFocused(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_SetWindowFocused(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   (void)out;
   (void)argv;
   if (argc != 0) return rl_arity_error(interp, "raylib::set_window_focused", 0, argc);
@@ -4223,7 +4223,7 @@ static int rl_fn_SetWindowFocused(lcl_interp *interp, int argc, lcl_value **argv
 }
 
 /* GetScreenWidth: Get current screen width */
-static int rl_fn_GetScreenWidth(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GetScreenWidth(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   int r;
   (void)argv;
   if (argc != 0) return rl_arity_error(interp, "raylib::get_screen_width", 0, argc);
@@ -4233,7 +4233,7 @@ static int rl_fn_GetScreenWidth(lcl_interp *interp, int argc, lcl_value **argv, 
 }
 
 /* GetScreenHeight: Get current screen height */
-static int rl_fn_GetScreenHeight(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GetScreenHeight(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   int r;
   (void)argv;
   if (argc != 0) return rl_arity_error(interp, "raylib::get_screen_height", 0, argc);
@@ -4243,7 +4243,7 @@ static int rl_fn_GetScreenHeight(lcl_interp *interp, int argc, lcl_value **argv,
 }
 
 /* GetRenderWidth: Get current render width (it considers HiDPI) */
-static int rl_fn_GetRenderWidth(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GetRenderWidth(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   int r;
   (void)argv;
   if (argc != 0) return rl_arity_error(interp, "raylib::get_render_width", 0, argc);
@@ -4253,7 +4253,7 @@ static int rl_fn_GetRenderWidth(lcl_interp *interp, int argc, lcl_value **argv, 
 }
 
 /* GetRenderHeight: Get current render height (it considers HiDPI) */
-static int rl_fn_GetRenderHeight(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GetRenderHeight(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   int r;
   (void)argv;
   if (argc != 0) return rl_arity_error(interp, "raylib::get_render_height", 0, argc);
@@ -4263,7 +4263,7 @@ static int rl_fn_GetRenderHeight(lcl_interp *interp, int argc, lcl_value **argv,
 }
 
 /* GetMonitorCount: Get number of connected monitors */
-static int rl_fn_GetMonitorCount(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GetMonitorCount(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   int r;
   (void)argv;
   if (argc != 0) return rl_arity_error(interp, "raylib::get_monitor_count", 0, argc);
@@ -4273,7 +4273,7 @@ static int rl_fn_GetMonitorCount(lcl_interp *interp, int argc, lcl_value **argv,
 }
 
 /* GetCurrentMonitor: Get current monitor where window is placed */
-static int rl_fn_GetCurrentMonitor(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GetCurrentMonitor(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   int r;
   (void)argv;
   if (argc != 0) return rl_arity_error(interp, "raylib::get_current_monitor", 0, argc);
@@ -4283,7 +4283,7 @@ static int rl_fn_GetCurrentMonitor(lcl_interp *interp, int argc, lcl_value **arg
 }
 
 /* GetMonitorPosition: Get specified monitor position */
-static int rl_fn_GetMonitorPosition(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GetMonitorPosition(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   long a0;
   Vector2 r;
   if (argc != 1) return rl_arity_error(interp, "raylib::get_monitor_position", 1, argc);
@@ -4294,7 +4294,7 @@ static int rl_fn_GetMonitorPosition(lcl_interp *interp, int argc, lcl_value **ar
 }
 
 /* GetMonitorWidth: Get specified monitor width (current video mode used by monitor) */
-static int rl_fn_GetMonitorWidth(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GetMonitorWidth(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   long a0;
   int r;
   if (argc != 1) return rl_arity_error(interp, "raylib::get_monitor_width", 1, argc);
@@ -4305,7 +4305,7 @@ static int rl_fn_GetMonitorWidth(lcl_interp *interp, int argc, lcl_value **argv,
 }
 
 /* GetMonitorHeight: Get specified monitor height (current video mode used by monitor) */
-static int rl_fn_GetMonitorHeight(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GetMonitorHeight(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   long a0;
   int r;
   if (argc != 1) return rl_arity_error(interp, "raylib::get_monitor_height", 1, argc);
@@ -4316,7 +4316,7 @@ static int rl_fn_GetMonitorHeight(lcl_interp *interp, int argc, lcl_value **argv
 }
 
 /* GetMonitorPhysicalWidth: Get specified monitor physical width in millimetres */
-static int rl_fn_GetMonitorPhysicalWidth(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GetMonitorPhysicalWidth(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   long a0;
   int r;
   if (argc != 1) return rl_arity_error(interp, "raylib::get_monitor_physical_width", 1, argc);
@@ -4327,7 +4327,7 @@ static int rl_fn_GetMonitorPhysicalWidth(lcl_interp *interp, int argc, lcl_value
 }
 
 /* GetMonitorPhysicalHeight: Get specified monitor physical height in millimetres */
-static int rl_fn_GetMonitorPhysicalHeight(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GetMonitorPhysicalHeight(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   long a0;
   int r;
   if (argc != 1) return rl_arity_error(interp, "raylib::get_monitor_physical_height", 1, argc);
@@ -4338,7 +4338,7 @@ static int rl_fn_GetMonitorPhysicalHeight(lcl_interp *interp, int argc, lcl_valu
 }
 
 /* GetMonitorRefreshRate: Get specified monitor refresh rate */
-static int rl_fn_GetMonitorRefreshRate(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GetMonitorRefreshRate(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   long a0;
   int r;
   if (argc != 1) return rl_arity_error(interp, "raylib::get_monitor_refresh_rate", 1, argc);
@@ -4349,7 +4349,7 @@ static int rl_fn_GetMonitorRefreshRate(lcl_interp *interp, int argc, lcl_value *
 }
 
 /* GetWindowPosition: Get window position XY on monitor */
-static int rl_fn_GetWindowPosition(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GetWindowPosition(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector2 r;
   (void)argv;
   if (argc != 0) return rl_arity_error(interp, "raylib::get_window_position", 0, argc);
@@ -4359,7 +4359,7 @@ static int rl_fn_GetWindowPosition(lcl_interp *interp, int argc, lcl_value **arg
 }
 
 /* GetWindowScaleDPI: Get window scale DPI factor */
-static int rl_fn_GetWindowScaleDPI(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GetWindowScaleDPI(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector2 r;
   (void)argv;
   if (argc != 0) return rl_arity_error(interp, "raylib::get_window_scale_dpi", 0, argc);
@@ -4369,7 +4369,7 @@ static int rl_fn_GetWindowScaleDPI(lcl_interp *interp, int argc, lcl_value **arg
 }
 
 /* GetMonitorName: Get the human-readable, UTF-8 encoded name of the specified monitor */
-static int rl_fn_GetMonitorName(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GetMonitorName(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   long a0;
   const char * r;
   if (argc != 1) return rl_arity_error(interp, "raylib::get_monitor_name", 1, argc);
@@ -4380,7 +4380,7 @@ static int rl_fn_GetMonitorName(lcl_interp *interp, int argc, lcl_value **argv, 
 }
 
 /* SetClipboardText: Set clipboard text content */
-static int rl_fn_SetClipboardText(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_SetClipboardText(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   const char *a0;
   (void)out;
   if (argc != 1) return rl_arity_error(interp, "raylib::set_clipboard_text", 1, argc);
@@ -4390,7 +4390,7 @@ static int rl_fn_SetClipboardText(lcl_interp *interp, int argc, lcl_value **argv
 }
 
 /* GetClipboardText: Get clipboard text content */
-static int rl_fn_GetClipboardText(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GetClipboardText(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   const char * r;
   (void)argv;
   if (argc != 0) return rl_arity_error(interp, "raylib::get_clipboard_text", 0, argc);
@@ -4400,7 +4400,7 @@ static int rl_fn_GetClipboardText(lcl_interp *interp, int argc, lcl_value **argv
 }
 
 /* GetClipboardImage: Get clipboard image content */
-static int rl_fn_GetClipboardImage(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GetClipboardImage(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Image r;
   (void)argv;
   if (argc != 0) return rl_arity_error(interp, "raylib::get_clipboard_image", 0, argc);
@@ -4410,7 +4410,7 @@ static int rl_fn_GetClipboardImage(lcl_interp *interp, int argc, lcl_value **arg
 }
 
 /* EnableEventWaiting: Enable waiting for events on EndDrawing(), no automatic event polling */
-static int rl_fn_EnableEventWaiting(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_EnableEventWaiting(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   (void)out;
   (void)argv;
   if (argc != 0) return rl_arity_error(interp, "raylib::enable_event_waiting", 0, argc);
@@ -4419,7 +4419,7 @@ static int rl_fn_EnableEventWaiting(lcl_interp *interp, int argc, lcl_value **ar
 }
 
 /* DisableEventWaiting: Disable waiting for events on EndDrawing(), automatic events polling */
-static int rl_fn_DisableEventWaiting(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_DisableEventWaiting(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   (void)out;
   (void)argv;
   if (argc != 0) return rl_arity_error(interp, "raylib::disable_event_waiting", 0, argc);
@@ -4428,7 +4428,7 @@ static int rl_fn_DisableEventWaiting(lcl_interp *interp, int argc, lcl_value **a
 }
 
 /* ShowCursor: Shows cursor */
-static int rl_fn_ShowCursor(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_ShowCursor(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   (void)out;
   (void)argv;
   if (argc != 0) return rl_arity_error(interp, "raylib::show_cursor", 0, argc);
@@ -4437,7 +4437,7 @@ static int rl_fn_ShowCursor(lcl_interp *interp, int argc, lcl_value **argv, lcl_
 }
 
 /* HideCursor: Hides cursor */
-static int rl_fn_HideCursor(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_HideCursor(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   (void)out;
   (void)argv;
   if (argc != 0) return rl_arity_error(interp, "raylib::hide_cursor", 0, argc);
@@ -4446,7 +4446,7 @@ static int rl_fn_HideCursor(lcl_interp *interp, int argc, lcl_value **argv, lcl_
 }
 
 /* IsCursorHidden: Check if cursor is not visible */
-static int rl_fn_IsCursorHidden(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_IsCursorHidden(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   bool r;
   (void)argv;
   if (argc != 0) return rl_arity_error(interp, "raylib::is_cursor_hidden", 0, argc);
@@ -4456,7 +4456,7 @@ static int rl_fn_IsCursorHidden(lcl_interp *interp, int argc, lcl_value **argv, 
 }
 
 /* EnableCursor: Enables cursor (unlock cursor) */
-static int rl_fn_EnableCursor(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_EnableCursor(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   (void)out;
   (void)argv;
   if (argc != 0) return rl_arity_error(interp, "raylib::enable_cursor", 0, argc);
@@ -4465,7 +4465,7 @@ static int rl_fn_EnableCursor(lcl_interp *interp, int argc, lcl_value **argv, lc
 }
 
 /* DisableCursor: Disables cursor (lock cursor) */
-static int rl_fn_DisableCursor(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_DisableCursor(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   (void)out;
   (void)argv;
   if (argc != 0) return rl_arity_error(interp, "raylib::disable_cursor", 0, argc);
@@ -4474,7 +4474,7 @@ static int rl_fn_DisableCursor(lcl_interp *interp, int argc, lcl_value **argv, l
 }
 
 /* IsCursorOnScreen: Check if cursor is on the screen */
-static int rl_fn_IsCursorOnScreen(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_IsCursorOnScreen(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   bool r;
   (void)argv;
   if (argc != 0) return rl_arity_error(interp, "raylib::is_cursor_on_screen", 0, argc);
@@ -4484,7 +4484,7 @@ static int rl_fn_IsCursorOnScreen(lcl_interp *interp, int argc, lcl_value **argv
 }
 
 /* ClearBackground: Set background color (framebuffer clear color) */
-static int rl_fn_ClearBackground(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_ClearBackground(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Color a0;
   (void)out;
   if (argc != 1) return rl_arity_error(interp, "raylib::clear_background", 1, argc);
@@ -4494,7 +4494,7 @@ static int rl_fn_ClearBackground(lcl_interp *interp, int argc, lcl_value **argv,
 }
 
 /* BeginDrawing: Setup canvas (framebuffer) to start drawing */
-static int rl_fn_BeginDrawing(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_BeginDrawing(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   (void)out;
   (void)argv;
   if (argc != 0) return rl_arity_error(interp, "raylib::begin_drawing", 0, argc);
@@ -4503,7 +4503,7 @@ static int rl_fn_BeginDrawing(lcl_interp *interp, int argc, lcl_value **argv, lc
 }
 
 /* EndDrawing: End canvas drawing and swap buffers (double buffering) */
-static int rl_fn_EndDrawing(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_EndDrawing(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   (void)out;
   (void)argv;
   if (argc != 0) return rl_arity_error(interp, "raylib::end_drawing", 0, argc);
@@ -4512,7 +4512,7 @@ static int rl_fn_EndDrawing(lcl_interp *interp, int argc, lcl_value **argv, lcl_
 }
 
 /* BeginMode2D: Begin 2D mode with custom camera (2D) */
-static int rl_fn_BeginMode2D(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_BeginMode2D(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Camera2D a0;
   (void)out;
   if (argc != 1) return rl_arity_error(interp, "raylib::begin_mode_2d", 1, argc);
@@ -4522,7 +4522,7 @@ static int rl_fn_BeginMode2D(lcl_interp *interp, int argc, lcl_value **argv, lcl
 }
 
 /* EndMode2D: Ends 2D mode with custom camera */
-static int rl_fn_EndMode2D(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_EndMode2D(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   (void)out;
   (void)argv;
   if (argc != 0) return rl_arity_error(interp, "raylib::end_mode_2d", 0, argc);
@@ -4531,7 +4531,7 @@ static int rl_fn_EndMode2D(lcl_interp *interp, int argc, lcl_value **argv, lcl_v
 }
 
 /* BeginMode3D: Begin 3D mode with custom camera (3D) */
-static int rl_fn_BeginMode3D(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_BeginMode3D(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Camera3D a0;
   (void)out;
   if (argc != 1) return rl_arity_error(interp, "raylib::begin_mode_3d", 1, argc);
@@ -4541,7 +4541,7 @@ static int rl_fn_BeginMode3D(lcl_interp *interp, int argc, lcl_value **argv, lcl
 }
 
 /* EndMode3D: Ends 3D mode and returns to default 2D orthographic mode */
-static int rl_fn_EndMode3D(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_EndMode3D(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   (void)out;
   (void)argv;
   if (argc != 0) return rl_arity_error(interp, "raylib::end_mode_3d", 0, argc);
@@ -4550,7 +4550,7 @@ static int rl_fn_EndMode3D(lcl_interp *interp, int argc, lcl_value **argv, lcl_v
 }
 
 /* BeginTextureMode: Begin drawing to render texture */
-static int rl_fn_BeginTextureMode(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_BeginTextureMode(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   RenderTexture a0;
   (void)out;
   if (argc != 1) return rl_arity_error(interp, "raylib::begin_texture_mode", 1, argc);
@@ -4560,7 +4560,7 @@ static int rl_fn_BeginTextureMode(lcl_interp *interp, int argc, lcl_value **argv
 }
 
 /* EndTextureMode: Ends drawing to render texture */
-static int rl_fn_EndTextureMode(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_EndTextureMode(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   (void)out;
   (void)argv;
   if (argc != 0) return rl_arity_error(interp, "raylib::end_texture_mode", 0, argc);
@@ -4569,7 +4569,7 @@ static int rl_fn_EndTextureMode(lcl_interp *interp, int argc, lcl_value **argv, 
 }
 
 /* BeginShaderMode: Begin custom shader drawing */
-static int rl_fn_BeginShaderMode(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_BeginShaderMode(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Shader a0;
   (void)out;
   if (argc != 1) return rl_arity_error(interp, "raylib::begin_shader_mode", 1, argc);
@@ -4579,7 +4579,7 @@ static int rl_fn_BeginShaderMode(lcl_interp *interp, int argc, lcl_value **argv,
 }
 
 /* EndShaderMode: End custom shader drawing (use default shader) */
-static int rl_fn_EndShaderMode(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_EndShaderMode(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   (void)out;
   (void)argv;
   if (argc != 0) return rl_arity_error(interp, "raylib::end_shader_mode", 0, argc);
@@ -4588,7 +4588,7 @@ static int rl_fn_EndShaderMode(lcl_interp *interp, int argc, lcl_value **argv, l
 }
 
 /* BeginBlendMode: Begin blending mode (alpha, additive, multiplied, subtract, custom) */
-static int rl_fn_BeginBlendMode(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_BeginBlendMode(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   long a0;
   (void)out;
   if (argc != 1) return rl_arity_error(interp, "raylib::begin_blend_mode", 1, argc);
@@ -4598,7 +4598,7 @@ static int rl_fn_BeginBlendMode(lcl_interp *interp, int argc, lcl_value **argv, 
 }
 
 /* EndBlendMode: End blending mode (reset to default: alpha blending) */
-static int rl_fn_EndBlendMode(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_EndBlendMode(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   (void)out;
   (void)argv;
   if (argc != 0) return rl_arity_error(interp, "raylib::end_blend_mode", 0, argc);
@@ -4607,7 +4607,7 @@ static int rl_fn_EndBlendMode(lcl_interp *interp, int argc, lcl_value **argv, lc
 }
 
 /* BeginScissorMode: Begin scissor mode (define screen area for following drawing) */
-static int rl_fn_BeginScissorMode(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_BeginScissorMode(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   long a0;
   long a1;
   long a2;
@@ -4623,7 +4623,7 @@ static int rl_fn_BeginScissorMode(lcl_interp *interp, int argc, lcl_value **argv
 }
 
 /* EndScissorMode: End scissor mode */
-static int rl_fn_EndScissorMode(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_EndScissorMode(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   (void)out;
   (void)argv;
   if (argc != 0) return rl_arity_error(interp, "raylib::end_scissor_mode", 0, argc);
@@ -4632,7 +4632,7 @@ static int rl_fn_EndScissorMode(lcl_interp *interp, int argc, lcl_value **argv, 
 }
 
 /* BeginVrStereoMode: Begin stereo rendering (requires VR simulator) */
-static int rl_fn_BeginVrStereoMode(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_BeginVrStereoMode(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   VrStereoConfig a0;
   (void)out;
   if (argc != 1) return rl_arity_error(interp, "raylib::begin_vr_stereo_mode", 1, argc);
@@ -4642,7 +4642,7 @@ static int rl_fn_BeginVrStereoMode(lcl_interp *interp, int argc, lcl_value **arg
 }
 
 /* EndVrStereoMode: End stereo rendering (requires VR simulator) */
-static int rl_fn_EndVrStereoMode(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_EndVrStereoMode(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   (void)out;
   (void)argv;
   if (argc != 0) return rl_arity_error(interp, "raylib::end_vr_stereo_mode", 0, argc);
@@ -4651,7 +4651,7 @@ static int rl_fn_EndVrStereoMode(lcl_interp *interp, int argc, lcl_value **argv,
 }
 
 /* LoadVrStereoConfig: Load VR stereo config for VR simulator device parameters */
-static int rl_fn_LoadVrStereoConfig(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_LoadVrStereoConfig(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   VrDeviceInfo a0;
   VrStereoConfig r;
   if (argc != 1) return rl_arity_error(interp, "raylib::load_vr_stereo_config", 1, argc);
@@ -4662,7 +4662,7 @@ static int rl_fn_LoadVrStereoConfig(lcl_interp *interp, int argc, lcl_value **ar
 }
 
 /* UnloadVrStereoConfig: Unload VR stereo config */
-static int rl_fn_UnloadVrStereoConfig(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_UnloadVrStereoConfig(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   VrStereoConfig a0;
   (void)out;
   if (argc != 1) return rl_arity_error(interp, "raylib::unload_vr_stereo_config", 1, argc);
@@ -4672,7 +4672,7 @@ static int rl_fn_UnloadVrStereoConfig(lcl_interp *interp, int argc, lcl_value **
 }
 
 /* LoadShader: Load shader from files and bind default locations */
-static int rl_fn_LoadShader(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_LoadShader(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   const char *a0;
   const char *a1;
   Shader r;
@@ -4685,7 +4685,7 @@ static int rl_fn_LoadShader(lcl_interp *interp, int argc, lcl_value **argv, lcl_
 }
 
 /* LoadShaderFromMemory: Load shader from code strings and bind default locations */
-static int rl_fn_LoadShaderFromMemory(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_LoadShaderFromMemory(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   const char *a0;
   const char *a1;
   Shader r;
@@ -4698,7 +4698,7 @@ static int rl_fn_LoadShaderFromMemory(lcl_interp *interp, int argc, lcl_value **
 }
 
 /* IsShaderValid: Check if a shader is valid (loaded on GPU) */
-static int rl_fn_IsShaderValid(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_IsShaderValid(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Shader a0;
   bool r;
   if (argc != 1) return rl_arity_error(interp, "raylib::is_shader_valid", 1, argc);
@@ -4709,7 +4709,7 @@ static int rl_fn_IsShaderValid(lcl_interp *interp, int argc, lcl_value **argv, l
 }
 
 /* GetShaderLocation: Get shader uniform location */
-static int rl_fn_GetShaderLocation(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GetShaderLocation(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Shader a0;
   const char *a1;
   int r;
@@ -4722,7 +4722,7 @@ static int rl_fn_GetShaderLocation(lcl_interp *interp, int argc, lcl_value **arg
 }
 
 /* GetShaderLocationAttrib: Get shader attribute location */
-static int rl_fn_GetShaderLocationAttrib(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GetShaderLocationAttrib(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Shader a0;
   const char *a1;
   int r;
@@ -4735,7 +4735,7 @@ static int rl_fn_GetShaderLocationAttrib(lcl_interp *interp, int argc, lcl_value
 }
 
 /* SetShaderValueMatrix: Set shader uniform value (matrix 4x4) */
-static int rl_fn_SetShaderValueMatrix(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_SetShaderValueMatrix(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Shader a0;
   long a1;
   Matrix a2;
@@ -4749,7 +4749,7 @@ static int rl_fn_SetShaderValueMatrix(lcl_interp *interp, int argc, lcl_value **
 }
 
 /* SetShaderValueTexture: Set shader uniform value and bind the texture (sampler2d) */
-static int rl_fn_SetShaderValueTexture(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_SetShaderValueTexture(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Shader a0;
   long a1;
   Texture a2;
@@ -4763,7 +4763,7 @@ static int rl_fn_SetShaderValueTexture(lcl_interp *interp, int argc, lcl_value *
 }
 
 /* UnloadShader: Unload shader from GPU memory (VRAM) */
-static int rl_fn_UnloadShader(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_UnloadShader(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Shader a0;
   (void)out;
   if (argc != 1) return rl_arity_error(interp, "raylib::unload_shader", 1, argc);
@@ -4773,7 +4773,7 @@ static int rl_fn_UnloadShader(lcl_interp *interp, int argc, lcl_value **argv, lc
 }
 
 /* GetScreenToWorldRay: Get a ray trace from screen position (i.e mouse) */
-static int rl_fn_GetScreenToWorldRay(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GetScreenToWorldRay(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector2 a0;
   Camera3D a1;
   Ray r;
@@ -4786,7 +4786,7 @@ static int rl_fn_GetScreenToWorldRay(lcl_interp *interp, int argc, lcl_value **a
 }
 
 /* GetScreenToWorldRayEx: Get a ray trace from screen position (i.e mouse) in a viewport */
-static int rl_fn_GetScreenToWorldRayEx(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GetScreenToWorldRayEx(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector2 a0;
   Camera3D a1;
   long a2;
@@ -4803,7 +4803,7 @@ static int rl_fn_GetScreenToWorldRayEx(lcl_interp *interp, int argc, lcl_value *
 }
 
 /* GetWorldToScreen: Get the screen space position for a 3d world space position */
-static int rl_fn_GetWorldToScreen(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GetWorldToScreen(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector3 a0;
   Camera3D a1;
   Vector2 r;
@@ -4816,7 +4816,7 @@ static int rl_fn_GetWorldToScreen(lcl_interp *interp, int argc, lcl_value **argv
 }
 
 /* GetWorldToScreenEx: Get size position for a 3d world space position */
-static int rl_fn_GetWorldToScreenEx(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GetWorldToScreenEx(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector3 a0;
   Camera3D a1;
   long a2;
@@ -4833,7 +4833,7 @@ static int rl_fn_GetWorldToScreenEx(lcl_interp *interp, int argc, lcl_value **ar
 }
 
 /* GetWorldToScreen2D: Get the screen space position for a 2d camera world space position */
-static int rl_fn_GetWorldToScreen2D(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GetWorldToScreen2D(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector2 a0;
   Camera2D a1;
   Vector2 r;
@@ -4846,7 +4846,7 @@ static int rl_fn_GetWorldToScreen2D(lcl_interp *interp, int argc, lcl_value **ar
 }
 
 /* GetScreenToWorld2D: Get the world space position for a 2d camera screen space position */
-static int rl_fn_GetScreenToWorld2D(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GetScreenToWorld2D(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector2 a0;
   Camera2D a1;
   Vector2 r;
@@ -4859,7 +4859,7 @@ static int rl_fn_GetScreenToWorld2D(lcl_interp *interp, int argc, lcl_value **ar
 }
 
 /* GetCameraMatrix: Get camera transform matrix (view matrix) */
-static int rl_fn_GetCameraMatrix(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GetCameraMatrix(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Camera3D a0;
   Matrix r;
   if (argc != 1) return rl_arity_error(interp, "raylib::get_camera_matrix", 1, argc);
@@ -4870,7 +4870,7 @@ static int rl_fn_GetCameraMatrix(lcl_interp *interp, int argc, lcl_value **argv,
 }
 
 /* GetCameraMatrix2D: Get camera 2d transform matrix */
-static int rl_fn_GetCameraMatrix2D(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GetCameraMatrix2D(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Camera2D a0;
   Matrix r;
   if (argc != 1) return rl_arity_error(interp, "raylib::get_camera_matrix_2d", 1, argc);
@@ -4881,7 +4881,7 @@ static int rl_fn_GetCameraMatrix2D(lcl_interp *interp, int argc, lcl_value **arg
 }
 
 /* SetTargetFPS: Set target FPS (maximum) */
-static int rl_fn_SetTargetFPS(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_SetTargetFPS(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   long a0;
   (void)out;
   if (argc != 1) return rl_arity_error(interp, "raylib::set_target_fps", 1, argc);
@@ -4891,7 +4891,7 @@ static int rl_fn_SetTargetFPS(lcl_interp *interp, int argc, lcl_value **argv, lc
 }
 
 /* GetFrameTime: Get time in seconds for last frame drawn (delta time) */
-static int rl_fn_GetFrameTime(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GetFrameTime(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   float r;
   (void)argv;
   if (argc != 0) return rl_arity_error(interp, "raylib::get_frame_time", 0, argc);
@@ -4901,7 +4901,7 @@ static int rl_fn_GetFrameTime(lcl_interp *interp, int argc, lcl_value **argv, lc
 }
 
 /* GetTime: Get elapsed time in seconds since InitWindow() */
-static int rl_fn_GetTime(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GetTime(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   double r;
   (void)argv;
   if (argc != 0) return rl_arity_error(interp, "raylib::get_time", 0, argc);
@@ -4911,7 +4911,7 @@ static int rl_fn_GetTime(lcl_interp *interp, int argc, lcl_value **argv, lcl_val
 }
 
 /* GetFPS: Get current FPS */
-static int rl_fn_GetFPS(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GetFPS(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   int r;
   (void)argv;
   if (argc != 0) return rl_arity_error(interp, "raylib::get_fps", 0, argc);
@@ -4921,7 +4921,7 @@ static int rl_fn_GetFPS(lcl_interp *interp, int argc, lcl_value **argv, lcl_valu
 }
 
 /* SwapScreenBuffer: Swap back buffer with front buffer (screen drawing) */
-static int rl_fn_SwapScreenBuffer(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_SwapScreenBuffer(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   (void)out;
   (void)argv;
   if (argc != 0) return rl_arity_error(interp, "raylib::swap_screen_buffer", 0, argc);
@@ -4930,7 +4930,7 @@ static int rl_fn_SwapScreenBuffer(lcl_interp *interp, int argc, lcl_value **argv
 }
 
 /* PollInputEvents: Register all input events */
-static int rl_fn_PollInputEvents(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_PollInputEvents(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   (void)out;
   (void)argv;
   if (argc != 0) return rl_arity_error(interp, "raylib::poll_input_events", 0, argc);
@@ -4939,7 +4939,7 @@ static int rl_fn_PollInputEvents(lcl_interp *interp, int argc, lcl_value **argv,
 }
 
 /* WaitTime: Wait for some time (halt program execution) */
-static int rl_fn_WaitTime(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_WaitTime(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   double a0;
   (void)out;
   if (argc != 1) return rl_arity_error(interp, "raylib::wait_time", 1, argc);
@@ -4949,7 +4949,7 @@ static int rl_fn_WaitTime(lcl_interp *interp, int argc, lcl_value **argv, lcl_va
 }
 
 /* SetRandomSeed: Set the seed for the random number generator */
-static int rl_fn_SetRandomSeed(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_SetRandomSeed(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   long a0;
   (void)out;
   if (argc != 1) return rl_arity_error(interp, "raylib::set_random_seed", 1, argc);
@@ -4959,7 +4959,7 @@ static int rl_fn_SetRandomSeed(lcl_interp *interp, int argc, lcl_value **argv, l
 }
 
 /* GetRandomValue: Get a random value between min and max (both included) */
-static int rl_fn_GetRandomValue(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GetRandomValue(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   long a0;
   long a1;
   int r;
@@ -4972,7 +4972,7 @@ static int rl_fn_GetRandomValue(lcl_interp *interp, int argc, lcl_value **argv, 
 }
 
 /* TakeScreenshot: Takes a screenshot of current screen (filename extension defines format) */
-static int rl_fn_TakeScreenshot(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_TakeScreenshot(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   const char *a0;
   (void)out;
   if (argc != 1) return rl_arity_error(interp, "raylib::take_screenshot", 1, argc);
@@ -4982,7 +4982,7 @@ static int rl_fn_TakeScreenshot(lcl_interp *interp, int argc, lcl_value **argv, 
 }
 
 /* SetConfigFlags: Setup init configuration flags (view FLAGS) */
-static int rl_fn_SetConfigFlags(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_SetConfigFlags(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   long a0;
   (void)out;
   if (argc != 1) return rl_arity_error(interp, "raylib::set_config_flags", 1, argc);
@@ -4992,7 +4992,7 @@ static int rl_fn_SetConfigFlags(lcl_interp *interp, int argc, lcl_value **argv, 
 }
 
 /* OpenURL: Open URL with default system browser (if available) */
-static int rl_fn_OpenURL(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_OpenURL(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   const char *a0;
   (void)out;
   if (argc != 1) return rl_arity_error(interp, "raylib::open_url", 1, argc);
@@ -5002,7 +5002,7 @@ static int rl_fn_OpenURL(lcl_interp *interp, int argc, lcl_value **argv, lcl_val
 }
 
 /* SetTraceLogLevel: Set the current threshold (minimum) log level */
-static int rl_fn_SetTraceLogLevel(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_SetTraceLogLevel(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   long a0;
   (void)out;
   if (argc != 1) return rl_arity_error(interp, "raylib::set_trace_log_level", 1, argc);
@@ -5012,7 +5012,7 @@ static int rl_fn_SetTraceLogLevel(lcl_interp *interp, int argc, lcl_value **argv
 }
 
 /* SaveFileText: Save text data to file (write), string must be '\\0' terminated, returns true on success */
-static int rl_fn_SaveFileText(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_SaveFileText(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   const char *a0;
   const char *a1;
   bool r;
@@ -5025,7 +5025,7 @@ static int rl_fn_SaveFileText(lcl_interp *interp, int argc, lcl_value **argv, lc
 }
 
 /* FileRename: Rename file (if exists) */
-static int rl_fn_FileRename(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_FileRename(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   const char *a0;
   const char *a1;
   int r;
@@ -5038,7 +5038,7 @@ static int rl_fn_FileRename(lcl_interp *interp, int argc, lcl_value **argv, lcl_
 }
 
 /* FileRemove: Remove file (if exists) */
-static int rl_fn_FileRemove(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_FileRemove(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   const char *a0;
   int r;
   if (argc != 1) return rl_arity_error(interp, "raylib::file_remove", 1, argc);
@@ -5049,7 +5049,7 @@ static int rl_fn_FileRemove(lcl_interp *interp, int argc, lcl_value **argv, lcl_
 }
 
 /* FileCopy: Copy file from one path to another, dstPath created if it doesn't exist */
-static int rl_fn_FileCopy(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_FileCopy(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   const char *a0;
   const char *a1;
   int r;
@@ -5062,7 +5062,7 @@ static int rl_fn_FileCopy(lcl_interp *interp, int argc, lcl_value **argv, lcl_va
 }
 
 /* FileMove: Move file from one directory to another, dstPath created if it doesn't exist */
-static int rl_fn_FileMove(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_FileMove(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   const char *a0;
   const char *a1;
   int r;
@@ -5075,7 +5075,7 @@ static int rl_fn_FileMove(lcl_interp *interp, int argc, lcl_value **argv, lcl_va
 }
 
 /* FileTextReplace: Replace text in an existing file */
-static int rl_fn_FileTextReplace(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_FileTextReplace(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   const char *a0;
   const char *a1;
   const char *a2;
@@ -5090,7 +5090,7 @@ static int rl_fn_FileTextReplace(lcl_interp *interp, int argc, lcl_value **argv,
 }
 
 /* FileTextFindIndex: Find text in existing file */
-static int rl_fn_FileTextFindIndex(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_FileTextFindIndex(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   const char *a0;
   const char *a1;
   int r;
@@ -5103,7 +5103,7 @@ static int rl_fn_FileTextFindIndex(lcl_interp *interp, int argc, lcl_value **arg
 }
 
 /* FileExists: Check if file exists */
-static int rl_fn_FileExists(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_FileExists(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   const char *a0;
   bool r;
   if (argc != 1) return rl_arity_error(interp, "raylib::file_exists", 1, argc);
@@ -5114,7 +5114,7 @@ static int rl_fn_FileExists(lcl_interp *interp, int argc, lcl_value **argv, lcl_
 }
 
 /* DirectoryExists: Check if a directory path exists */
-static int rl_fn_DirectoryExists(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_DirectoryExists(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   const char *a0;
   bool r;
   if (argc != 1) return rl_arity_error(interp, "raylib::directory_exists", 1, argc);
@@ -5125,7 +5125,7 @@ static int rl_fn_DirectoryExists(lcl_interp *interp, int argc, lcl_value **argv,
 }
 
 /* IsFileExtension: Check file extension (recommended include point: .png, .wav) */
-static int rl_fn_IsFileExtension(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_IsFileExtension(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   const char *a0;
   const char *a1;
   bool r;
@@ -5138,7 +5138,7 @@ static int rl_fn_IsFileExtension(lcl_interp *interp, int argc, lcl_value **argv,
 }
 
 /* GetFileLength: Get file length in bytes (NOTE: GetFileSize() conflicts with windows.h) */
-static int rl_fn_GetFileLength(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GetFileLength(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   const char *a0;
   int r;
   if (argc != 1) return rl_arity_error(interp, "raylib::get_file_length", 1, argc);
@@ -5149,7 +5149,7 @@ static int rl_fn_GetFileLength(lcl_interp *interp, int argc, lcl_value **argv, l
 }
 
 /* GetFileModTime: Get file modification time (last write time) */
-static int rl_fn_GetFileModTime(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GetFileModTime(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   const char *a0;
   long r;
   if (argc != 1) return rl_arity_error(interp, "raylib::get_file_mod_time", 1, argc);
@@ -5160,7 +5160,7 @@ static int rl_fn_GetFileModTime(lcl_interp *interp, int argc, lcl_value **argv, 
 }
 
 /* GetFileExtension: Get pointer to extension for a filename string (includes dot: '.png') */
-static int rl_fn_GetFileExtension(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GetFileExtension(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   const char *a0;
   const char * r;
   if (argc != 1) return rl_arity_error(interp, "raylib::get_file_extension", 1, argc);
@@ -5171,7 +5171,7 @@ static int rl_fn_GetFileExtension(lcl_interp *interp, int argc, lcl_value **argv
 }
 
 /* GetFileName: Get pointer to filename for a path string */
-static int rl_fn_GetFileName(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GetFileName(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   const char *a0;
   const char * r;
   if (argc != 1) return rl_arity_error(interp, "raylib::get_file_name", 1, argc);
@@ -5182,7 +5182,7 @@ static int rl_fn_GetFileName(lcl_interp *interp, int argc, lcl_value **argv, lcl
 }
 
 /* GetFileNameWithoutExt: Get filename string without extension (uses static string) */
-static int rl_fn_GetFileNameWithoutExt(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GetFileNameWithoutExt(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   const char *a0;
   const char * r;
   if (argc != 1) return rl_arity_error(interp, "raylib::get_file_name_without_ext", 1, argc);
@@ -5193,7 +5193,7 @@ static int rl_fn_GetFileNameWithoutExt(lcl_interp *interp, int argc, lcl_value *
 }
 
 /* GetDirectoryPath: Get full path for a given fileName with path (uses static string) */
-static int rl_fn_GetDirectoryPath(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GetDirectoryPath(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   const char *a0;
   const char * r;
   if (argc != 1) return rl_arity_error(interp, "raylib::get_directory_path", 1, argc);
@@ -5204,7 +5204,7 @@ static int rl_fn_GetDirectoryPath(lcl_interp *interp, int argc, lcl_value **argv
 }
 
 /* GetPrevDirectoryPath: Get previous directory path for a given path (uses static string) */
-static int rl_fn_GetPrevDirectoryPath(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GetPrevDirectoryPath(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   const char *a0;
   const char * r;
   if (argc != 1) return rl_arity_error(interp, "raylib::get_prev_directory_path", 1, argc);
@@ -5215,7 +5215,7 @@ static int rl_fn_GetPrevDirectoryPath(lcl_interp *interp, int argc, lcl_value **
 }
 
 /* GetWorkingDirectory: Get current working directory (uses static string) */
-static int rl_fn_GetWorkingDirectory(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GetWorkingDirectory(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   const char * r;
   (void)argv;
   if (argc != 0) return rl_arity_error(interp, "raylib::get_working_directory", 0, argc);
@@ -5225,7 +5225,7 @@ static int rl_fn_GetWorkingDirectory(lcl_interp *interp, int argc, lcl_value **a
 }
 
 /* GetApplicationDirectory: Get the directory of the running application (uses static string) */
-static int rl_fn_GetApplicationDirectory(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GetApplicationDirectory(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   const char * r;
   (void)argv;
   if (argc != 0) return rl_arity_error(interp, "raylib::get_application_directory", 0, argc);
@@ -5235,7 +5235,7 @@ static int rl_fn_GetApplicationDirectory(lcl_interp *interp, int argc, lcl_value
 }
 
 /* MakeDirectory: Create directories (including full path requested), returns 0 on success */
-static int rl_fn_MakeDirectory(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_MakeDirectory(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   const char *a0;
   int r;
   if (argc != 1) return rl_arity_error(interp, "raylib::make_directory", 1, argc);
@@ -5246,7 +5246,7 @@ static int rl_fn_MakeDirectory(lcl_interp *interp, int argc, lcl_value **argv, l
 }
 
 /* ChangeDirectory: Change working directory, return true on success */
-static int rl_fn_ChangeDirectory(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_ChangeDirectory(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   const char *a0;
   bool r;
   if (argc != 1) return rl_arity_error(interp, "raylib::change_directory", 1, argc);
@@ -5257,7 +5257,7 @@ static int rl_fn_ChangeDirectory(lcl_interp *interp, int argc, lcl_value **argv,
 }
 
 /* IsPathFile: Check if a given path is a file or a directory */
-static int rl_fn_IsPathFile(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_IsPathFile(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   const char *a0;
   bool r;
   if (argc != 1) return rl_arity_error(interp, "raylib::is_path_file", 1, argc);
@@ -5268,7 +5268,7 @@ static int rl_fn_IsPathFile(lcl_interp *interp, int argc, lcl_value **argv, lcl_
 }
 
 /* IsFileNameValid: Check if fileName is valid for the platform/OS */
-static int rl_fn_IsFileNameValid(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_IsFileNameValid(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   const char *a0;
   bool r;
   if (argc != 1) return rl_arity_error(interp, "raylib::is_file_name_valid", 1, argc);
@@ -5279,7 +5279,7 @@ static int rl_fn_IsFileNameValid(lcl_interp *interp, int argc, lcl_value **argv,
 }
 
 /* LoadDirectoryFiles: Load directory filepaths, files and directories, no subdirs scan */
-static int rl_fn_LoadDirectoryFiles(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_LoadDirectoryFiles(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   const char *a0;
   FilePathList r;
   if (argc != 1) return rl_arity_error(interp, "raylib::load_directory_files", 1, argc);
@@ -5290,7 +5290,7 @@ static int rl_fn_LoadDirectoryFiles(lcl_interp *interp, int argc, lcl_value **ar
 }
 
 /* LoadDirectoryFilesEx: Load directory filepaths with extension filtering and subdir scan; some filters available: "*.*", "FILES*", "DIRS*" */
-static int rl_fn_LoadDirectoryFilesEx(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_LoadDirectoryFilesEx(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   const char *a0;
   const char *a1;
   long a2;
@@ -5305,7 +5305,7 @@ static int rl_fn_LoadDirectoryFilesEx(lcl_interp *interp, int argc, lcl_value **
 }
 
 /* UnloadDirectoryFiles: Unload filepaths */
-static int rl_fn_UnloadDirectoryFiles(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_UnloadDirectoryFiles(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   FilePathList a0;
   (void)out;
   if (argc != 1) return rl_arity_error(interp, "raylib::unload_directory_files", 1, argc);
@@ -5315,7 +5315,7 @@ static int rl_fn_UnloadDirectoryFiles(lcl_interp *interp, int argc, lcl_value **
 }
 
 /* IsFileDropped: Check if a file has been dropped into window */
-static int rl_fn_IsFileDropped(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_IsFileDropped(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   bool r;
   (void)argv;
   if (argc != 0) return rl_arity_error(interp, "raylib::is_file_dropped", 0, argc);
@@ -5325,7 +5325,7 @@ static int rl_fn_IsFileDropped(lcl_interp *interp, int argc, lcl_value **argv, l
 }
 
 /* LoadDroppedFiles: Load dropped filepaths */
-static int rl_fn_LoadDroppedFiles(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_LoadDroppedFiles(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   FilePathList r;
   (void)argv;
   if (argc != 0) return rl_arity_error(interp, "raylib::load_dropped_files", 0, argc);
@@ -5335,7 +5335,7 @@ static int rl_fn_LoadDroppedFiles(lcl_interp *interp, int argc, lcl_value **argv
 }
 
 /* UnloadDroppedFiles: Unload dropped filepaths */
-static int rl_fn_UnloadDroppedFiles(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_UnloadDroppedFiles(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   FilePathList a0;
   (void)out;
   if (argc != 1) return rl_arity_error(interp, "raylib::unload_dropped_files", 1, argc);
@@ -5345,7 +5345,7 @@ static int rl_fn_UnloadDroppedFiles(lcl_interp *interp, int argc, lcl_value **ar
 }
 
 /* GetDirectoryFileCount: Get the file count in a directory */
-static int rl_fn_GetDirectoryFileCount(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GetDirectoryFileCount(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   const char *a0;
   unsigned int r;
   if (argc != 1) return rl_arity_error(interp, "raylib::get_directory_file_count", 1, argc);
@@ -5356,7 +5356,7 @@ static int rl_fn_GetDirectoryFileCount(lcl_interp *interp, int argc, lcl_value *
 }
 
 /* GetDirectoryFileCountEx: Get the file count in a directory with extension filtering and recursive directory scan. Use 'DIR' in the filter string to include directories in the result */
-static int rl_fn_GetDirectoryFileCountEx(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GetDirectoryFileCountEx(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   const char *a0;
   const char *a1;
   long a2;
@@ -5371,7 +5371,7 @@ static int rl_fn_GetDirectoryFileCountEx(lcl_interp *interp, int argc, lcl_value
 }
 
 /* LoadAutomationEventList: Load automation events list from file, NULL for empty list, capacity = MAX_AUTOMATION_EVENTS */
-static int rl_fn_LoadAutomationEventList(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_LoadAutomationEventList(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   const char *a0;
   AutomationEventList r;
   if (argc != 1) return rl_arity_error(interp, "raylib::load_automation_event_list", 1, argc);
@@ -5382,7 +5382,7 @@ static int rl_fn_LoadAutomationEventList(lcl_interp *interp, int argc, lcl_value
 }
 
 /* UnloadAutomationEventList: Unload automation events list from file */
-static int rl_fn_UnloadAutomationEventList(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_UnloadAutomationEventList(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   AutomationEventList a0;
   (void)out;
   if (argc != 1) return rl_arity_error(interp, "raylib::unload_automation_event_list", 1, argc);
@@ -5392,7 +5392,7 @@ static int rl_fn_UnloadAutomationEventList(lcl_interp *interp, int argc, lcl_val
 }
 
 /* ExportAutomationEventList: Export automation events list as text file */
-static int rl_fn_ExportAutomationEventList(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_ExportAutomationEventList(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   AutomationEventList a0;
   const char *a1;
   bool r;
@@ -5405,7 +5405,7 @@ static int rl_fn_ExportAutomationEventList(lcl_interp *interp, int argc, lcl_val
 }
 
 /* SetAutomationEventList: Set automation event list to record to */
-static int rl_fn_SetAutomationEventList(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_SetAutomationEventList(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   AutomationEventList *a0;
   (void)out;
   if (argc != 1) return rl_arity_error(interp, "raylib::set_automation_event_list", 1, argc);
@@ -5415,7 +5415,7 @@ static int rl_fn_SetAutomationEventList(lcl_interp *interp, int argc, lcl_value 
 }
 
 /* SetAutomationEventBaseFrame: Set automation event internal base frame to start recording */
-static int rl_fn_SetAutomationEventBaseFrame(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_SetAutomationEventBaseFrame(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   long a0;
   (void)out;
   if (argc != 1) return rl_arity_error(interp, "raylib::set_automation_event_base_frame", 1, argc);
@@ -5425,7 +5425,7 @@ static int rl_fn_SetAutomationEventBaseFrame(lcl_interp *interp, int argc, lcl_v
 }
 
 /* StartAutomationEventRecording: Start recording automation events (AutomationEventList must be set) */
-static int rl_fn_StartAutomationEventRecording(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_StartAutomationEventRecording(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   (void)out;
   (void)argv;
   if (argc != 0) return rl_arity_error(interp, "raylib::start_automation_event_recording", 0, argc);
@@ -5434,7 +5434,7 @@ static int rl_fn_StartAutomationEventRecording(lcl_interp *interp, int argc, lcl
 }
 
 /* StopAutomationEventRecording: Stop recording automation events */
-static int rl_fn_StopAutomationEventRecording(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_StopAutomationEventRecording(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   (void)out;
   (void)argv;
   if (argc != 0) return rl_arity_error(interp, "raylib::stop_automation_event_recording", 0, argc);
@@ -5443,7 +5443,7 @@ static int rl_fn_StopAutomationEventRecording(lcl_interp *interp, int argc, lcl_
 }
 
 /* PlayAutomationEvent: Play a recorded automation event */
-static int rl_fn_PlayAutomationEvent(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_PlayAutomationEvent(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   AutomationEvent a0;
   (void)out;
   if (argc != 1) return rl_arity_error(interp, "raylib::play_automation_event", 1, argc);
@@ -5453,7 +5453,7 @@ static int rl_fn_PlayAutomationEvent(lcl_interp *interp, int argc, lcl_value **a
 }
 
 /* IsKeyPressed: Check if a key has been pressed once */
-static int rl_fn_IsKeyPressed(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_IsKeyPressed(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   long a0;
   bool r;
   if (argc != 1) return rl_arity_error(interp, "raylib::is_key_pressed", 1, argc);
@@ -5464,7 +5464,7 @@ static int rl_fn_IsKeyPressed(lcl_interp *interp, int argc, lcl_value **argv, lc
 }
 
 /* IsKeyPressedRepeat: Check if a key has been pressed again */
-static int rl_fn_IsKeyPressedRepeat(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_IsKeyPressedRepeat(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   long a0;
   bool r;
   if (argc != 1) return rl_arity_error(interp, "raylib::is_key_pressed_repeat", 1, argc);
@@ -5475,7 +5475,7 @@ static int rl_fn_IsKeyPressedRepeat(lcl_interp *interp, int argc, lcl_value **ar
 }
 
 /* IsKeyDown: Check if a key is being pressed */
-static int rl_fn_IsKeyDown(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_IsKeyDown(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   long a0;
   bool r;
   if (argc != 1) return rl_arity_error(interp, "raylib::is_key_down", 1, argc);
@@ -5486,7 +5486,7 @@ static int rl_fn_IsKeyDown(lcl_interp *interp, int argc, lcl_value **argv, lcl_v
 }
 
 /* IsKeyReleased: Check if a key has been released once */
-static int rl_fn_IsKeyReleased(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_IsKeyReleased(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   long a0;
   bool r;
   if (argc != 1) return rl_arity_error(interp, "raylib::is_key_released", 1, argc);
@@ -5497,7 +5497,7 @@ static int rl_fn_IsKeyReleased(lcl_interp *interp, int argc, lcl_value **argv, l
 }
 
 /* IsKeyUp: Check if a key is NOT being pressed */
-static int rl_fn_IsKeyUp(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_IsKeyUp(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   long a0;
   bool r;
   if (argc != 1) return rl_arity_error(interp, "raylib::is_key_up", 1, argc);
@@ -5508,7 +5508,7 @@ static int rl_fn_IsKeyUp(lcl_interp *interp, int argc, lcl_value **argv, lcl_val
 }
 
 /* GetKeyPressed: Get key pressed (keycode), call it multiple times for keys queued, returns 0 when the queue is empty */
-static int rl_fn_GetKeyPressed(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GetKeyPressed(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   int r;
   (void)argv;
   if (argc != 0) return rl_arity_error(interp, "raylib::get_key_pressed", 0, argc);
@@ -5518,7 +5518,7 @@ static int rl_fn_GetKeyPressed(lcl_interp *interp, int argc, lcl_value **argv, l
 }
 
 /* GetCharPressed: Get char pressed (unicode), call it multiple times for chars queued, returns 0 when the queue is empty */
-static int rl_fn_GetCharPressed(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GetCharPressed(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   int r;
   (void)argv;
   if (argc != 0) return rl_arity_error(interp, "raylib::get_char_pressed", 0, argc);
@@ -5528,7 +5528,7 @@ static int rl_fn_GetCharPressed(lcl_interp *interp, int argc, lcl_value **argv, 
 }
 
 /* GetKeyName: Get name of a QWERTY key on the current keyboard layout (eg returns string 'q' for KEY_A on an AZERTY keyboard) */
-static int rl_fn_GetKeyName(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GetKeyName(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   long a0;
   const char * r;
   if (argc != 1) return rl_arity_error(interp, "raylib::get_key_name", 1, argc);
@@ -5539,7 +5539,7 @@ static int rl_fn_GetKeyName(lcl_interp *interp, int argc, lcl_value **argv, lcl_
 }
 
 /* SetExitKey: Set a custom key to exit program (default is ESC) */
-static int rl_fn_SetExitKey(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_SetExitKey(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   long a0;
   (void)out;
   if (argc != 1) return rl_arity_error(interp, "raylib::set_exit_key", 1, argc);
@@ -5549,7 +5549,7 @@ static int rl_fn_SetExitKey(lcl_interp *interp, int argc, lcl_value **argv, lcl_
 }
 
 /* IsGamepadAvailable: Check if a gamepad is available */
-static int rl_fn_IsGamepadAvailable(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_IsGamepadAvailable(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   long a0;
   bool r;
   if (argc != 1) return rl_arity_error(interp, "raylib::is_gamepad_available", 1, argc);
@@ -5560,7 +5560,7 @@ static int rl_fn_IsGamepadAvailable(lcl_interp *interp, int argc, lcl_value **ar
 }
 
 /* GetGamepadName: Get gamepad internal name id */
-static int rl_fn_GetGamepadName(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GetGamepadName(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   long a0;
   const char * r;
   if (argc != 1) return rl_arity_error(interp, "raylib::get_gamepad_name", 1, argc);
@@ -5571,7 +5571,7 @@ static int rl_fn_GetGamepadName(lcl_interp *interp, int argc, lcl_value **argv, 
 }
 
 /* IsGamepadButtonPressed: Check if a gamepad button has been pressed once */
-static int rl_fn_IsGamepadButtonPressed(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_IsGamepadButtonPressed(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   long a0;
   long a1;
   bool r;
@@ -5584,7 +5584,7 @@ static int rl_fn_IsGamepadButtonPressed(lcl_interp *interp, int argc, lcl_value 
 }
 
 /* IsGamepadButtonDown: Check if a gamepad button is being pressed */
-static int rl_fn_IsGamepadButtonDown(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_IsGamepadButtonDown(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   long a0;
   long a1;
   bool r;
@@ -5597,7 +5597,7 @@ static int rl_fn_IsGamepadButtonDown(lcl_interp *interp, int argc, lcl_value **a
 }
 
 /* IsGamepadButtonReleased: Check if a gamepad button has been released once */
-static int rl_fn_IsGamepadButtonReleased(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_IsGamepadButtonReleased(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   long a0;
   long a1;
   bool r;
@@ -5610,7 +5610,7 @@ static int rl_fn_IsGamepadButtonReleased(lcl_interp *interp, int argc, lcl_value
 }
 
 /* IsGamepadButtonUp: Check if a gamepad button is NOT being pressed */
-static int rl_fn_IsGamepadButtonUp(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_IsGamepadButtonUp(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   long a0;
   long a1;
   bool r;
@@ -5623,7 +5623,7 @@ static int rl_fn_IsGamepadButtonUp(lcl_interp *interp, int argc, lcl_value **arg
 }
 
 /* GetGamepadButtonPressed: Get the last gamepad button pressed */
-static int rl_fn_GetGamepadButtonPressed(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GetGamepadButtonPressed(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   int r;
   (void)argv;
   if (argc != 0) return rl_arity_error(interp, "raylib::get_gamepad_button_pressed", 0, argc);
@@ -5633,7 +5633,7 @@ static int rl_fn_GetGamepadButtonPressed(lcl_interp *interp, int argc, lcl_value
 }
 
 /* GetGamepadAxisCount: Get axis count for a gamepad */
-static int rl_fn_GetGamepadAxisCount(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GetGamepadAxisCount(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   long a0;
   int r;
   if (argc != 1) return rl_arity_error(interp, "raylib::get_gamepad_axis_count", 1, argc);
@@ -5644,7 +5644,7 @@ static int rl_fn_GetGamepadAxisCount(lcl_interp *interp, int argc, lcl_value **a
 }
 
 /* GetGamepadAxisMovement: Get movement value for a gamepad axis */
-static int rl_fn_GetGamepadAxisMovement(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GetGamepadAxisMovement(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   long a0;
   long a1;
   float r;
@@ -5657,7 +5657,7 @@ static int rl_fn_GetGamepadAxisMovement(lcl_interp *interp, int argc, lcl_value 
 }
 
 /* SetGamepadMappings: Set internal gamepad mappings (SDL_GameControllerDB) */
-static int rl_fn_SetGamepadMappings(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_SetGamepadMappings(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   const char *a0;
   int r;
   if (argc != 1) return rl_arity_error(interp, "raylib::set_gamepad_mappings", 1, argc);
@@ -5668,7 +5668,7 @@ static int rl_fn_SetGamepadMappings(lcl_interp *interp, int argc, lcl_value **ar
 }
 
 /* SetGamepadVibration: Set gamepad vibration for both motors (duration in seconds) */
-static int rl_fn_SetGamepadVibration(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_SetGamepadVibration(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   long a0;
   double a1;
   double a2;
@@ -5684,7 +5684,7 @@ static int rl_fn_SetGamepadVibration(lcl_interp *interp, int argc, lcl_value **a
 }
 
 /* IsMouseButtonPressed: Check if a mouse button has been pressed once */
-static int rl_fn_IsMouseButtonPressed(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_IsMouseButtonPressed(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   long a0;
   bool r;
   if (argc != 1) return rl_arity_error(interp, "raylib::is_mouse_button_pressed", 1, argc);
@@ -5695,7 +5695,7 @@ static int rl_fn_IsMouseButtonPressed(lcl_interp *interp, int argc, lcl_value **
 }
 
 /* IsMouseButtonDown: Check if a mouse button is being pressed */
-static int rl_fn_IsMouseButtonDown(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_IsMouseButtonDown(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   long a0;
   bool r;
   if (argc != 1) return rl_arity_error(interp, "raylib::is_mouse_button_down", 1, argc);
@@ -5706,7 +5706,7 @@ static int rl_fn_IsMouseButtonDown(lcl_interp *interp, int argc, lcl_value **arg
 }
 
 /* IsMouseButtonReleased: Check if a mouse button has been released once */
-static int rl_fn_IsMouseButtonReleased(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_IsMouseButtonReleased(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   long a0;
   bool r;
   if (argc != 1) return rl_arity_error(interp, "raylib::is_mouse_button_released", 1, argc);
@@ -5717,7 +5717,7 @@ static int rl_fn_IsMouseButtonReleased(lcl_interp *interp, int argc, lcl_value *
 }
 
 /* IsMouseButtonUp: Check if a mouse button is NOT being pressed */
-static int rl_fn_IsMouseButtonUp(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_IsMouseButtonUp(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   long a0;
   bool r;
   if (argc != 1) return rl_arity_error(interp, "raylib::is_mouse_button_up", 1, argc);
@@ -5728,7 +5728,7 @@ static int rl_fn_IsMouseButtonUp(lcl_interp *interp, int argc, lcl_value **argv,
 }
 
 /* GetMouseX: Get mouse position X */
-static int rl_fn_GetMouseX(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GetMouseX(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   int r;
   (void)argv;
   if (argc != 0) return rl_arity_error(interp, "raylib::get_mouse_x", 0, argc);
@@ -5738,7 +5738,7 @@ static int rl_fn_GetMouseX(lcl_interp *interp, int argc, lcl_value **argv, lcl_v
 }
 
 /* GetMouseY: Get mouse position Y */
-static int rl_fn_GetMouseY(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GetMouseY(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   int r;
   (void)argv;
   if (argc != 0) return rl_arity_error(interp, "raylib::get_mouse_y", 0, argc);
@@ -5748,7 +5748,7 @@ static int rl_fn_GetMouseY(lcl_interp *interp, int argc, lcl_value **argv, lcl_v
 }
 
 /* GetMousePosition: Get mouse position XY */
-static int rl_fn_GetMousePosition(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GetMousePosition(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector2 r;
   (void)argv;
   if (argc != 0) return rl_arity_error(interp, "raylib::get_mouse_position", 0, argc);
@@ -5758,7 +5758,7 @@ static int rl_fn_GetMousePosition(lcl_interp *interp, int argc, lcl_value **argv
 }
 
 /* GetMouseDelta: Get mouse delta between frames */
-static int rl_fn_GetMouseDelta(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GetMouseDelta(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector2 r;
   (void)argv;
   if (argc != 0) return rl_arity_error(interp, "raylib::get_mouse_delta", 0, argc);
@@ -5768,7 +5768,7 @@ static int rl_fn_GetMouseDelta(lcl_interp *interp, int argc, lcl_value **argv, l
 }
 
 /* SetMousePosition: Set mouse position XY */
-static int rl_fn_SetMousePosition(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_SetMousePosition(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   long a0;
   long a1;
   (void)out;
@@ -5780,7 +5780,7 @@ static int rl_fn_SetMousePosition(lcl_interp *interp, int argc, lcl_value **argv
 }
 
 /* SetMouseOffset: Set mouse offset */
-static int rl_fn_SetMouseOffset(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_SetMouseOffset(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   long a0;
   long a1;
   (void)out;
@@ -5792,7 +5792,7 @@ static int rl_fn_SetMouseOffset(lcl_interp *interp, int argc, lcl_value **argv, 
 }
 
 /* SetMouseScale: Set mouse scaling */
-static int rl_fn_SetMouseScale(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_SetMouseScale(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   double a0;
   double a1;
   (void)out;
@@ -5804,7 +5804,7 @@ static int rl_fn_SetMouseScale(lcl_interp *interp, int argc, lcl_value **argv, l
 }
 
 /* GetMouseWheelMove: Get mouse wheel movement for X or Y, whichever is larger */
-static int rl_fn_GetMouseWheelMove(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GetMouseWheelMove(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   float r;
   (void)argv;
   if (argc != 0) return rl_arity_error(interp, "raylib::get_mouse_wheel_move", 0, argc);
@@ -5814,7 +5814,7 @@ static int rl_fn_GetMouseWheelMove(lcl_interp *interp, int argc, lcl_value **arg
 }
 
 /* GetMouseWheelMoveV: Get mouse wheel movement for both X and Y */
-static int rl_fn_GetMouseWheelMoveV(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GetMouseWheelMoveV(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector2 r;
   (void)argv;
   if (argc != 0) return rl_arity_error(interp, "raylib::get_mouse_wheel_move_v", 0, argc);
@@ -5824,7 +5824,7 @@ static int rl_fn_GetMouseWheelMoveV(lcl_interp *interp, int argc, lcl_value **ar
 }
 
 /* SetMouseCursor: Set mouse cursor */
-static int rl_fn_SetMouseCursor(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_SetMouseCursor(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   long a0;
   (void)out;
   if (argc != 1) return rl_arity_error(interp, "raylib::set_mouse_cursor", 1, argc);
@@ -5834,7 +5834,7 @@ static int rl_fn_SetMouseCursor(lcl_interp *interp, int argc, lcl_value **argv, 
 }
 
 /* GetTouchX: Get touch position X for touch point 0 (relative to screen size) */
-static int rl_fn_GetTouchX(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GetTouchX(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   int r;
   (void)argv;
   if (argc != 0) return rl_arity_error(interp, "raylib::get_touch_x", 0, argc);
@@ -5844,7 +5844,7 @@ static int rl_fn_GetTouchX(lcl_interp *interp, int argc, lcl_value **argv, lcl_v
 }
 
 /* GetTouchY: Get touch position Y for touch point 0 (relative to screen size) */
-static int rl_fn_GetTouchY(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GetTouchY(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   int r;
   (void)argv;
   if (argc != 0) return rl_arity_error(interp, "raylib::get_touch_y", 0, argc);
@@ -5854,7 +5854,7 @@ static int rl_fn_GetTouchY(lcl_interp *interp, int argc, lcl_value **argv, lcl_v
 }
 
 /* GetTouchPosition: Get touch position XY for a touch point index (relative to screen size) */
-static int rl_fn_GetTouchPosition(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GetTouchPosition(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   long a0;
   Vector2 r;
   if (argc != 1) return rl_arity_error(interp, "raylib::get_touch_position", 1, argc);
@@ -5865,7 +5865,7 @@ static int rl_fn_GetTouchPosition(lcl_interp *interp, int argc, lcl_value **argv
 }
 
 /* GetTouchPointId: Get touch point identifier for given index */
-static int rl_fn_GetTouchPointId(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GetTouchPointId(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   long a0;
   int r;
   if (argc != 1) return rl_arity_error(interp, "raylib::get_touch_point_id", 1, argc);
@@ -5876,7 +5876,7 @@ static int rl_fn_GetTouchPointId(lcl_interp *interp, int argc, lcl_value **argv,
 }
 
 /* GetTouchPointCount: Get number of touch points */
-static int rl_fn_GetTouchPointCount(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GetTouchPointCount(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   int r;
   (void)argv;
   if (argc != 0) return rl_arity_error(interp, "raylib::get_touch_point_count", 0, argc);
@@ -5886,7 +5886,7 @@ static int rl_fn_GetTouchPointCount(lcl_interp *interp, int argc, lcl_value **ar
 }
 
 /* SetGesturesEnabled: Enable a set of gestures using flags */
-static int rl_fn_SetGesturesEnabled(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_SetGesturesEnabled(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   long a0;
   (void)out;
   if (argc != 1) return rl_arity_error(interp, "raylib::set_gestures_enabled", 1, argc);
@@ -5896,7 +5896,7 @@ static int rl_fn_SetGesturesEnabled(lcl_interp *interp, int argc, lcl_value **ar
 }
 
 /* IsGestureDetected: Check if a gesture have been detected */
-static int rl_fn_IsGestureDetected(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_IsGestureDetected(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   long a0;
   bool r;
   if (argc != 1) return rl_arity_error(interp, "raylib::is_gesture_detected", 1, argc);
@@ -5907,7 +5907,7 @@ static int rl_fn_IsGestureDetected(lcl_interp *interp, int argc, lcl_value **arg
 }
 
 /* GetGestureDetected: Get latest detected gesture */
-static int rl_fn_GetGestureDetected(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GetGestureDetected(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   int r;
   (void)argv;
   if (argc != 0) return rl_arity_error(interp, "raylib::get_gesture_detected", 0, argc);
@@ -5917,7 +5917,7 @@ static int rl_fn_GetGestureDetected(lcl_interp *interp, int argc, lcl_value **ar
 }
 
 /* GetGestureHoldDuration: Get gesture hold time in seconds */
-static int rl_fn_GetGestureHoldDuration(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GetGestureHoldDuration(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   float r;
   (void)argv;
   if (argc != 0) return rl_arity_error(interp, "raylib::get_gesture_hold_duration", 0, argc);
@@ -5927,7 +5927,7 @@ static int rl_fn_GetGestureHoldDuration(lcl_interp *interp, int argc, lcl_value 
 }
 
 /* GetGestureDragVector: Get gesture drag vector */
-static int rl_fn_GetGestureDragVector(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GetGestureDragVector(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector2 r;
   (void)argv;
   if (argc != 0) return rl_arity_error(interp, "raylib::get_gesture_drag_vector", 0, argc);
@@ -5937,7 +5937,7 @@ static int rl_fn_GetGestureDragVector(lcl_interp *interp, int argc, lcl_value **
 }
 
 /* GetGestureDragAngle: Get gesture drag angle */
-static int rl_fn_GetGestureDragAngle(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GetGestureDragAngle(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   float r;
   (void)argv;
   if (argc != 0) return rl_arity_error(interp, "raylib::get_gesture_drag_angle", 0, argc);
@@ -5947,7 +5947,7 @@ static int rl_fn_GetGestureDragAngle(lcl_interp *interp, int argc, lcl_value **a
 }
 
 /* GetGesturePinchVector: Get gesture pinch delta */
-static int rl_fn_GetGesturePinchVector(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GetGesturePinchVector(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector2 r;
   (void)argv;
   if (argc != 0) return rl_arity_error(interp, "raylib::get_gesture_pinch_vector", 0, argc);
@@ -5957,7 +5957,7 @@ static int rl_fn_GetGesturePinchVector(lcl_interp *interp, int argc, lcl_value *
 }
 
 /* GetGesturePinchAngle: Get gesture pinch angle */
-static int rl_fn_GetGesturePinchAngle(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GetGesturePinchAngle(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   float r;
   (void)argv;
   if (argc != 0) return rl_arity_error(interp, "raylib::get_gesture_pinch_angle", 0, argc);
@@ -5967,7 +5967,7 @@ static int rl_fn_GetGesturePinchAngle(lcl_interp *interp, int argc, lcl_value **
 }
 
 /* UpdateCamera: Update camera position for selected mode */
-static int rl_fn_UpdateCamera(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_UpdateCamera(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Camera3D *a0;
   long a1;
   (void)out;
@@ -5979,7 +5979,7 @@ static int rl_fn_UpdateCamera(lcl_interp *interp, int argc, lcl_value **argv, lc
 }
 
 /* UpdateCameraPro: Update camera movement/rotation */
-static int rl_fn_UpdateCameraPro(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_UpdateCameraPro(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Camera3D *a0;
   Vector3 a1;
   Vector3 a2;
@@ -5995,7 +5995,7 @@ static int rl_fn_UpdateCameraPro(lcl_interp *interp, int argc, lcl_value **argv,
 }
 
 /* SetShapesTexture: Set texture and rectangle to be used on shapes drawing */
-static int rl_fn_SetShapesTexture(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_SetShapesTexture(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Texture a0;
   Rectangle a1;
   (void)out;
@@ -6007,7 +6007,7 @@ static int rl_fn_SetShapesTexture(lcl_interp *interp, int argc, lcl_value **argv
 }
 
 /* GetShapesTexture: Get texture that is used for shapes drawing */
-static int rl_fn_GetShapesTexture(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GetShapesTexture(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Texture r;
   (void)argv;
   if (argc != 0) return rl_arity_error(interp, "raylib::get_shapes_texture", 0, argc);
@@ -6017,7 +6017,7 @@ static int rl_fn_GetShapesTexture(lcl_interp *interp, int argc, lcl_value **argv
 }
 
 /* GetShapesTextureRectangle: Get texture source rectangle that is used for shapes drawing */
-static int rl_fn_GetShapesTextureRectangle(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GetShapesTextureRectangle(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Rectangle r;
   (void)argv;
   if (argc != 0) return rl_arity_error(interp, "raylib::get_shapes_texture_rectangle", 0, argc);
@@ -6027,7 +6027,7 @@ static int rl_fn_GetShapesTextureRectangle(lcl_interp *interp, int argc, lcl_val
 }
 
 /* DrawPixel: Draw a pixel using geometry [Can be slow, use with care] */
-static int rl_fn_DrawPixel(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_DrawPixel(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   long a0;
   long a1;
   Color a2;
@@ -6041,7 +6041,7 @@ static int rl_fn_DrawPixel(lcl_interp *interp, int argc, lcl_value **argv, lcl_v
 }
 
 /* DrawPixelV: Draw a pixel using geometry (Vector version) [Can be slow, use with care] */
-static int rl_fn_DrawPixelV(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_DrawPixelV(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector2 a0;
   Color a1;
   (void)out;
@@ -6053,7 +6053,7 @@ static int rl_fn_DrawPixelV(lcl_interp *interp, int argc, lcl_value **argv, lcl_
 }
 
 /* DrawLine: Draw a line */
-static int rl_fn_DrawLine(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_DrawLine(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   long a0;
   long a1;
   long a2;
@@ -6071,7 +6071,7 @@ static int rl_fn_DrawLine(lcl_interp *interp, int argc, lcl_value **argv, lcl_va
 }
 
 /* DrawLineV: Draw a line (using gl lines) */
-static int rl_fn_DrawLineV(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_DrawLineV(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector2 a0;
   Vector2 a1;
   Color a2;
@@ -6085,7 +6085,7 @@ static int rl_fn_DrawLineV(lcl_interp *interp, int argc, lcl_value **argv, lcl_v
 }
 
 /* DrawLineEx: Draw a line (using triangles/quads) */
-static int rl_fn_DrawLineEx(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_DrawLineEx(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector2 a0;
   Vector2 a1;
   double a2;
@@ -6101,7 +6101,7 @@ static int rl_fn_DrawLineEx(lcl_interp *interp, int argc, lcl_value **argv, lcl_
 }
 
 /* DrawLineStrip: Draw lines sequence (using gl lines) */
-static int rl_fn_DrawLineStrip(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_DrawLineStrip(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector2 *a0 = NULL;
   int n0 = 0;
   Color a1;
@@ -6130,7 +6130,7 @@ cleanup:
 }
 
 /* DrawLineBezier: Draw line segment cubic-bezier in-out interpolation */
-static int rl_fn_DrawLineBezier(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_DrawLineBezier(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector2 a0;
   Vector2 a1;
   double a2;
@@ -6146,7 +6146,7 @@ static int rl_fn_DrawLineBezier(lcl_interp *interp, int argc, lcl_value **argv, 
 }
 
 /* DrawLineDashed: Draw a dashed line */
-static int rl_fn_DrawLineDashed(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_DrawLineDashed(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector2 a0;
   Vector2 a1;
   long a2;
@@ -6164,7 +6164,7 @@ static int rl_fn_DrawLineDashed(lcl_interp *interp, int argc, lcl_value **argv, 
 }
 
 /* DrawCircle: Draw a color-filled circle */
-static int rl_fn_DrawCircle(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_DrawCircle(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   long a0;
   long a1;
   double a2;
@@ -6180,7 +6180,7 @@ static int rl_fn_DrawCircle(lcl_interp *interp, int argc, lcl_value **argv, lcl_
 }
 
 /* DrawCircleV: Draw a color-filled circle (Vector version) */
-static int rl_fn_DrawCircleV(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_DrawCircleV(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector2 a0;
   double a1;
   Color a2;
@@ -6194,7 +6194,7 @@ static int rl_fn_DrawCircleV(lcl_interp *interp, int argc, lcl_value **argv, lcl
 }
 
 /* DrawCircleGradient: Draw a gradient-filled circle */
-static int rl_fn_DrawCircleGradient(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_DrawCircleGradient(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector2 a0;
   double a1;
   Color a2;
@@ -6210,7 +6210,7 @@ static int rl_fn_DrawCircleGradient(lcl_interp *interp, int argc, lcl_value **ar
 }
 
 /* DrawCircleSector: Draw a piece of a circle */
-static int rl_fn_DrawCircleSector(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_DrawCircleSector(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector2 a0;
   double a1;
   double a2;
@@ -6230,7 +6230,7 @@ static int rl_fn_DrawCircleSector(lcl_interp *interp, int argc, lcl_value **argv
 }
 
 /* DrawCircleSectorLines: Draw circle sector outline */
-static int rl_fn_DrawCircleSectorLines(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_DrawCircleSectorLines(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector2 a0;
   double a1;
   double a2;
@@ -6250,7 +6250,7 @@ static int rl_fn_DrawCircleSectorLines(lcl_interp *interp, int argc, lcl_value *
 }
 
 /* DrawCircleLines: Draw circle outline */
-static int rl_fn_DrawCircleLines(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_DrawCircleLines(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   long a0;
   long a1;
   double a2;
@@ -6266,7 +6266,7 @@ static int rl_fn_DrawCircleLines(lcl_interp *interp, int argc, lcl_value **argv,
 }
 
 /* DrawCircleLinesV: Draw circle outline (Vector version) */
-static int rl_fn_DrawCircleLinesV(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_DrawCircleLinesV(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector2 a0;
   double a1;
   Color a2;
@@ -6280,7 +6280,7 @@ static int rl_fn_DrawCircleLinesV(lcl_interp *interp, int argc, lcl_value **argv
 }
 
 /* DrawEllipse: Draw ellipse */
-static int rl_fn_DrawEllipse(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_DrawEllipse(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   long a0;
   long a1;
   double a2;
@@ -6298,7 +6298,7 @@ static int rl_fn_DrawEllipse(lcl_interp *interp, int argc, lcl_value **argv, lcl
 }
 
 /* DrawEllipseV: Draw ellipse (Vector version) */
-static int rl_fn_DrawEllipseV(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_DrawEllipseV(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector2 a0;
   double a1;
   double a2;
@@ -6314,7 +6314,7 @@ static int rl_fn_DrawEllipseV(lcl_interp *interp, int argc, lcl_value **argv, lc
 }
 
 /* DrawEllipseLines: Draw ellipse outline */
-static int rl_fn_DrawEllipseLines(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_DrawEllipseLines(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   long a0;
   long a1;
   double a2;
@@ -6332,7 +6332,7 @@ static int rl_fn_DrawEllipseLines(lcl_interp *interp, int argc, lcl_value **argv
 }
 
 /* DrawEllipseLinesV: Draw ellipse outline (Vector version) */
-static int rl_fn_DrawEllipseLinesV(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_DrawEllipseLinesV(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector2 a0;
   double a1;
   double a2;
@@ -6348,7 +6348,7 @@ static int rl_fn_DrawEllipseLinesV(lcl_interp *interp, int argc, lcl_value **arg
 }
 
 /* DrawRing: Draw ring */
-static int rl_fn_DrawRing(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_DrawRing(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector2 a0;
   double a1;
   double a2;
@@ -6370,7 +6370,7 @@ static int rl_fn_DrawRing(lcl_interp *interp, int argc, lcl_value **argv, lcl_va
 }
 
 /* DrawRingLines: Draw ring outline */
-static int rl_fn_DrawRingLines(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_DrawRingLines(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector2 a0;
   double a1;
   double a2;
@@ -6392,7 +6392,7 @@ static int rl_fn_DrawRingLines(lcl_interp *interp, int argc, lcl_value **argv, l
 }
 
 /* DrawRectangle: Draw a color-filled rectangle */
-static int rl_fn_DrawRectangle(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_DrawRectangle(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   long a0;
   long a1;
   long a2;
@@ -6410,7 +6410,7 @@ static int rl_fn_DrawRectangle(lcl_interp *interp, int argc, lcl_value **argv, l
 }
 
 /* DrawRectangleV: Draw a color-filled rectangle (Vector version) */
-static int rl_fn_DrawRectangleV(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_DrawRectangleV(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector2 a0;
   Vector2 a1;
   Color a2;
@@ -6424,7 +6424,7 @@ static int rl_fn_DrawRectangleV(lcl_interp *interp, int argc, lcl_value **argv, 
 }
 
 /* DrawRectangleRec: Draw a color-filled rectangle */
-static int rl_fn_DrawRectangleRec(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_DrawRectangleRec(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Rectangle a0;
   Color a1;
   (void)out;
@@ -6436,7 +6436,7 @@ static int rl_fn_DrawRectangleRec(lcl_interp *interp, int argc, lcl_value **argv
 }
 
 /* DrawRectanglePro: Draw a color-filled rectangle with pro parameters */
-static int rl_fn_DrawRectanglePro(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_DrawRectanglePro(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Rectangle a0;
   Vector2 a1;
   double a2;
@@ -6452,7 +6452,7 @@ static int rl_fn_DrawRectanglePro(lcl_interp *interp, int argc, lcl_value **argv
 }
 
 /* DrawRectangleGradientV: Draw a vertical-gradient-filled rectangle */
-static int rl_fn_DrawRectangleGradientV(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_DrawRectangleGradientV(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   long a0;
   long a1;
   long a2;
@@ -6472,7 +6472,7 @@ static int rl_fn_DrawRectangleGradientV(lcl_interp *interp, int argc, lcl_value 
 }
 
 /* DrawRectangleGradientH: Draw a horizontal-gradient-filled rectangle */
-static int rl_fn_DrawRectangleGradientH(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_DrawRectangleGradientH(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   long a0;
   long a1;
   long a2;
@@ -6492,7 +6492,7 @@ static int rl_fn_DrawRectangleGradientH(lcl_interp *interp, int argc, lcl_value 
 }
 
 /* DrawRectangleGradientEx: Draw a gradient-filled rectangle with custom vertex colors */
-static int rl_fn_DrawRectangleGradientEx(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_DrawRectangleGradientEx(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Rectangle a0;
   Color a1;
   Color a2;
@@ -6510,7 +6510,7 @@ static int rl_fn_DrawRectangleGradientEx(lcl_interp *interp, int argc, lcl_value
 }
 
 /* DrawRectangleLines: Draw rectangle outline */
-static int rl_fn_DrawRectangleLines(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_DrawRectangleLines(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   long a0;
   long a1;
   long a2;
@@ -6528,7 +6528,7 @@ static int rl_fn_DrawRectangleLines(lcl_interp *interp, int argc, lcl_value **ar
 }
 
 /* DrawRectangleLinesEx: Draw rectangle outline with extended parameters */
-static int rl_fn_DrawRectangleLinesEx(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_DrawRectangleLinesEx(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Rectangle a0;
   double a1;
   Color a2;
@@ -6542,7 +6542,7 @@ static int rl_fn_DrawRectangleLinesEx(lcl_interp *interp, int argc, lcl_value **
 }
 
 /* DrawRectangleRounded: Draw rectangle with rounded edges */
-static int rl_fn_DrawRectangleRounded(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_DrawRectangleRounded(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Rectangle a0;
   double a1;
   long a2;
@@ -6558,7 +6558,7 @@ static int rl_fn_DrawRectangleRounded(lcl_interp *interp, int argc, lcl_value **
 }
 
 /* DrawRectangleRoundedLines: Draw rectangle lines with rounded edges */
-static int rl_fn_DrawRectangleRoundedLines(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_DrawRectangleRoundedLines(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Rectangle a0;
   double a1;
   long a2;
@@ -6574,7 +6574,7 @@ static int rl_fn_DrawRectangleRoundedLines(lcl_interp *interp, int argc, lcl_val
 }
 
 /* DrawRectangleRoundedLinesEx: Draw rectangle with rounded edges outline */
-static int rl_fn_DrawRectangleRoundedLinesEx(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_DrawRectangleRoundedLinesEx(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Rectangle a0;
   double a1;
   long a2;
@@ -6592,7 +6592,7 @@ static int rl_fn_DrawRectangleRoundedLinesEx(lcl_interp *interp, int argc, lcl_v
 }
 
 /* DrawTriangle: Draw a color-filled triangle (vertex in counter-clockwise order!) */
-static int rl_fn_DrawTriangle(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_DrawTriangle(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector2 a0;
   Vector2 a1;
   Vector2 a2;
@@ -6608,7 +6608,7 @@ static int rl_fn_DrawTriangle(lcl_interp *interp, int argc, lcl_value **argv, lc
 }
 
 /* DrawTriangleLines: Draw triangle outline (vertex in counter-clockwise order!) */
-static int rl_fn_DrawTriangleLines(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_DrawTriangleLines(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector2 a0;
   Vector2 a1;
   Vector2 a2;
@@ -6624,7 +6624,7 @@ static int rl_fn_DrawTriangleLines(lcl_interp *interp, int argc, lcl_value **arg
 }
 
 /* DrawTriangleFan: Draw a triangle fan defined by points (first vertex is the center) */
-static int rl_fn_DrawTriangleFan(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_DrawTriangleFan(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector2 *a0 = NULL;
   int n0 = 0;
   Color a1;
@@ -6653,7 +6653,7 @@ cleanup:
 }
 
 /* DrawTriangleStrip: Draw a triangle strip defined by points */
-static int rl_fn_DrawTriangleStrip(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_DrawTriangleStrip(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector2 *a0 = NULL;
   int n0 = 0;
   Color a1;
@@ -6682,7 +6682,7 @@ cleanup:
 }
 
 /* DrawPoly: Draw a regular polygon (Vector version) */
-static int rl_fn_DrawPoly(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_DrawPoly(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector2 a0;
   long a1;
   double a2;
@@ -6700,7 +6700,7 @@ static int rl_fn_DrawPoly(lcl_interp *interp, int argc, lcl_value **argv, lcl_va
 }
 
 /* DrawPolyLines: Draw a polygon outline of n sides */
-static int rl_fn_DrawPolyLines(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_DrawPolyLines(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector2 a0;
   long a1;
   double a2;
@@ -6718,7 +6718,7 @@ static int rl_fn_DrawPolyLines(lcl_interp *interp, int argc, lcl_value **argv, l
 }
 
 /* DrawPolyLinesEx: Draw a polygon outline of n sides with extended parameters */
-static int rl_fn_DrawPolyLinesEx(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_DrawPolyLinesEx(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector2 a0;
   long a1;
   double a2;
@@ -6738,7 +6738,7 @@ static int rl_fn_DrawPolyLinesEx(lcl_interp *interp, int argc, lcl_value **argv,
 }
 
 /* DrawSplineLinear: Draw spline: Linear, minimum 2 points */
-static int rl_fn_DrawSplineLinear(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_DrawSplineLinear(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector2 *a0 = NULL;
   int n0 = 0;
   double a1;
@@ -6769,7 +6769,7 @@ cleanup:
 }
 
 /* DrawSplineBasis: Draw spline: B-Spline, minimum 4 points */
-static int rl_fn_DrawSplineBasis(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_DrawSplineBasis(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector2 *a0 = NULL;
   int n0 = 0;
   double a1;
@@ -6800,7 +6800,7 @@ cleanup:
 }
 
 /* DrawSplineCatmullRom: Draw spline: Catmull-Rom, minimum 4 points */
-static int rl_fn_DrawSplineCatmullRom(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_DrawSplineCatmullRom(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector2 *a0 = NULL;
   int n0 = 0;
   double a1;
@@ -6831,7 +6831,7 @@ cleanup:
 }
 
 /* DrawSplineBezierQuadratic: Draw spline: Quadratic Bezier, minimum 3 points (1 control point): [p1, c2, p3, c4...] */
-static int rl_fn_DrawSplineBezierQuadratic(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_DrawSplineBezierQuadratic(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector2 *a0 = NULL;
   int n0 = 0;
   double a1;
@@ -6862,7 +6862,7 @@ cleanup:
 }
 
 /* DrawSplineBezierCubic: Draw spline: Cubic Bezier, minimum 4 points (2 control points): [p1, c2, c3, p4, c5, c6...] */
-static int rl_fn_DrawSplineBezierCubic(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_DrawSplineBezierCubic(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector2 *a0 = NULL;
   int n0 = 0;
   double a1;
@@ -6893,7 +6893,7 @@ cleanup:
 }
 
 /* DrawSplineSegmentLinear: Draw spline segment: Linear, 2 points */
-static int rl_fn_DrawSplineSegmentLinear(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_DrawSplineSegmentLinear(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector2 a0;
   Vector2 a1;
   double a2;
@@ -6909,7 +6909,7 @@ static int rl_fn_DrawSplineSegmentLinear(lcl_interp *interp, int argc, lcl_value
 }
 
 /* DrawSplineSegmentBasis: Draw spline segment: B-Spline, 4 points */
-static int rl_fn_DrawSplineSegmentBasis(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_DrawSplineSegmentBasis(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector2 a0;
   Vector2 a1;
   Vector2 a2;
@@ -6929,7 +6929,7 @@ static int rl_fn_DrawSplineSegmentBasis(lcl_interp *interp, int argc, lcl_value 
 }
 
 /* DrawSplineSegmentCatmullRom: Draw spline segment: Catmull-Rom, 4 points */
-static int rl_fn_DrawSplineSegmentCatmullRom(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_DrawSplineSegmentCatmullRom(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector2 a0;
   Vector2 a1;
   Vector2 a2;
@@ -6949,7 +6949,7 @@ static int rl_fn_DrawSplineSegmentCatmullRom(lcl_interp *interp, int argc, lcl_v
 }
 
 /* DrawSplineSegmentBezierQuadratic: Draw spline segment: Quadratic Bezier, 2 points, 1 control point */
-static int rl_fn_DrawSplineSegmentBezierQuadratic(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_DrawSplineSegmentBezierQuadratic(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector2 a0;
   Vector2 a1;
   Vector2 a2;
@@ -6967,7 +6967,7 @@ static int rl_fn_DrawSplineSegmentBezierQuadratic(lcl_interp *interp, int argc, 
 }
 
 /* DrawSplineSegmentBezierCubic: Draw spline segment: Cubic Bezier, 2 points, 2 control points */
-static int rl_fn_DrawSplineSegmentBezierCubic(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_DrawSplineSegmentBezierCubic(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector2 a0;
   Vector2 a1;
   Vector2 a2;
@@ -6987,7 +6987,7 @@ static int rl_fn_DrawSplineSegmentBezierCubic(lcl_interp *interp, int argc, lcl_
 }
 
 /* GetSplinePointLinear: Get (evaluate) spline point: Linear */
-static int rl_fn_GetSplinePointLinear(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GetSplinePointLinear(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector2 a0;
   Vector2 a1;
   double a2;
@@ -7002,7 +7002,7 @@ static int rl_fn_GetSplinePointLinear(lcl_interp *interp, int argc, lcl_value **
 }
 
 /* GetSplinePointBasis: Get (evaluate) spline point: B-Spline */
-static int rl_fn_GetSplinePointBasis(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GetSplinePointBasis(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector2 a0;
   Vector2 a1;
   Vector2 a2;
@@ -7021,7 +7021,7 @@ static int rl_fn_GetSplinePointBasis(lcl_interp *interp, int argc, lcl_value **a
 }
 
 /* GetSplinePointCatmullRom: Get (evaluate) spline point: Catmull-Rom */
-static int rl_fn_GetSplinePointCatmullRom(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GetSplinePointCatmullRom(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector2 a0;
   Vector2 a1;
   Vector2 a2;
@@ -7040,7 +7040,7 @@ static int rl_fn_GetSplinePointCatmullRom(lcl_interp *interp, int argc, lcl_valu
 }
 
 /* GetSplinePointBezierQuad: Get (evaluate) spline point: Quadratic Bezier */
-static int rl_fn_GetSplinePointBezierQuad(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GetSplinePointBezierQuad(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector2 a0;
   Vector2 a1;
   Vector2 a2;
@@ -7057,7 +7057,7 @@ static int rl_fn_GetSplinePointBezierQuad(lcl_interp *interp, int argc, lcl_valu
 }
 
 /* GetSplinePointBezierCubic: Get (evaluate) spline point: Cubic Bezier */
-static int rl_fn_GetSplinePointBezierCubic(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GetSplinePointBezierCubic(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector2 a0;
   Vector2 a1;
   Vector2 a2;
@@ -7076,7 +7076,7 @@ static int rl_fn_GetSplinePointBezierCubic(lcl_interp *interp, int argc, lcl_val
 }
 
 /* CheckCollisionRecs: Check collision between two rectangles */
-static int rl_fn_CheckCollisionRecs(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_CheckCollisionRecs(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Rectangle a0;
   Rectangle a1;
   bool r;
@@ -7089,7 +7089,7 @@ static int rl_fn_CheckCollisionRecs(lcl_interp *interp, int argc, lcl_value **ar
 }
 
 /* CheckCollisionCircles: Check collision between two circles */
-static int rl_fn_CheckCollisionCircles(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_CheckCollisionCircles(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector2 a0;
   double a1;
   Vector2 a2;
@@ -7106,7 +7106,7 @@ static int rl_fn_CheckCollisionCircles(lcl_interp *interp, int argc, lcl_value *
 }
 
 /* CheckCollisionCircleRec: Check collision between circle and rectangle */
-static int rl_fn_CheckCollisionCircleRec(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_CheckCollisionCircleRec(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector2 a0;
   double a1;
   Rectangle a2;
@@ -7121,7 +7121,7 @@ static int rl_fn_CheckCollisionCircleRec(lcl_interp *interp, int argc, lcl_value
 }
 
 /* CheckCollisionCircleLine: Check if circle collides with a line created betweeen two points [p1] and [p2] */
-static int rl_fn_CheckCollisionCircleLine(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_CheckCollisionCircleLine(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector2 a0;
   double a1;
   Vector2 a2;
@@ -7138,7 +7138,7 @@ static int rl_fn_CheckCollisionCircleLine(lcl_interp *interp, int argc, lcl_valu
 }
 
 /* CheckCollisionPointRec: Check if point is inside rectangle */
-static int rl_fn_CheckCollisionPointRec(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_CheckCollisionPointRec(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector2 a0;
   Rectangle a1;
   bool r;
@@ -7151,7 +7151,7 @@ static int rl_fn_CheckCollisionPointRec(lcl_interp *interp, int argc, lcl_value 
 }
 
 /* CheckCollisionPointCircle: Check if point is inside circle */
-static int rl_fn_CheckCollisionPointCircle(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_CheckCollisionPointCircle(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector2 a0;
   Vector2 a1;
   double a2;
@@ -7166,7 +7166,7 @@ static int rl_fn_CheckCollisionPointCircle(lcl_interp *interp, int argc, lcl_val
 }
 
 /* CheckCollisionPointTriangle: Check if point is inside a triangle */
-static int rl_fn_CheckCollisionPointTriangle(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_CheckCollisionPointTriangle(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector2 a0;
   Vector2 a1;
   Vector2 a2;
@@ -7183,7 +7183,7 @@ static int rl_fn_CheckCollisionPointTriangle(lcl_interp *interp, int argc, lcl_v
 }
 
 /* CheckCollisionPointLine: Check if point belongs to line created between two points [p1] and [p2] with defined margin in pixels [threshold] */
-static int rl_fn_CheckCollisionPointLine(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_CheckCollisionPointLine(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector2 a0;
   Vector2 a1;
   Vector2 a2;
@@ -7200,7 +7200,7 @@ static int rl_fn_CheckCollisionPointLine(lcl_interp *interp, int argc, lcl_value
 }
 
 /* CheckCollisionPointPoly: Check if point is within a polygon described by array of vertices */
-static int rl_fn_CheckCollisionPointPoly(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_CheckCollisionPointPoly(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector2 a0;
   Vector2 *a1 = NULL;
   int n1 = 0;
@@ -7230,7 +7230,7 @@ cleanup:
 }
 
 /* CheckCollisionLines: Check the collision between two lines defined by two points each, returns collision point by reference */
-static int rl_fn_CheckCollisionLines(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_CheckCollisionLines(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector2 a0;
   Vector2 a1;
   Vector2 a2;
@@ -7249,7 +7249,7 @@ static int rl_fn_CheckCollisionLines(lcl_interp *interp, int argc, lcl_value **a
 }
 
 /* GetCollisionRec: Get collision rectangle for two rectangles collision */
-static int rl_fn_GetCollisionRec(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GetCollisionRec(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Rectangle a0;
   Rectangle a1;
   Rectangle r;
@@ -7262,7 +7262,7 @@ static int rl_fn_GetCollisionRec(lcl_interp *interp, int argc, lcl_value **argv,
 }
 
 /* LoadImage: Load image from file into CPU memory (RAM) */
-static int rl_fn_LoadImage(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_LoadImage(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   const char *a0;
   Image r;
   if (argc != 1) return rl_arity_error(interp, "raylib::load_image", 1, argc);
@@ -7273,7 +7273,7 @@ static int rl_fn_LoadImage(lcl_interp *interp, int argc, lcl_value **argv, lcl_v
 }
 
 /* LoadImageRaw: Load image from RAW file data */
-static int rl_fn_LoadImageRaw(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_LoadImageRaw(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   const char *a0;
   long a1;
   long a2;
@@ -7292,7 +7292,7 @@ static int rl_fn_LoadImageRaw(lcl_interp *interp, int argc, lcl_value **argv, lc
 }
 
 /* LoadImageFromTexture: Load image from GPU texture data */
-static int rl_fn_LoadImageFromTexture(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_LoadImageFromTexture(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Texture a0;
   Image r;
   if (argc != 1) return rl_arity_error(interp, "raylib::load_image_from_texture", 1, argc);
@@ -7303,7 +7303,7 @@ static int rl_fn_LoadImageFromTexture(lcl_interp *interp, int argc, lcl_value **
 }
 
 /* LoadImageFromScreen: Load image from screen buffer and (screenshot) */
-static int rl_fn_LoadImageFromScreen(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_LoadImageFromScreen(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Image r;
   (void)argv;
   if (argc != 0) return rl_arity_error(interp, "raylib::load_image_from_screen", 0, argc);
@@ -7313,7 +7313,7 @@ static int rl_fn_LoadImageFromScreen(lcl_interp *interp, int argc, lcl_value **a
 }
 
 /* IsImageValid: Check if an image is valid (data and parameters) */
-static int rl_fn_IsImageValid(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_IsImageValid(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Image a0;
   bool r;
   if (argc != 1) return rl_arity_error(interp, "raylib::is_image_valid", 1, argc);
@@ -7324,7 +7324,7 @@ static int rl_fn_IsImageValid(lcl_interp *interp, int argc, lcl_value **argv, lc
 }
 
 /* UnloadImage: Unload image from CPU memory (RAM) */
-static int rl_fn_UnloadImage(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_UnloadImage(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Image a0;
   (void)out;
   if (argc != 1) return rl_arity_error(interp, "raylib::unload_image", 1, argc);
@@ -7334,7 +7334,7 @@ static int rl_fn_UnloadImage(lcl_interp *interp, int argc, lcl_value **argv, lcl
 }
 
 /* ExportImage: Export image data to file, returns true on success */
-static int rl_fn_ExportImage(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_ExportImage(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Image a0;
   const char *a1;
   bool r;
@@ -7347,7 +7347,7 @@ static int rl_fn_ExportImage(lcl_interp *interp, int argc, lcl_value **argv, lcl
 }
 
 /* ExportImageAsCode: Export image as code file defining an array of bytes, returns true on success */
-static int rl_fn_ExportImageAsCode(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_ExportImageAsCode(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Image a0;
   const char *a1;
   bool r;
@@ -7360,7 +7360,7 @@ static int rl_fn_ExportImageAsCode(lcl_interp *interp, int argc, lcl_value **arg
 }
 
 /* GenImageColor: Generate image: plain color */
-static int rl_fn_GenImageColor(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GenImageColor(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   long a0;
   long a1;
   Color a2;
@@ -7375,7 +7375,7 @@ static int rl_fn_GenImageColor(lcl_interp *interp, int argc, lcl_value **argv, l
 }
 
 /* GenImageGradientLinear: Generate image: linear gradient, direction in degrees [0..360], 0=Vertical gradient */
-static int rl_fn_GenImageGradientLinear(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GenImageGradientLinear(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   long a0;
   long a1;
   long a2;
@@ -7394,7 +7394,7 @@ static int rl_fn_GenImageGradientLinear(lcl_interp *interp, int argc, lcl_value 
 }
 
 /* GenImageGradientRadial: Generate image: radial gradient */
-static int rl_fn_GenImageGradientRadial(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GenImageGradientRadial(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   long a0;
   long a1;
   double a2;
@@ -7413,7 +7413,7 @@ static int rl_fn_GenImageGradientRadial(lcl_interp *interp, int argc, lcl_value 
 }
 
 /* GenImageGradientSquare: Generate image: square gradient */
-static int rl_fn_GenImageGradientSquare(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GenImageGradientSquare(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   long a0;
   long a1;
   double a2;
@@ -7432,7 +7432,7 @@ static int rl_fn_GenImageGradientSquare(lcl_interp *interp, int argc, lcl_value 
 }
 
 /* GenImageChecked: Generate image: checked */
-static int rl_fn_GenImageChecked(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GenImageChecked(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   long a0;
   long a1;
   long a2;
@@ -7453,7 +7453,7 @@ static int rl_fn_GenImageChecked(lcl_interp *interp, int argc, lcl_value **argv,
 }
 
 /* GenImageWhiteNoise: Generate image: white noise */
-static int rl_fn_GenImageWhiteNoise(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GenImageWhiteNoise(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   long a0;
   long a1;
   double a2;
@@ -7468,7 +7468,7 @@ static int rl_fn_GenImageWhiteNoise(lcl_interp *interp, int argc, lcl_value **ar
 }
 
 /* GenImagePerlinNoise: Generate image: perlin noise */
-static int rl_fn_GenImagePerlinNoise(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GenImagePerlinNoise(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   long a0;
   long a1;
   long a2;
@@ -7487,7 +7487,7 @@ static int rl_fn_GenImagePerlinNoise(lcl_interp *interp, int argc, lcl_value **a
 }
 
 /* GenImageCellular: Generate image: cellular algorithm, bigger tileSize means bigger cells */
-static int rl_fn_GenImageCellular(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GenImageCellular(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   long a0;
   long a1;
   long a2;
@@ -7502,7 +7502,7 @@ static int rl_fn_GenImageCellular(lcl_interp *interp, int argc, lcl_value **argv
 }
 
 /* GenImageText: Generate image: grayscale image from text data */
-static int rl_fn_GenImageText(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GenImageText(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   long a0;
   long a1;
   const char *a2;
@@ -7517,7 +7517,7 @@ static int rl_fn_GenImageText(lcl_interp *interp, int argc, lcl_value **argv, lc
 }
 
 /* ImageCopy: Create an image duplicate (useful for transformations) */
-static int rl_fn_ImageCopy(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_ImageCopy(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Image a0;
   Image r;
   if (argc != 1) return rl_arity_error(interp, "raylib::image_copy", 1, argc);
@@ -7528,7 +7528,7 @@ static int rl_fn_ImageCopy(lcl_interp *interp, int argc, lcl_value **argv, lcl_v
 }
 
 /* ImageFromImage: Create an image from another image piece */
-static int rl_fn_ImageFromImage(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_ImageFromImage(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Image a0;
   Rectangle a1;
   Image r;
@@ -7541,7 +7541,7 @@ static int rl_fn_ImageFromImage(lcl_interp *interp, int argc, lcl_value **argv, 
 }
 
 /* ImageFromChannel: Create an image from a selected channel of another image (GRAYSCALE) */
-static int rl_fn_ImageFromChannel(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_ImageFromChannel(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Image a0;
   long a1;
   Image r;
@@ -7554,7 +7554,7 @@ static int rl_fn_ImageFromChannel(lcl_interp *interp, int argc, lcl_value **argv
 }
 
 /* ImageText: Create an image from text (default font) */
-static int rl_fn_ImageText(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_ImageText(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   const char *a0;
   long a1;
   Color a2;
@@ -7569,7 +7569,7 @@ static int rl_fn_ImageText(lcl_interp *interp, int argc, lcl_value **argv, lcl_v
 }
 
 /* ImageTextEx: Create an image from text (custom sprite font) */
-static int rl_fn_ImageTextEx(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_ImageTextEx(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Font a0;
   const char *a1;
   double a2;
@@ -7588,7 +7588,7 @@ static int rl_fn_ImageTextEx(lcl_interp *interp, int argc, lcl_value **argv, lcl
 }
 
 /* ImageFormat: Convert image data to desired format */
-static int rl_fn_ImageFormat(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_ImageFormat(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Image *a0;
   long a1;
   (void)out;
@@ -7600,7 +7600,7 @@ static int rl_fn_ImageFormat(lcl_interp *interp, int argc, lcl_value **argv, lcl
 }
 
 /* ImageToPOT: Convert image to POT (power-of-two) */
-static int rl_fn_ImageToPOT(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_ImageToPOT(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Image *a0;
   Color a1;
   (void)out;
@@ -7612,7 +7612,7 @@ static int rl_fn_ImageToPOT(lcl_interp *interp, int argc, lcl_value **argv, lcl_
 }
 
 /* ImageCrop: Crop an image to a defined rectangle */
-static int rl_fn_ImageCrop(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_ImageCrop(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Image *a0;
   Rectangle a1;
   (void)out;
@@ -7624,7 +7624,7 @@ static int rl_fn_ImageCrop(lcl_interp *interp, int argc, lcl_value **argv, lcl_v
 }
 
 /* ImageAlphaCrop: Crop image depending on alpha value */
-static int rl_fn_ImageAlphaCrop(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_ImageAlphaCrop(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Image *a0;
   double a1;
   (void)out;
@@ -7636,7 +7636,7 @@ static int rl_fn_ImageAlphaCrop(lcl_interp *interp, int argc, lcl_value **argv, 
 }
 
 /* ImageAlphaClear: Clear alpha channel to desired color */
-static int rl_fn_ImageAlphaClear(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_ImageAlphaClear(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Image *a0;
   Color a1;
   double a2;
@@ -7650,7 +7650,7 @@ static int rl_fn_ImageAlphaClear(lcl_interp *interp, int argc, lcl_value **argv,
 }
 
 /* ImageAlphaMask: Apply alpha mask to image */
-static int rl_fn_ImageAlphaMask(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_ImageAlphaMask(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Image *a0;
   Image a1;
   (void)out;
@@ -7662,7 +7662,7 @@ static int rl_fn_ImageAlphaMask(lcl_interp *interp, int argc, lcl_value **argv, 
 }
 
 /* ImageAlphaPremultiply: Premultiply alpha channel */
-static int rl_fn_ImageAlphaPremultiply(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_ImageAlphaPremultiply(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Image *a0;
   (void)out;
   if (argc != 1) return rl_arity_error(interp, "raylib::image_alpha_premultiply", 1, argc);
@@ -7672,7 +7672,7 @@ static int rl_fn_ImageAlphaPremultiply(lcl_interp *interp, int argc, lcl_value *
 }
 
 /* ImageBlurGaussian: Apply Gaussian blur using a box blur approximation */
-static int rl_fn_ImageBlurGaussian(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_ImageBlurGaussian(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Image *a0;
   long a1;
   (void)out;
@@ -7684,7 +7684,7 @@ static int rl_fn_ImageBlurGaussian(lcl_interp *interp, int argc, lcl_value **arg
 }
 
 /* ImageResize: Resize image (Bicubic scaling algorithm) */
-static int rl_fn_ImageResize(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_ImageResize(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Image *a0;
   long a1;
   long a2;
@@ -7698,7 +7698,7 @@ static int rl_fn_ImageResize(lcl_interp *interp, int argc, lcl_value **argv, lcl
 }
 
 /* ImageResizeNN: Resize image (Nearest-Neighbor scaling algorithm) */
-static int rl_fn_ImageResizeNN(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_ImageResizeNN(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Image *a0;
   long a1;
   long a2;
@@ -7712,7 +7712,7 @@ static int rl_fn_ImageResizeNN(lcl_interp *interp, int argc, lcl_value **argv, l
 }
 
 /* ImageResizeCanvas: Resize canvas and fill with color */
-static int rl_fn_ImageResizeCanvas(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_ImageResizeCanvas(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Image *a0;
   long a1;
   long a2;
@@ -7732,7 +7732,7 @@ static int rl_fn_ImageResizeCanvas(lcl_interp *interp, int argc, lcl_value **arg
 }
 
 /* ImageMipmaps: Compute all mipmap levels for a provided image */
-static int rl_fn_ImageMipmaps(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_ImageMipmaps(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Image *a0;
   (void)out;
   if (argc != 1) return rl_arity_error(interp, "raylib::image_mipmaps", 1, argc);
@@ -7742,7 +7742,7 @@ static int rl_fn_ImageMipmaps(lcl_interp *interp, int argc, lcl_value **argv, lc
 }
 
 /* ImageDither: Dither image data to 16bpp or lower (Floyd-Steinberg dithering) */
-static int rl_fn_ImageDither(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_ImageDither(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Image *a0;
   long a1;
   long a2;
@@ -7760,7 +7760,7 @@ static int rl_fn_ImageDither(lcl_interp *interp, int argc, lcl_value **argv, lcl
 }
 
 /* ImageFlipVertical: Flip image vertically */
-static int rl_fn_ImageFlipVertical(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_ImageFlipVertical(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Image *a0;
   (void)out;
   if (argc != 1) return rl_arity_error(interp, "raylib::image_flip_vertical", 1, argc);
@@ -7770,7 +7770,7 @@ static int rl_fn_ImageFlipVertical(lcl_interp *interp, int argc, lcl_value **arg
 }
 
 /* ImageFlipHorizontal: Flip image horizontally */
-static int rl_fn_ImageFlipHorizontal(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_ImageFlipHorizontal(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Image *a0;
   (void)out;
   if (argc != 1) return rl_arity_error(interp, "raylib::image_flip_horizontal", 1, argc);
@@ -7780,7 +7780,7 @@ static int rl_fn_ImageFlipHorizontal(lcl_interp *interp, int argc, lcl_value **a
 }
 
 /* ImageRotate: Rotate image by input angle in degrees (-359 to 359) */
-static int rl_fn_ImageRotate(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_ImageRotate(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Image *a0;
   long a1;
   (void)out;
@@ -7792,7 +7792,7 @@ static int rl_fn_ImageRotate(lcl_interp *interp, int argc, lcl_value **argv, lcl
 }
 
 /* ImageRotateCW: Rotate image clockwise 90deg */
-static int rl_fn_ImageRotateCW(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_ImageRotateCW(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Image *a0;
   (void)out;
   if (argc != 1) return rl_arity_error(interp, "raylib::image_rotate_cw", 1, argc);
@@ -7802,7 +7802,7 @@ static int rl_fn_ImageRotateCW(lcl_interp *interp, int argc, lcl_value **argv, l
 }
 
 /* ImageRotateCCW: Rotate image counter-clockwise 90deg */
-static int rl_fn_ImageRotateCCW(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_ImageRotateCCW(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Image *a0;
   (void)out;
   if (argc != 1) return rl_arity_error(interp, "raylib::image_rotate_ccw", 1, argc);
@@ -7812,7 +7812,7 @@ static int rl_fn_ImageRotateCCW(lcl_interp *interp, int argc, lcl_value **argv, 
 }
 
 /* ImageColorTint: Modify image color: tint */
-static int rl_fn_ImageColorTint(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_ImageColorTint(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Image *a0;
   Color a1;
   (void)out;
@@ -7824,7 +7824,7 @@ static int rl_fn_ImageColorTint(lcl_interp *interp, int argc, lcl_value **argv, 
 }
 
 /* ImageColorInvert: Modify image color: invert */
-static int rl_fn_ImageColorInvert(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_ImageColorInvert(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Image *a0;
   (void)out;
   if (argc != 1) return rl_arity_error(interp, "raylib::image_color_invert", 1, argc);
@@ -7834,7 +7834,7 @@ static int rl_fn_ImageColorInvert(lcl_interp *interp, int argc, lcl_value **argv
 }
 
 /* ImageColorGrayscale: Modify image color: grayscale */
-static int rl_fn_ImageColorGrayscale(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_ImageColorGrayscale(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Image *a0;
   (void)out;
   if (argc != 1) return rl_arity_error(interp, "raylib::image_color_grayscale", 1, argc);
@@ -7844,7 +7844,7 @@ static int rl_fn_ImageColorGrayscale(lcl_interp *interp, int argc, lcl_value **a
 }
 
 /* ImageColorContrast: Modify image color: contrast (-100 to 100) */
-static int rl_fn_ImageColorContrast(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_ImageColorContrast(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Image *a0;
   double a1;
   (void)out;
@@ -7856,7 +7856,7 @@ static int rl_fn_ImageColorContrast(lcl_interp *interp, int argc, lcl_value **ar
 }
 
 /* ImageColorBrightness: Modify image color: brightness (-255 to 255) */
-static int rl_fn_ImageColorBrightness(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_ImageColorBrightness(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Image *a0;
   long a1;
   (void)out;
@@ -7868,7 +7868,7 @@ static int rl_fn_ImageColorBrightness(lcl_interp *interp, int argc, lcl_value **
 }
 
 /* ImageColorReplace: Modify image color: replace color */
-static int rl_fn_ImageColorReplace(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_ImageColorReplace(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Image *a0;
   Color a1;
   Color a2;
@@ -7882,7 +7882,7 @@ static int rl_fn_ImageColorReplace(lcl_interp *interp, int argc, lcl_value **arg
 }
 
 /* UnloadImageColors: Unload color data loaded with LoadImageColors() */
-static int rl_fn_UnloadImageColors(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_UnloadImageColors(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Color *a0;
   (void)out;
   if (argc != 1) return rl_arity_error(interp, "raylib::unload_image_colors", 1, argc);
@@ -7892,7 +7892,7 @@ static int rl_fn_UnloadImageColors(lcl_interp *interp, int argc, lcl_value **arg
 }
 
 /* UnloadImagePalette: Unload colors palette loaded with LoadImagePalette() */
-static int rl_fn_UnloadImagePalette(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_UnloadImagePalette(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Color *a0;
   (void)out;
   if (argc != 1) return rl_arity_error(interp, "raylib::unload_image_palette", 1, argc);
@@ -7902,7 +7902,7 @@ static int rl_fn_UnloadImagePalette(lcl_interp *interp, int argc, lcl_value **ar
 }
 
 /* GetImageAlphaBorder: Get image alpha border rectangle */
-static int rl_fn_GetImageAlphaBorder(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GetImageAlphaBorder(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Image a0;
   double a1;
   Rectangle r;
@@ -7915,7 +7915,7 @@ static int rl_fn_GetImageAlphaBorder(lcl_interp *interp, int argc, lcl_value **a
 }
 
 /* GetImageColor: Get image pixel color at (x, y) position */
-static int rl_fn_GetImageColor(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GetImageColor(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Image a0;
   long a1;
   long a2;
@@ -7930,7 +7930,7 @@ static int rl_fn_GetImageColor(lcl_interp *interp, int argc, lcl_value **argv, l
 }
 
 /* ImageClearBackground: Clear image background with given color */
-static int rl_fn_ImageClearBackground(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_ImageClearBackground(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Image *a0;
   Color a1;
   (void)out;
@@ -7942,7 +7942,7 @@ static int rl_fn_ImageClearBackground(lcl_interp *interp, int argc, lcl_value **
 }
 
 /* ImageDrawPixel: Draw pixel within an image */
-static int rl_fn_ImageDrawPixel(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_ImageDrawPixel(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Image *a0;
   long a1;
   long a2;
@@ -7958,7 +7958,7 @@ static int rl_fn_ImageDrawPixel(lcl_interp *interp, int argc, lcl_value **argv, 
 }
 
 /* ImageDrawPixelV: Draw pixel within an image (Vector version) */
-static int rl_fn_ImageDrawPixelV(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_ImageDrawPixelV(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Image *a0;
   Vector2 a1;
   Color a2;
@@ -7972,7 +7972,7 @@ static int rl_fn_ImageDrawPixelV(lcl_interp *interp, int argc, lcl_value **argv,
 }
 
 /* ImageDrawLine: Draw line within an image */
-static int rl_fn_ImageDrawLine(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_ImageDrawLine(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Image *a0;
   long a1;
   long a2;
@@ -7992,7 +7992,7 @@ static int rl_fn_ImageDrawLine(lcl_interp *interp, int argc, lcl_value **argv, l
 }
 
 /* ImageDrawLineV: Draw line within an image (Vector version) */
-static int rl_fn_ImageDrawLineV(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_ImageDrawLineV(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Image *a0;
   Vector2 a1;
   Vector2 a2;
@@ -8008,7 +8008,7 @@ static int rl_fn_ImageDrawLineV(lcl_interp *interp, int argc, lcl_value **argv, 
 }
 
 /* ImageDrawLineEx: Draw a line defining thickness within an image */
-static int rl_fn_ImageDrawLineEx(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_ImageDrawLineEx(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Image *a0;
   Vector2 a1;
   Vector2 a2;
@@ -8026,7 +8026,7 @@ static int rl_fn_ImageDrawLineEx(lcl_interp *interp, int argc, lcl_value **argv,
 }
 
 /* ImageDrawCircle: Draw a filled circle within an image */
-static int rl_fn_ImageDrawCircle(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_ImageDrawCircle(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Image *a0;
   long a1;
   long a2;
@@ -8044,7 +8044,7 @@ static int rl_fn_ImageDrawCircle(lcl_interp *interp, int argc, lcl_value **argv,
 }
 
 /* ImageDrawCircleV: Draw a filled circle within an image (Vector version) */
-static int rl_fn_ImageDrawCircleV(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_ImageDrawCircleV(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Image *a0;
   Vector2 a1;
   long a2;
@@ -8060,7 +8060,7 @@ static int rl_fn_ImageDrawCircleV(lcl_interp *interp, int argc, lcl_value **argv
 }
 
 /* ImageDrawCircleLines: Draw circle outline within an image */
-static int rl_fn_ImageDrawCircleLines(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_ImageDrawCircleLines(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Image *a0;
   long a1;
   long a2;
@@ -8078,7 +8078,7 @@ static int rl_fn_ImageDrawCircleLines(lcl_interp *interp, int argc, lcl_value **
 }
 
 /* ImageDrawCircleLinesV: Draw circle outline within an image (Vector version) */
-static int rl_fn_ImageDrawCircleLinesV(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_ImageDrawCircleLinesV(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Image *a0;
   Vector2 a1;
   long a2;
@@ -8094,7 +8094,7 @@ static int rl_fn_ImageDrawCircleLinesV(lcl_interp *interp, int argc, lcl_value *
 }
 
 /* ImageDrawRectangle: Draw rectangle within an image */
-static int rl_fn_ImageDrawRectangle(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_ImageDrawRectangle(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Image *a0;
   long a1;
   long a2;
@@ -8114,7 +8114,7 @@ static int rl_fn_ImageDrawRectangle(lcl_interp *interp, int argc, lcl_value **ar
 }
 
 /* ImageDrawRectangleV: Draw rectangle within an image (Vector version) */
-static int rl_fn_ImageDrawRectangleV(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_ImageDrawRectangleV(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Image *a0;
   Vector2 a1;
   Vector2 a2;
@@ -8130,7 +8130,7 @@ static int rl_fn_ImageDrawRectangleV(lcl_interp *interp, int argc, lcl_value **a
 }
 
 /* ImageDrawRectangleRec: Draw rectangle within an image */
-static int rl_fn_ImageDrawRectangleRec(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_ImageDrawRectangleRec(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Image *a0;
   Rectangle a1;
   Color a2;
@@ -8144,7 +8144,7 @@ static int rl_fn_ImageDrawRectangleRec(lcl_interp *interp, int argc, lcl_value *
 }
 
 /* ImageDrawRectangleLines: Draw rectangle lines within an image */
-static int rl_fn_ImageDrawRectangleLines(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_ImageDrawRectangleLines(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Image *a0;
   Rectangle a1;
   long a2;
@@ -8160,7 +8160,7 @@ static int rl_fn_ImageDrawRectangleLines(lcl_interp *interp, int argc, lcl_value
 }
 
 /* ImageDrawTriangle: Draw triangle within an image */
-static int rl_fn_ImageDrawTriangle(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_ImageDrawTriangle(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Image *a0;
   Vector2 a1;
   Vector2 a2;
@@ -8178,7 +8178,7 @@ static int rl_fn_ImageDrawTriangle(lcl_interp *interp, int argc, lcl_value **arg
 }
 
 /* ImageDrawTriangleEx: Draw triangle with interpolated colors within an image */
-static int rl_fn_ImageDrawTriangleEx(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_ImageDrawTriangleEx(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Image *a0;
   Vector2 a1;
   Vector2 a2;
@@ -8200,7 +8200,7 @@ static int rl_fn_ImageDrawTriangleEx(lcl_interp *interp, int argc, lcl_value **a
 }
 
 /* ImageDrawTriangleLines: Draw triangle outline within an image */
-static int rl_fn_ImageDrawTriangleLines(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_ImageDrawTriangleLines(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Image *a0;
   Vector2 a1;
   Vector2 a2;
@@ -8218,7 +8218,7 @@ static int rl_fn_ImageDrawTriangleLines(lcl_interp *interp, int argc, lcl_value 
 }
 
 /* ImageDrawTriangleFan: Draw a triangle fan defined by points within an image (first vertex is the center) */
-static int rl_fn_ImageDrawTriangleFan(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_ImageDrawTriangleFan(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Image *a0;
   Vector2 *a1 = NULL;
   int n1 = 0;
@@ -8249,7 +8249,7 @@ cleanup:
 }
 
 /* ImageDrawTriangleStrip: Draw a triangle strip defined by points within an image */
-static int rl_fn_ImageDrawTriangleStrip(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_ImageDrawTriangleStrip(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Image *a0;
   Vector2 *a1 = NULL;
   int n1 = 0;
@@ -8280,7 +8280,7 @@ cleanup:
 }
 
 /* ImageDraw: Draw a source image within a destination image (tint applied to source) */
-static int rl_fn_ImageDraw(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_ImageDraw(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Image *a0;
   Image a1;
   Rectangle a2;
@@ -8298,7 +8298,7 @@ static int rl_fn_ImageDraw(lcl_interp *interp, int argc, lcl_value **argv, lcl_v
 }
 
 /* ImageDrawText: Draw text (using default font) within an image (destination) */
-static int rl_fn_ImageDrawText(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_ImageDrawText(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Image *a0;
   const char *a1;
   long a2;
@@ -8318,7 +8318,7 @@ static int rl_fn_ImageDrawText(lcl_interp *interp, int argc, lcl_value **argv, l
 }
 
 /* ImageDrawTextEx: Draw text (custom sprite font) within an image (destination) */
-static int rl_fn_ImageDrawTextEx(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_ImageDrawTextEx(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Image *a0;
   Font a1;
   const char *a2;
@@ -8340,7 +8340,7 @@ static int rl_fn_ImageDrawTextEx(lcl_interp *interp, int argc, lcl_value **argv,
 }
 
 /* LoadTexture: Load texture from file into GPU memory (VRAM) */
-static int rl_fn_LoadTexture(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_LoadTexture(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   const char *a0;
   Texture r;
   if (argc != 1) return rl_arity_error(interp, "raylib::load_texture", 1, argc);
@@ -8351,7 +8351,7 @@ static int rl_fn_LoadTexture(lcl_interp *interp, int argc, lcl_value **argv, lcl
 }
 
 /* LoadTextureFromImage: Load texture from image data */
-static int rl_fn_LoadTextureFromImage(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_LoadTextureFromImage(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Image a0;
   Texture r;
   if (argc != 1) return rl_arity_error(interp, "raylib::load_texture_from_image", 1, argc);
@@ -8362,7 +8362,7 @@ static int rl_fn_LoadTextureFromImage(lcl_interp *interp, int argc, lcl_value **
 }
 
 /* LoadTextureCubemap: Load cubemap from image, multiple image cubemap layouts supported */
-static int rl_fn_LoadTextureCubemap(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_LoadTextureCubemap(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Image a0;
   long a1;
   Texture r;
@@ -8375,7 +8375,7 @@ static int rl_fn_LoadTextureCubemap(lcl_interp *interp, int argc, lcl_value **ar
 }
 
 /* LoadRenderTexture: Load texture for rendering (framebuffer) */
-static int rl_fn_LoadRenderTexture(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_LoadRenderTexture(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   long a0;
   long a1;
   RenderTexture r;
@@ -8388,7 +8388,7 @@ static int rl_fn_LoadRenderTexture(lcl_interp *interp, int argc, lcl_value **arg
 }
 
 /* IsTextureValid: Check if a texture is valid (loaded in GPU) */
-static int rl_fn_IsTextureValid(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_IsTextureValid(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Texture a0;
   bool r;
   if (argc != 1) return rl_arity_error(interp, "raylib::is_texture_valid", 1, argc);
@@ -8399,7 +8399,7 @@ static int rl_fn_IsTextureValid(lcl_interp *interp, int argc, lcl_value **argv, 
 }
 
 /* UnloadTexture: Unload texture from GPU memory (VRAM) */
-static int rl_fn_UnloadTexture(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_UnloadTexture(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Texture a0;
   (void)out;
   if (argc != 1) return rl_arity_error(interp, "raylib::unload_texture", 1, argc);
@@ -8409,7 +8409,7 @@ static int rl_fn_UnloadTexture(lcl_interp *interp, int argc, lcl_value **argv, l
 }
 
 /* IsRenderTextureValid: Check if a render texture is valid (loaded in GPU) */
-static int rl_fn_IsRenderTextureValid(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_IsRenderTextureValid(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   RenderTexture a0;
   bool r;
   if (argc != 1) return rl_arity_error(interp, "raylib::is_render_texture_valid", 1, argc);
@@ -8420,7 +8420,7 @@ static int rl_fn_IsRenderTextureValid(lcl_interp *interp, int argc, lcl_value **
 }
 
 /* UnloadRenderTexture: Unload render texture from GPU memory (VRAM) */
-static int rl_fn_UnloadRenderTexture(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_UnloadRenderTexture(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   RenderTexture a0;
   (void)out;
   if (argc != 1) return rl_arity_error(interp, "raylib::unload_render_texture", 1, argc);
@@ -8430,7 +8430,7 @@ static int rl_fn_UnloadRenderTexture(lcl_interp *interp, int argc, lcl_value **a
 }
 
 /* GenTextureMipmaps: Generate GPU mipmaps for a texture */
-static int rl_fn_GenTextureMipmaps(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GenTextureMipmaps(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Texture *a0;
   (void)out;
   if (argc != 1) return rl_arity_error(interp, "raylib::gen_texture_mipmaps", 1, argc);
@@ -8440,7 +8440,7 @@ static int rl_fn_GenTextureMipmaps(lcl_interp *interp, int argc, lcl_value **arg
 }
 
 /* SetTextureFilter: Set texture scaling filter mode */
-static int rl_fn_SetTextureFilter(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_SetTextureFilter(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Texture a0;
   long a1;
   (void)out;
@@ -8452,7 +8452,7 @@ static int rl_fn_SetTextureFilter(lcl_interp *interp, int argc, lcl_value **argv
 }
 
 /* SetTextureWrap: Set texture wrapping mode */
-static int rl_fn_SetTextureWrap(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_SetTextureWrap(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Texture a0;
   long a1;
   (void)out;
@@ -8464,7 +8464,7 @@ static int rl_fn_SetTextureWrap(lcl_interp *interp, int argc, lcl_value **argv, 
 }
 
 /* DrawTexture: Draw a Texture2D */
-static int rl_fn_DrawTexture(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_DrawTexture(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Texture a0;
   long a1;
   long a2;
@@ -8480,7 +8480,7 @@ static int rl_fn_DrawTexture(lcl_interp *interp, int argc, lcl_value **argv, lcl
 }
 
 /* DrawTextureV: Draw a Texture2D with position defined as Vector2 */
-static int rl_fn_DrawTextureV(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_DrawTextureV(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Texture a0;
   Vector2 a1;
   Color a2;
@@ -8494,7 +8494,7 @@ static int rl_fn_DrawTextureV(lcl_interp *interp, int argc, lcl_value **argv, lc
 }
 
 /* DrawTextureEx: Draw a Texture2D with extended parameters */
-static int rl_fn_DrawTextureEx(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_DrawTextureEx(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Texture a0;
   Vector2 a1;
   double a2;
@@ -8512,7 +8512,7 @@ static int rl_fn_DrawTextureEx(lcl_interp *interp, int argc, lcl_value **argv, l
 }
 
 /* DrawTextureRec: Draw a part of a texture defined by a rectangle */
-static int rl_fn_DrawTextureRec(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_DrawTextureRec(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Texture a0;
   Rectangle a1;
   Vector2 a2;
@@ -8528,7 +8528,7 @@ static int rl_fn_DrawTextureRec(lcl_interp *interp, int argc, lcl_value **argv, 
 }
 
 /* DrawTexturePro: Draw a part of a texture defined by a rectangle with 'pro' parameters */
-static int rl_fn_DrawTexturePro(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_DrawTexturePro(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Texture a0;
   Rectangle a1;
   Rectangle a2;
@@ -8548,7 +8548,7 @@ static int rl_fn_DrawTexturePro(lcl_interp *interp, int argc, lcl_value **argv, 
 }
 
 /* DrawTextureNPatch: Draws a texture (or part of it) that stretches or shrinks nicely */
-static int rl_fn_DrawTextureNPatch(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_DrawTextureNPatch(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Texture a0;
   NPatchInfo a1;
   Rectangle a2;
@@ -8568,7 +8568,7 @@ static int rl_fn_DrawTextureNPatch(lcl_interp *interp, int argc, lcl_value **arg
 }
 
 /* ColorIsEqual: Check if two colors are equal */
-static int rl_fn_ColorIsEqual(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_ColorIsEqual(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Color a0;
   Color a1;
   bool r;
@@ -8581,7 +8581,7 @@ static int rl_fn_ColorIsEqual(lcl_interp *interp, int argc, lcl_value **argv, lc
 }
 
 /* Fade: Get color with alpha applied, alpha goes from 0.0f to 1.0f */
-static int rl_fn_Fade(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_Fade(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Color a0;
   double a1;
   Color r;
@@ -8594,7 +8594,7 @@ static int rl_fn_Fade(lcl_interp *interp, int argc, lcl_value **argv, lcl_value 
 }
 
 /* ColorToInt: Get hexadecimal value for a Color (0xRRGGBBAA) */
-static int rl_fn_ColorToInt(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_ColorToInt(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Color a0;
   int r;
   if (argc != 1) return rl_arity_error(interp, "raylib::color_to_int", 1, argc);
@@ -8605,7 +8605,7 @@ static int rl_fn_ColorToInt(lcl_interp *interp, int argc, lcl_value **argv, lcl_
 }
 
 /* ColorNormalize: Get Color normalized as float [0..1] */
-static int rl_fn_ColorNormalize(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_ColorNormalize(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Color a0;
   Vector4 r;
   if (argc != 1) return rl_arity_error(interp, "raylib::color_normalize", 1, argc);
@@ -8616,7 +8616,7 @@ static int rl_fn_ColorNormalize(lcl_interp *interp, int argc, lcl_value **argv, 
 }
 
 /* ColorFromNormalized: Get Color from normalized values [0..1] */
-static int rl_fn_ColorFromNormalized(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_ColorFromNormalized(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector4 a0;
   Color r;
   if (argc != 1) return rl_arity_error(interp, "raylib::color_from_normalized", 1, argc);
@@ -8627,7 +8627,7 @@ static int rl_fn_ColorFromNormalized(lcl_interp *interp, int argc, lcl_value **a
 }
 
 /* ColorToHSV: Get HSV values for a Color, hue [0..360], saturation/value [0..1] */
-static int rl_fn_ColorToHSV(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_ColorToHSV(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Color a0;
   Vector3 r;
   if (argc != 1) return rl_arity_error(interp, "raylib::color_to_hsv", 1, argc);
@@ -8638,7 +8638,7 @@ static int rl_fn_ColorToHSV(lcl_interp *interp, int argc, lcl_value **argv, lcl_
 }
 
 /* ColorFromHSV: Get a Color from HSV values, hue [0..360], saturation/value [0..1] */
-static int rl_fn_ColorFromHSV(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_ColorFromHSV(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   double a0;
   double a1;
   double a2;
@@ -8653,7 +8653,7 @@ static int rl_fn_ColorFromHSV(lcl_interp *interp, int argc, lcl_value **argv, lc
 }
 
 /* ColorTint: Get color multiplied with another color */
-static int rl_fn_ColorTint(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_ColorTint(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Color a0;
   Color a1;
   Color r;
@@ -8666,7 +8666,7 @@ static int rl_fn_ColorTint(lcl_interp *interp, int argc, lcl_value **argv, lcl_v
 }
 
 /* ColorBrightness: Get color with brightness correction, brightness factor goes from -1.0f to 1.0f */
-static int rl_fn_ColorBrightness(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_ColorBrightness(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Color a0;
   double a1;
   Color r;
@@ -8679,7 +8679,7 @@ static int rl_fn_ColorBrightness(lcl_interp *interp, int argc, lcl_value **argv,
 }
 
 /* ColorContrast: Get color with contrast correction, contrast values between -1.0f and 1.0f */
-static int rl_fn_ColorContrast(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_ColorContrast(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Color a0;
   double a1;
   Color r;
@@ -8692,7 +8692,7 @@ static int rl_fn_ColorContrast(lcl_interp *interp, int argc, lcl_value **argv, l
 }
 
 /* ColorAlpha: Get color with alpha applied, alpha goes from 0.0f to 1.0f */
-static int rl_fn_ColorAlpha(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_ColorAlpha(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Color a0;
   double a1;
   Color r;
@@ -8705,7 +8705,7 @@ static int rl_fn_ColorAlpha(lcl_interp *interp, int argc, lcl_value **argv, lcl_
 }
 
 /* ColorAlphaBlend: Get src alpha-blended into dst color with tint */
-static int rl_fn_ColorAlphaBlend(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_ColorAlphaBlend(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Color a0;
   Color a1;
   Color a2;
@@ -8720,7 +8720,7 @@ static int rl_fn_ColorAlphaBlend(lcl_interp *interp, int argc, lcl_value **argv,
 }
 
 /* ColorLerp: Get color lerp interpolation between two colors, factor [0.0f..1.0f] */
-static int rl_fn_ColorLerp(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_ColorLerp(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Color a0;
   Color a1;
   double a2;
@@ -8735,7 +8735,7 @@ static int rl_fn_ColorLerp(lcl_interp *interp, int argc, lcl_value **argv, lcl_v
 }
 
 /* GetColor: Get Color structure from hexadecimal value */
-static int rl_fn_GetColor(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GetColor(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   long a0;
   Color r;
   if (argc != 1) return rl_arity_error(interp, "raylib::get_color", 1, argc);
@@ -8746,7 +8746,7 @@ static int rl_fn_GetColor(lcl_interp *interp, int argc, lcl_value **argv, lcl_va
 }
 
 /* GetPixelDataSize: Get pixel data size in bytes for certain format */
-static int rl_fn_GetPixelDataSize(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GetPixelDataSize(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   long a0;
   long a1;
   long a2;
@@ -8761,7 +8761,7 @@ static int rl_fn_GetPixelDataSize(lcl_interp *interp, int argc, lcl_value **argv
 }
 
 /* GetFontDefault: Get the default Font */
-static int rl_fn_GetFontDefault(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GetFontDefault(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Font r;
   (void)argv;
   if (argc != 0) return rl_arity_error(interp, "raylib::get_font_default", 0, argc);
@@ -8771,7 +8771,7 @@ static int rl_fn_GetFontDefault(lcl_interp *interp, int argc, lcl_value **argv, 
 }
 
 /* LoadFont: Load font from file into GPU memory (VRAM) */
-static int rl_fn_LoadFont(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_LoadFont(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   const char *a0;
   Font r;
   if (argc != 1) return rl_arity_error(interp, "raylib::load_font", 1, argc);
@@ -8782,7 +8782,7 @@ static int rl_fn_LoadFont(lcl_interp *interp, int argc, lcl_value **argv, lcl_va
 }
 
 /* LoadFontEx: Load font from file with extended parameters, use NULL for codepoints and 0 for codepointCount to load the default character set, font size is provided in pixels height */
-static int rl_fn_LoadFontEx(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_LoadFontEx(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   const char *a0;
   long a1;
   int *a2 = NULL;
@@ -8814,7 +8814,7 @@ cleanup:
 }
 
 /* LoadFontFromImage: Load font from Image (XNA style) */
-static int rl_fn_LoadFontFromImage(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_LoadFontFromImage(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Image a0;
   Color a1;
   long a2;
@@ -8829,7 +8829,7 @@ static int rl_fn_LoadFontFromImage(lcl_interp *interp, int argc, lcl_value **arg
 }
 
 /* IsFontValid: Check if a font is valid (font data loaded, WARNING: GPU texture not checked) */
-static int rl_fn_IsFontValid(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_IsFontValid(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Font a0;
   bool r;
   if (argc != 1) return rl_arity_error(interp, "raylib::is_font_valid", 1, argc);
@@ -8840,7 +8840,7 @@ static int rl_fn_IsFontValid(lcl_interp *interp, int argc, lcl_value **argv, lcl
 }
 
 /* UnloadFontData: Unload font chars info data (RAM) */
-static int rl_fn_UnloadFontData(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_UnloadFontData(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   GlyphInfo *a0 = NULL;
   int n0 = 0;
   (void)out;
@@ -8867,7 +8867,7 @@ cleanup:
 }
 
 /* UnloadFont: Unload font from GPU memory (VRAM) */
-static int rl_fn_UnloadFont(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_UnloadFont(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Font a0;
   (void)out;
   if (argc != 1) return rl_arity_error(interp, "raylib::unload_font", 1, argc);
@@ -8877,7 +8877,7 @@ static int rl_fn_UnloadFont(lcl_interp *interp, int argc, lcl_value **argv, lcl_
 }
 
 /* ExportFontAsCode: Export font as code file, returns true on success */
-static int rl_fn_ExportFontAsCode(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_ExportFontAsCode(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Font a0;
   const char *a1;
   bool r;
@@ -8890,7 +8890,7 @@ static int rl_fn_ExportFontAsCode(lcl_interp *interp, int argc, lcl_value **argv
 }
 
 /* DrawFPS: Draw current FPS */
-static int rl_fn_DrawFPS(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_DrawFPS(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   long a0;
   long a1;
   (void)out;
@@ -8902,7 +8902,7 @@ static int rl_fn_DrawFPS(lcl_interp *interp, int argc, lcl_value **argv, lcl_val
 }
 
 /* DrawText: Draw text (using default font) */
-static int rl_fn_DrawText(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_DrawText(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   const char *a0;
   long a1;
   long a2;
@@ -8920,7 +8920,7 @@ static int rl_fn_DrawText(lcl_interp *interp, int argc, lcl_value **argv, lcl_va
 }
 
 /* DrawTextEx: Draw text using font and additional parameters */
-static int rl_fn_DrawTextEx(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_DrawTextEx(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Font a0;
   const char *a1;
   Vector2 a2;
@@ -8940,7 +8940,7 @@ static int rl_fn_DrawTextEx(lcl_interp *interp, int argc, lcl_value **argv, lcl_
 }
 
 /* DrawTextPro: Draw text using Font and pro parameters (rotation) */
-static int rl_fn_DrawTextPro(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_DrawTextPro(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Font a0;
   const char *a1;
   Vector2 a2;
@@ -8964,7 +8964,7 @@ static int rl_fn_DrawTextPro(lcl_interp *interp, int argc, lcl_value **argv, lcl
 }
 
 /* DrawTextCodepoint: Draw one character (codepoint) */
-static int rl_fn_DrawTextCodepoint(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_DrawTextCodepoint(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Font a0;
   long a1;
   Vector2 a2;
@@ -8982,7 +8982,7 @@ static int rl_fn_DrawTextCodepoint(lcl_interp *interp, int argc, lcl_value **arg
 }
 
 /* DrawTextCodepoints: Draw multiple character (codepoint) */
-static int rl_fn_DrawTextCodepoints(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_DrawTextCodepoints(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Font a0;
   int *a1 = NULL;
   int n1 = 0;
@@ -9019,7 +9019,7 @@ cleanup:
 }
 
 /* SetTextLineSpacing: Set vertical line spacing when drawing with line-breaks */
-static int rl_fn_SetTextLineSpacing(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_SetTextLineSpacing(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   long a0;
   (void)out;
   if (argc != 1) return rl_arity_error(interp, "raylib::set_text_line_spacing", 1, argc);
@@ -9029,7 +9029,7 @@ static int rl_fn_SetTextLineSpacing(lcl_interp *interp, int argc, lcl_value **ar
 }
 
 /* MeasureText: Measure string width for default font */
-static int rl_fn_MeasureText(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_MeasureText(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   const char *a0;
   long a1;
   int r;
@@ -9042,7 +9042,7 @@ static int rl_fn_MeasureText(lcl_interp *interp, int argc, lcl_value **argv, lcl
 }
 
 /* MeasureTextEx: Measure string size for Font */
-static int rl_fn_MeasureTextEx(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_MeasureTextEx(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Font a0;
   const char *a1;
   double a2;
@@ -9059,7 +9059,7 @@ static int rl_fn_MeasureTextEx(lcl_interp *interp, int argc, lcl_value **argv, l
 }
 
 /* GetGlyphIndex: Get glyph index position in font for a codepoint (unicode character), fallback to '?' if not found */
-static int rl_fn_GetGlyphIndex(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GetGlyphIndex(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Font a0;
   long a1;
   int r;
@@ -9072,7 +9072,7 @@ static int rl_fn_GetGlyphIndex(lcl_interp *interp, int argc, lcl_value **argv, l
 }
 
 /* GetGlyphInfo: Get glyph font info data for a codepoint (unicode character), fallback to '?' if not found */
-static int rl_fn_GetGlyphInfo(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GetGlyphInfo(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Font a0;
   long a1;
   GlyphInfo r;
@@ -9085,7 +9085,7 @@ static int rl_fn_GetGlyphInfo(lcl_interp *interp, int argc, lcl_value **argv, lc
 }
 
 /* GetGlyphAtlasRec: Get glyph rectangle in font atlas for a codepoint (unicode character), fallback to '?' if not found */
-static int rl_fn_GetGlyphAtlasRec(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GetGlyphAtlasRec(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Font a0;
   long a1;
   Rectangle r;
@@ -9098,7 +9098,7 @@ static int rl_fn_GetGlyphAtlasRec(lcl_interp *interp, int argc, lcl_value **argv
 }
 
 /* GetCodepointCount: Get total number of codepoints in a UTF-8 encoded string */
-static int rl_fn_GetCodepointCount(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GetCodepointCount(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   const char *a0;
   int r;
   if (argc != 1) return rl_arity_error(interp, "raylib::get_codepoint_count", 1, argc);
@@ -9109,7 +9109,7 @@ static int rl_fn_GetCodepointCount(lcl_interp *interp, int argc, lcl_value **arg
 }
 
 /* TextIsEqual: Check if two text string are equal */
-static int rl_fn_TextIsEqual(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_TextIsEqual(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   const char *a0;
   const char *a1;
   bool r;
@@ -9122,7 +9122,7 @@ static int rl_fn_TextIsEqual(lcl_interp *interp, int argc, lcl_value **argv, lcl
 }
 
 /* TextLength: Get text length, checks for '\\0' ending */
-static int rl_fn_TextLength(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_TextLength(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   const char *a0;
   unsigned int r;
   if (argc != 1) return rl_arity_error(interp, "raylib::text_length", 1, argc);
@@ -9133,7 +9133,7 @@ static int rl_fn_TextLength(lcl_interp *interp, int argc, lcl_value **argv, lcl_
 }
 
 /* TextSubtext: Get a piece of a text string */
-static int rl_fn_TextSubtext(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_TextSubtext(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   const char *a0;
   long a1;
   long a2;
@@ -9148,7 +9148,7 @@ static int rl_fn_TextSubtext(lcl_interp *interp, int argc, lcl_value **argv, lcl
 }
 
 /* TextRemoveSpaces: Remove text spaces, concat words */
-static int rl_fn_TextRemoveSpaces(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_TextRemoveSpaces(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   const char *a0;
   const char * r;
   if (argc != 1) return rl_arity_error(interp, "raylib::text_remove_spaces", 1, argc);
@@ -9159,7 +9159,7 @@ static int rl_fn_TextRemoveSpaces(lcl_interp *interp, int argc, lcl_value **argv
 }
 
 /* TextFindIndex: Find first text occurrence within a string, -1 if not found */
-static int rl_fn_TextFindIndex(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_TextFindIndex(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   const char *a0;
   const char *a1;
   int r;
@@ -9172,7 +9172,7 @@ static int rl_fn_TextFindIndex(lcl_interp *interp, int argc, lcl_value **argv, l
 }
 
 /* TextToInteger: Get integer value from text */
-static int rl_fn_TextToInteger(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_TextToInteger(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   const char *a0;
   int r;
   if (argc != 1) return rl_arity_error(interp, "raylib::text_to_integer", 1, argc);
@@ -9183,7 +9183,7 @@ static int rl_fn_TextToInteger(lcl_interp *interp, int argc, lcl_value **argv, l
 }
 
 /* TextToFloat: Get float value from text */
-static int rl_fn_TextToFloat(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_TextToFloat(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   const char *a0;
   float r;
   if (argc != 1) return rl_arity_error(interp, "raylib::text_to_float", 1, argc);
@@ -9194,7 +9194,7 @@ static int rl_fn_TextToFloat(lcl_interp *interp, int argc, lcl_value **argv, lcl
 }
 
 /* DrawLine3D: Draw a line in 3D world space */
-static int rl_fn_DrawLine3D(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_DrawLine3D(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector3 a0;
   Vector3 a1;
   Color a2;
@@ -9208,7 +9208,7 @@ static int rl_fn_DrawLine3D(lcl_interp *interp, int argc, lcl_value **argv, lcl_
 }
 
 /* DrawPoint3D: Draw a point in 3D space, actually a small line */
-static int rl_fn_DrawPoint3D(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_DrawPoint3D(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector3 a0;
   Color a1;
   (void)out;
@@ -9220,7 +9220,7 @@ static int rl_fn_DrawPoint3D(lcl_interp *interp, int argc, lcl_value **argv, lcl
 }
 
 /* DrawCircle3D: Draw a circle in 3D world space */
-static int rl_fn_DrawCircle3D(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_DrawCircle3D(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector3 a0;
   double a1;
   Vector3 a2;
@@ -9238,7 +9238,7 @@ static int rl_fn_DrawCircle3D(lcl_interp *interp, int argc, lcl_value **argv, lc
 }
 
 /* DrawTriangle3D: Draw a color-filled triangle (vertex in counter-clockwise order!) */
-static int rl_fn_DrawTriangle3D(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_DrawTriangle3D(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector3 a0;
   Vector3 a1;
   Vector3 a2;
@@ -9254,7 +9254,7 @@ static int rl_fn_DrawTriangle3D(lcl_interp *interp, int argc, lcl_value **argv, 
 }
 
 /* DrawTriangleStrip3D: Draw a triangle strip defined by points */
-static int rl_fn_DrawTriangleStrip3D(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_DrawTriangleStrip3D(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector3 *a0 = NULL;
   int n0 = 0;
   Color a1;
@@ -9283,7 +9283,7 @@ cleanup:
 }
 
 /* DrawCube: Draw cube */
-static int rl_fn_DrawCube(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_DrawCube(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector3 a0;
   double a1;
   double a2;
@@ -9301,7 +9301,7 @@ static int rl_fn_DrawCube(lcl_interp *interp, int argc, lcl_value **argv, lcl_va
 }
 
 /* DrawCubeV: Draw cube (Vector version) */
-static int rl_fn_DrawCubeV(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_DrawCubeV(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector3 a0;
   Vector3 a1;
   Color a2;
@@ -9315,7 +9315,7 @@ static int rl_fn_DrawCubeV(lcl_interp *interp, int argc, lcl_value **argv, lcl_v
 }
 
 /* DrawCubeWires: Draw cube wires */
-static int rl_fn_DrawCubeWires(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_DrawCubeWires(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector3 a0;
   double a1;
   double a2;
@@ -9333,7 +9333,7 @@ static int rl_fn_DrawCubeWires(lcl_interp *interp, int argc, lcl_value **argv, l
 }
 
 /* DrawCubeWiresV: Draw cube wires (Vector version) */
-static int rl_fn_DrawCubeWiresV(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_DrawCubeWiresV(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector3 a0;
   Vector3 a1;
   Color a2;
@@ -9347,7 +9347,7 @@ static int rl_fn_DrawCubeWiresV(lcl_interp *interp, int argc, lcl_value **argv, 
 }
 
 /* DrawSphere: Draw sphere */
-static int rl_fn_DrawSphere(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_DrawSphere(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector3 a0;
   double a1;
   Color a2;
@@ -9361,7 +9361,7 @@ static int rl_fn_DrawSphere(lcl_interp *interp, int argc, lcl_value **argv, lcl_
 }
 
 /* DrawSphereEx: Draw sphere with extended parameters */
-static int rl_fn_DrawSphereEx(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_DrawSphereEx(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector3 a0;
   double a1;
   long a2;
@@ -9379,7 +9379,7 @@ static int rl_fn_DrawSphereEx(lcl_interp *interp, int argc, lcl_value **argv, lc
 }
 
 /* DrawSphereWires: Draw sphere wires */
-static int rl_fn_DrawSphereWires(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_DrawSphereWires(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector3 a0;
   double a1;
   long a2;
@@ -9397,7 +9397,7 @@ static int rl_fn_DrawSphereWires(lcl_interp *interp, int argc, lcl_value **argv,
 }
 
 /* DrawCylinder: Draw a cylinder/cone */
-static int rl_fn_DrawCylinder(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_DrawCylinder(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector3 a0;
   double a1;
   double a2;
@@ -9417,7 +9417,7 @@ static int rl_fn_DrawCylinder(lcl_interp *interp, int argc, lcl_value **argv, lc
 }
 
 /* DrawCylinderEx: Draw a cylinder with base at startPos and top at endPos */
-static int rl_fn_DrawCylinderEx(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_DrawCylinderEx(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector3 a0;
   Vector3 a1;
   double a2;
@@ -9437,7 +9437,7 @@ static int rl_fn_DrawCylinderEx(lcl_interp *interp, int argc, lcl_value **argv, 
 }
 
 /* DrawCylinderWires: Draw a cylinder/cone wires */
-static int rl_fn_DrawCylinderWires(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_DrawCylinderWires(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector3 a0;
   double a1;
   double a2;
@@ -9457,7 +9457,7 @@ static int rl_fn_DrawCylinderWires(lcl_interp *interp, int argc, lcl_value **arg
 }
 
 /* DrawCylinderWiresEx: Draw a cylinder wires with base at startPos and top at endPos */
-static int rl_fn_DrawCylinderWiresEx(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_DrawCylinderWiresEx(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector3 a0;
   Vector3 a1;
   double a2;
@@ -9477,7 +9477,7 @@ static int rl_fn_DrawCylinderWiresEx(lcl_interp *interp, int argc, lcl_value **a
 }
 
 /* DrawCapsule: Draw a capsule with the center of its sphere caps at startPos and endPos */
-static int rl_fn_DrawCapsule(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_DrawCapsule(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector3 a0;
   Vector3 a1;
   double a2;
@@ -9497,7 +9497,7 @@ static int rl_fn_DrawCapsule(lcl_interp *interp, int argc, lcl_value **argv, lcl
 }
 
 /* DrawCapsuleWires: Draw capsule wireframe with the center of its sphere caps at startPos and endPos */
-static int rl_fn_DrawCapsuleWires(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_DrawCapsuleWires(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector3 a0;
   Vector3 a1;
   double a2;
@@ -9517,7 +9517,7 @@ static int rl_fn_DrawCapsuleWires(lcl_interp *interp, int argc, lcl_value **argv
 }
 
 /* DrawPlane: Draw a plane XZ */
-static int rl_fn_DrawPlane(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_DrawPlane(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector3 a0;
   Vector2 a1;
   Color a2;
@@ -9531,7 +9531,7 @@ static int rl_fn_DrawPlane(lcl_interp *interp, int argc, lcl_value **argv, lcl_v
 }
 
 /* DrawRay: Draw a ray line */
-static int rl_fn_DrawRay(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_DrawRay(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Ray a0;
   Color a1;
   (void)out;
@@ -9543,7 +9543,7 @@ static int rl_fn_DrawRay(lcl_interp *interp, int argc, lcl_value **argv, lcl_val
 }
 
 /* DrawGrid: Draw a grid (centered at (0, 0, 0)) */
-static int rl_fn_DrawGrid(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_DrawGrid(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   long a0;
   double a1;
   (void)out;
@@ -9555,7 +9555,7 @@ static int rl_fn_DrawGrid(lcl_interp *interp, int argc, lcl_value **argv, lcl_va
 }
 
 /* LoadModel: Load model from files (meshes and materials) */
-static int rl_fn_LoadModel(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_LoadModel(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   const char *a0;
   Model r;
   if (argc != 1) return rl_arity_error(interp, "raylib::load_model", 1, argc);
@@ -9566,7 +9566,7 @@ static int rl_fn_LoadModel(lcl_interp *interp, int argc, lcl_value **argv, lcl_v
 }
 
 /* LoadModelFromMesh: Load model from generated mesh (default material) */
-static int rl_fn_LoadModelFromMesh(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_LoadModelFromMesh(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Mesh a0;
   Model r;
   if (argc != 1) return rl_arity_error(interp, "raylib::load_model_from_mesh", 1, argc);
@@ -9577,7 +9577,7 @@ static int rl_fn_LoadModelFromMesh(lcl_interp *interp, int argc, lcl_value **arg
 }
 
 /* IsModelValid: Check if a model is valid (loaded in GPU, VAO/VBOs) */
-static int rl_fn_IsModelValid(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_IsModelValid(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Model a0;
   bool r;
   if (argc != 1) return rl_arity_error(interp, "raylib::is_model_valid", 1, argc);
@@ -9588,7 +9588,7 @@ static int rl_fn_IsModelValid(lcl_interp *interp, int argc, lcl_value **argv, lc
 }
 
 /* UnloadModel: Unload model (including meshes) from memory (RAM and/or VRAM) */
-static int rl_fn_UnloadModel(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_UnloadModel(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Model a0;
   (void)out;
   if (argc != 1) return rl_arity_error(interp, "raylib::unload_model", 1, argc);
@@ -9598,7 +9598,7 @@ static int rl_fn_UnloadModel(lcl_interp *interp, int argc, lcl_value **argv, lcl
 }
 
 /* GetModelBoundingBox: Compute model bounding box limits (considers all meshes) */
-static int rl_fn_GetModelBoundingBox(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GetModelBoundingBox(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Model a0;
   BoundingBox r;
   if (argc != 1) return rl_arity_error(interp, "raylib::get_model_bounding_box", 1, argc);
@@ -9609,7 +9609,7 @@ static int rl_fn_GetModelBoundingBox(lcl_interp *interp, int argc, lcl_value **a
 }
 
 /* DrawModel: Draw a model (with texture if set) */
-static int rl_fn_DrawModel(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_DrawModel(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Model a0;
   Vector3 a1;
   double a2;
@@ -9625,7 +9625,7 @@ static int rl_fn_DrawModel(lcl_interp *interp, int argc, lcl_value **argv, lcl_v
 }
 
 /* DrawModelEx: Draw a model with extended parameters */
-static int rl_fn_DrawModelEx(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_DrawModelEx(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Model a0;
   Vector3 a1;
   Vector3 a2;
@@ -9645,7 +9645,7 @@ static int rl_fn_DrawModelEx(lcl_interp *interp, int argc, lcl_value **argv, lcl
 }
 
 /* DrawModelWires: Draw a model wires (with texture if set) */
-static int rl_fn_DrawModelWires(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_DrawModelWires(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Model a0;
   Vector3 a1;
   double a2;
@@ -9661,7 +9661,7 @@ static int rl_fn_DrawModelWires(lcl_interp *interp, int argc, lcl_value **argv, 
 }
 
 /* DrawModelWiresEx: Draw a model wires (with texture if set) with extended parameters */
-static int rl_fn_DrawModelWiresEx(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_DrawModelWiresEx(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Model a0;
   Vector3 a1;
   Vector3 a2;
@@ -9681,7 +9681,7 @@ static int rl_fn_DrawModelWiresEx(lcl_interp *interp, int argc, lcl_value **argv
 }
 
 /* DrawBoundingBox: Draw bounding box (wires) */
-static int rl_fn_DrawBoundingBox(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_DrawBoundingBox(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   BoundingBox a0;
   Color a1;
   (void)out;
@@ -9693,7 +9693,7 @@ static int rl_fn_DrawBoundingBox(lcl_interp *interp, int argc, lcl_value **argv,
 }
 
 /* DrawBillboard: Draw a billboard texture */
-static int rl_fn_DrawBillboard(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_DrawBillboard(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Camera3D a0;
   Texture a1;
   Vector3 a2;
@@ -9711,7 +9711,7 @@ static int rl_fn_DrawBillboard(lcl_interp *interp, int argc, lcl_value **argv, l
 }
 
 /* DrawBillboardRec: Draw a billboard texture defined by source */
-static int rl_fn_DrawBillboardRec(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_DrawBillboardRec(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Camera3D a0;
   Texture a1;
   Rectangle a2;
@@ -9731,7 +9731,7 @@ static int rl_fn_DrawBillboardRec(lcl_interp *interp, int argc, lcl_value **argv
 }
 
 /* DrawBillboardPro: Draw a billboard texture defined by source and rotation */
-static int rl_fn_DrawBillboardPro(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_DrawBillboardPro(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Camera3D a0;
   Texture a1;
   Rectangle a2;
@@ -9757,7 +9757,7 @@ static int rl_fn_DrawBillboardPro(lcl_interp *interp, int argc, lcl_value **argv
 }
 
 /* UploadMesh: Upload mesh vertex data in GPU and provide VAO/VBO ids */
-static int rl_fn_UploadMesh(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_UploadMesh(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Mesh *a0;
   long a1;
   (void)out;
@@ -9769,7 +9769,7 @@ static int rl_fn_UploadMesh(lcl_interp *interp, int argc, lcl_value **argv, lcl_
 }
 
 /* UnloadMesh: Unload mesh data from CPU and GPU */
-static int rl_fn_UnloadMesh(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_UnloadMesh(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Mesh a0;
   (void)out;
   if (argc != 1) return rl_arity_error(interp, "raylib::unload_mesh", 1, argc);
@@ -9779,7 +9779,7 @@ static int rl_fn_UnloadMesh(lcl_interp *interp, int argc, lcl_value **argv, lcl_
 }
 
 /* DrawMesh: Draw a 3d mesh with material and transform */
-static int rl_fn_DrawMesh(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_DrawMesh(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Mesh a0;
   Material a1;
   Matrix a2;
@@ -9793,7 +9793,7 @@ static int rl_fn_DrawMesh(lcl_interp *interp, int argc, lcl_value **argv, lcl_va
 }
 
 /* DrawMeshInstanced: Draw multiple mesh instances with material and different transforms */
-static int rl_fn_DrawMeshInstanced(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_DrawMeshInstanced(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Mesh a0;
   Material a1;
   Matrix *a2 = NULL;
@@ -9824,7 +9824,7 @@ cleanup:
 }
 
 /* GetMeshBoundingBox: Compute mesh bounding box limits */
-static int rl_fn_GetMeshBoundingBox(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GetMeshBoundingBox(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Mesh a0;
   BoundingBox r;
   if (argc != 1) return rl_arity_error(interp, "raylib::get_mesh_bounding_box", 1, argc);
@@ -9835,7 +9835,7 @@ static int rl_fn_GetMeshBoundingBox(lcl_interp *interp, int argc, lcl_value **ar
 }
 
 /* GenMeshTangents: Compute mesh tangents */
-static int rl_fn_GenMeshTangents(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GenMeshTangents(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Mesh *a0;
   (void)out;
   if (argc != 1) return rl_arity_error(interp, "raylib::gen_mesh_tangents", 1, argc);
@@ -9845,7 +9845,7 @@ static int rl_fn_GenMeshTangents(lcl_interp *interp, int argc, lcl_value **argv,
 }
 
 /* ExportMesh: Export mesh data to file, returns true on success */
-static int rl_fn_ExportMesh(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_ExportMesh(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Mesh a0;
   const char *a1;
   bool r;
@@ -9858,7 +9858,7 @@ static int rl_fn_ExportMesh(lcl_interp *interp, int argc, lcl_value **argv, lcl_
 }
 
 /* ExportMeshAsCode: Export mesh as code file (.h) defining multiple arrays of vertex attributes */
-static int rl_fn_ExportMeshAsCode(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_ExportMeshAsCode(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Mesh a0;
   const char *a1;
   bool r;
@@ -9871,7 +9871,7 @@ static int rl_fn_ExportMeshAsCode(lcl_interp *interp, int argc, lcl_value **argv
 }
 
 /* GenMeshPoly: Generate polygonal mesh */
-static int rl_fn_GenMeshPoly(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GenMeshPoly(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   long a0;
   double a1;
   Mesh r;
@@ -9884,7 +9884,7 @@ static int rl_fn_GenMeshPoly(lcl_interp *interp, int argc, lcl_value **argv, lcl
 }
 
 /* GenMeshPlane: Generate plane mesh (with subdivisions) */
-static int rl_fn_GenMeshPlane(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GenMeshPlane(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   double a0;
   double a1;
   long a2;
@@ -9901,7 +9901,7 @@ static int rl_fn_GenMeshPlane(lcl_interp *interp, int argc, lcl_value **argv, lc
 }
 
 /* GenMeshCube: Generate cuboid mesh */
-static int rl_fn_GenMeshCube(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GenMeshCube(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   double a0;
   double a1;
   double a2;
@@ -9916,7 +9916,7 @@ static int rl_fn_GenMeshCube(lcl_interp *interp, int argc, lcl_value **argv, lcl
 }
 
 /* GenMeshSphere: Generate sphere mesh (standard sphere) */
-static int rl_fn_GenMeshSphere(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GenMeshSphere(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   double a0;
   long a1;
   long a2;
@@ -9931,7 +9931,7 @@ static int rl_fn_GenMeshSphere(lcl_interp *interp, int argc, lcl_value **argv, l
 }
 
 /* GenMeshHemiSphere: Generate half-sphere mesh (no bottom cap) */
-static int rl_fn_GenMeshHemiSphere(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GenMeshHemiSphere(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   double a0;
   long a1;
   long a2;
@@ -9946,7 +9946,7 @@ static int rl_fn_GenMeshHemiSphere(lcl_interp *interp, int argc, lcl_value **arg
 }
 
 /* GenMeshCylinder: Generate cylinder mesh */
-static int rl_fn_GenMeshCylinder(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GenMeshCylinder(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   double a0;
   double a1;
   long a2;
@@ -9961,7 +9961,7 @@ static int rl_fn_GenMeshCylinder(lcl_interp *interp, int argc, lcl_value **argv,
 }
 
 /* GenMeshCone: Generate cone/pyramid mesh */
-static int rl_fn_GenMeshCone(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GenMeshCone(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   double a0;
   double a1;
   long a2;
@@ -9976,7 +9976,7 @@ static int rl_fn_GenMeshCone(lcl_interp *interp, int argc, lcl_value **argv, lcl
 }
 
 /* GenMeshTorus: Generate torus mesh */
-static int rl_fn_GenMeshTorus(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GenMeshTorus(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   double a0;
   double a1;
   long a2;
@@ -9993,7 +9993,7 @@ static int rl_fn_GenMeshTorus(lcl_interp *interp, int argc, lcl_value **argv, lc
 }
 
 /* GenMeshKnot: Generate trefoil knot mesh */
-static int rl_fn_GenMeshKnot(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GenMeshKnot(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   double a0;
   double a1;
   long a2;
@@ -10010,7 +10010,7 @@ static int rl_fn_GenMeshKnot(lcl_interp *interp, int argc, lcl_value **argv, lcl
 }
 
 /* GenMeshHeightmap: Generate heightmap mesh from image data */
-static int rl_fn_GenMeshHeightmap(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GenMeshHeightmap(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Image a0;
   Vector3 a1;
   Mesh r;
@@ -10023,7 +10023,7 @@ static int rl_fn_GenMeshHeightmap(lcl_interp *interp, int argc, lcl_value **argv
 }
 
 /* GenMeshCubicmap: Generate cubes-based map mesh from image data */
-static int rl_fn_GenMeshCubicmap(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GenMeshCubicmap(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Image a0;
   Vector3 a1;
   Mesh r;
@@ -10036,7 +10036,7 @@ static int rl_fn_GenMeshCubicmap(lcl_interp *interp, int argc, lcl_value **argv,
 }
 
 /* LoadMaterialDefault: Load default material (Supports: DIFFUSE, SPECULAR, NORMAL maps) */
-static int rl_fn_LoadMaterialDefault(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_LoadMaterialDefault(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Material r;
   (void)argv;
   if (argc != 0) return rl_arity_error(interp, "raylib::load_material_default", 0, argc);
@@ -10046,7 +10046,7 @@ static int rl_fn_LoadMaterialDefault(lcl_interp *interp, int argc, lcl_value **a
 }
 
 /* IsMaterialValid: Check if a material is valid (shader assigned, map textures loaded in GPU) */
-static int rl_fn_IsMaterialValid(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_IsMaterialValid(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Material a0;
   bool r;
   if (argc != 1) return rl_arity_error(interp, "raylib::is_material_valid", 1, argc);
@@ -10057,7 +10057,7 @@ static int rl_fn_IsMaterialValid(lcl_interp *interp, int argc, lcl_value **argv,
 }
 
 /* UnloadMaterial: Unload material from GPU memory (VRAM) */
-static int rl_fn_UnloadMaterial(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_UnloadMaterial(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Material a0;
   (void)out;
   if (argc != 1) return rl_arity_error(interp, "raylib::unload_material", 1, argc);
@@ -10067,7 +10067,7 @@ static int rl_fn_UnloadMaterial(lcl_interp *interp, int argc, lcl_value **argv, 
 }
 
 /* SetMaterialTexture: Set texture for a material map type (MATERIAL_MAP_DIFFUSE, MATERIAL_MAP_SPECULAR...) */
-static int rl_fn_SetMaterialTexture(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_SetMaterialTexture(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Material *a0;
   long a1;
   Texture a2;
@@ -10081,7 +10081,7 @@ static int rl_fn_SetMaterialTexture(lcl_interp *interp, int argc, lcl_value **ar
 }
 
 /* SetModelMeshMaterial: Set material for a mesh */
-static int rl_fn_SetModelMeshMaterial(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_SetModelMeshMaterial(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Model *a0;
   long a1;
   long a2;
@@ -10095,7 +10095,7 @@ static int rl_fn_SetModelMeshMaterial(lcl_interp *interp, int argc, lcl_value **
 }
 
 /* UpdateModelAnimation: Update model animation pose (vertex buffers and bone matrices) */
-static int rl_fn_UpdateModelAnimation(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_UpdateModelAnimation(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Model a0;
   ModelAnimation a1;
   double a2;
@@ -10109,7 +10109,7 @@ static int rl_fn_UpdateModelAnimation(lcl_interp *interp, int argc, lcl_value **
 }
 
 /* UpdateModelAnimationEx: Update model animation pose, blending two animations */
-static int rl_fn_UpdateModelAnimationEx(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_UpdateModelAnimationEx(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Model a0;
   ModelAnimation a1;
   double a2;
@@ -10129,7 +10129,7 @@ static int rl_fn_UpdateModelAnimationEx(lcl_interp *interp, int argc, lcl_value 
 }
 
 /* UnloadModelAnimations: Unload animation array data */
-static int rl_fn_UnloadModelAnimations(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_UnloadModelAnimations(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   ModelAnimation *a0 = NULL;
   int n0 = 0;
   (void)out;
@@ -10156,7 +10156,7 @@ cleanup:
 }
 
 /* IsModelAnimationValid: Check model animation skeleton match */
-static int rl_fn_IsModelAnimationValid(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_IsModelAnimationValid(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Model a0;
   ModelAnimation a1;
   bool r;
@@ -10169,7 +10169,7 @@ static int rl_fn_IsModelAnimationValid(lcl_interp *interp, int argc, lcl_value *
 }
 
 /* CheckCollisionSpheres: Check collision between two spheres */
-static int rl_fn_CheckCollisionSpheres(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_CheckCollisionSpheres(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Vector3 a0;
   double a1;
   Vector3 a2;
@@ -10186,7 +10186,7 @@ static int rl_fn_CheckCollisionSpheres(lcl_interp *interp, int argc, lcl_value *
 }
 
 /* CheckCollisionBoxes: Check collision between two bounding boxes */
-static int rl_fn_CheckCollisionBoxes(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_CheckCollisionBoxes(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   BoundingBox a0;
   BoundingBox a1;
   bool r;
@@ -10199,7 +10199,7 @@ static int rl_fn_CheckCollisionBoxes(lcl_interp *interp, int argc, lcl_value **a
 }
 
 /* CheckCollisionBoxSphere: Check collision between box and sphere */
-static int rl_fn_CheckCollisionBoxSphere(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_CheckCollisionBoxSphere(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   BoundingBox a0;
   Vector3 a1;
   double a2;
@@ -10214,7 +10214,7 @@ static int rl_fn_CheckCollisionBoxSphere(lcl_interp *interp, int argc, lcl_value
 }
 
 /* GetRayCollisionSphere: Get collision info between ray and sphere */
-static int rl_fn_GetRayCollisionSphere(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GetRayCollisionSphere(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Ray a0;
   Vector3 a1;
   double a2;
@@ -10229,7 +10229,7 @@ static int rl_fn_GetRayCollisionSphere(lcl_interp *interp, int argc, lcl_value *
 }
 
 /* GetRayCollisionBox: Get collision info between ray and box */
-static int rl_fn_GetRayCollisionBox(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GetRayCollisionBox(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Ray a0;
   BoundingBox a1;
   RayCollision r;
@@ -10242,7 +10242,7 @@ static int rl_fn_GetRayCollisionBox(lcl_interp *interp, int argc, lcl_value **ar
 }
 
 /* GetRayCollisionMesh: Get collision info between ray and mesh */
-static int rl_fn_GetRayCollisionMesh(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GetRayCollisionMesh(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Ray a0;
   Mesh a1;
   Matrix a2;
@@ -10257,7 +10257,7 @@ static int rl_fn_GetRayCollisionMesh(lcl_interp *interp, int argc, lcl_value **a
 }
 
 /* GetRayCollisionTriangle: Get collision info between ray and triangle */
-static int rl_fn_GetRayCollisionTriangle(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GetRayCollisionTriangle(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Ray a0;
   Vector3 a1;
   Vector3 a2;
@@ -10274,7 +10274,7 @@ static int rl_fn_GetRayCollisionTriangle(lcl_interp *interp, int argc, lcl_value
 }
 
 /* GetRayCollisionQuad: Get collision info between ray and quad */
-static int rl_fn_GetRayCollisionQuad(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GetRayCollisionQuad(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Ray a0;
   Vector3 a1;
   Vector3 a2;
@@ -10293,7 +10293,7 @@ static int rl_fn_GetRayCollisionQuad(lcl_interp *interp, int argc, lcl_value **a
 }
 
 /* InitAudioDevice: Initialize audio device and context */
-static int rl_fn_InitAudioDevice(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_InitAudioDevice(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   (void)out;
   (void)argv;
   if (argc != 0) return rl_arity_error(interp, "raylib::init_audio_device", 0, argc);
@@ -10302,7 +10302,7 @@ static int rl_fn_InitAudioDevice(lcl_interp *interp, int argc, lcl_value **argv,
 }
 
 /* CloseAudioDevice: Close the audio device and context */
-static int rl_fn_CloseAudioDevice(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_CloseAudioDevice(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   (void)out;
   (void)argv;
   if (argc != 0) return rl_arity_error(interp, "raylib::close_audio_device", 0, argc);
@@ -10311,7 +10311,7 @@ static int rl_fn_CloseAudioDevice(lcl_interp *interp, int argc, lcl_value **argv
 }
 
 /* IsAudioDeviceReady: Check if audio device has been initialized successfully */
-static int rl_fn_IsAudioDeviceReady(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_IsAudioDeviceReady(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   bool r;
   (void)argv;
   if (argc != 0) return rl_arity_error(interp, "raylib::is_audio_device_ready", 0, argc);
@@ -10321,7 +10321,7 @@ static int rl_fn_IsAudioDeviceReady(lcl_interp *interp, int argc, lcl_value **ar
 }
 
 /* SetMasterVolume: Set master volume (listener) */
-static int rl_fn_SetMasterVolume(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_SetMasterVolume(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   double a0;
   (void)out;
   if (argc != 1) return rl_arity_error(interp, "raylib::set_master_volume", 1, argc);
@@ -10331,7 +10331,7 @@ static int rl_fn_SetMasterVolume(lcl_interp *interp, int argc, lcl_value **argv,
 }
 
 /* GetMasterVolume: Get master volume (listener) */
-static int rl_fn_GetMasterVolume(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GetMasterVolume(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   float r;
   (void)argv;
   if (argc != 0) return rl_arity_error(interp, "raylib::get_master_volume", 0, argc);
@@ -10341,7 +10341,7 @@ static int rl_fn_GetMasterVolume(lcl_interp *interp, int argc, lcl_value **argv,
 }
 
 /* LoadWave: Load wave data from file */
-static int rl_fn_LoadWave(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_LoadWave(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   const char *a0;
   Wave r;
   if (argc != 1) return rl_arity_error(interp, "raylib::load_wave", 1, argc);
@@ -10352,7 +10352,7 @@ static int rl_fn_LoadWave(lcl_interp *interp, int argc, lcl_value **argv, lcl_va
 }
 
 /* IsWaveValid: Checks if wave data is valid (data loaded and parameters) */
-static int rl_fn_IsWaveValid(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_IsWaveValid(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Wave a0;
   bool r;
   if (argc != 1) return rl_arity_error(interp, "raylib::is_wave_valid", 1, argc);
@@ -10363,7 +10363,7 @@ static int rl_fn_IsWaveValid(lcl_interp *interp, int argc, lcl_value **argv, lcl
 }
 
 /* LoadSound: Load sound from file */
-static int rl_fn_LoadSound(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_LoadSound(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   const char *a0;
   Sound r;
   if (argc != 1) return rl_arity_error(interp, "raylib::load_sound", 1, argc);
@@ -10374,7 +10374,7 @@ static int rl_fn_LoadSound(lcl_interp *interp, int argc, lcl_value **argv, lcl_v
 }
 
 /* LoadSoundFromWave: Load sound from wave data */
-static int rl_fn_LoadSoundFromWave(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_LoadSoundFromWave(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Wave a0;
   Sound r;
   if (argc != 1) return rl_arity_error(interp, "raylib::load_sound_from_wave", 1, argc);
@@ -10385,7 +10385,7 @@ static int rl_fn_LoadSoundFromWave(lcl_interp *interp, int argc, lcl_value **arg
 }
 
 /* LoadSoundAlias: Create a new sound that shares the same sample data as the source sound, does not own the sound data */
-static int rl_fn_LoadSoundAlias(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_LoadSoundAlias(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Sound a0;
   Sound r;
   if (argc != 1) return rl_arity_error(interp, "raylib::load_sound_alias", 1, argc);
@@ -10396,7 +10396,7 @@ static int rl_fn_LoadSoundAlias(lcl_interp *interp, int argc, lcl_value **argv, 
 }
 
 /* IsSoundValid: Checks if a sound is valid (data loaded and buffers initialized) */
-static int rl_fn_IsSoundValid(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_IsSoundValid(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Sound a0;
   bool r;
   if (argc != 1) return rl_arity_error(interp, "raylib::is_sound_valid", 1, argc);
@@ -10407,7 +10407,7 @@ static int rl_fn_IsSoundValid(lcl_interp *interp, int argc, lcl_value **argv, lc
 }
 
 /* UnloadWave: Unload wave data */
-static int rl_fn_UnloadWave(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_UnloadWave(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Wave a0;
   (void)out;
   if (argc != 1) return rl_arity_error(interp, "raylib::unload_wave", 1, argc);
@@ -10417,7 +10417,7 @@ static int rl_fn_UnloadWave(lcl_interp *interp, int argc, lcl_value **argv, lcl_
 }
 
 /* UnloadSound: Unload sound */
-static int rl_fn_UnloadSound(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_UnloadSound(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Sound a0;
   (void)out;
   if (argc != 1) return rl_arity_error(interp, "raylib::unload_sound", 1, argc);
@@ -10427,7 +10427,7 @@ static int rl_fn_UnloadSound(lcl_interp *interp, int argc, lcl_value **argv, lcl
 }
 
 /* UnloadSoundAlias: Unload a sound alias (does not deallocate sample data) */
-static int rl_fn_UnloadSoundAlias(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_UnloadSoundAlias(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Sound a0;
   (void)out;
   if (argc != 1) return rl_arity_error(interp, "raylib::unload_sound_alias", 1, argc);
@@ -10437,7 +10437,7 @@ static int rl_fn_UnloadSoundAlias(lcl_interp *interp, int argc, lcl_value **argv
 }
 
 /* ExportWave: Export wave data to file, returns true on success */
-static int rl_fn_ExportWave(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_ExportWave(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Wave a0;
   const char *a1;
   bool r;
@@ -10450,7 +10450,7 @@ static int rl_fn_ExportWave(lcl_interp *interp, int argc, lcl_value **argv, lcl_
 }
 
 /* ExportWaveAsCode: Export wave sample data to code (.h), returns true on success */
-static int rl_fn_ExportWaveAsCode(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_ExportWaveAsCode(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Wave a0;
   const char *a1;
   bool r;
@@ -10463,7 +10463,7 @@ static int rl_fn_ExportWaveAsCode(lcl_interp *interp, int argc, lcl_value **argv
 }
 
 /* PlaySound: Play a sound */
-static int rl_fn_PlaySound(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_PlaySound(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Sound a0;
   (void)out;
   if (argc != 1) return rl_arity_error(interp, "raylib::play_sound", 1, argc);
@@ -10473,7 +10473,7 @@ static int rl_fn_PlaySound(lcl_interp *interp, int argc, lcl_value **argv, lcl_v
 }
 
 /* StopSound: Stop playing a sound */
-static int rl_fn_StopSound(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_StopSound(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Sound a0;
   (void)out;
   if (argc != 1) return rl_arity_error(interp, "raylib::stop_sound", 1, argc);
@@ -10483,7 +10483,7 @@ static int rl_fn_StopSound(lcl_interp *interp, int argc, lcl_value **argv, lcl_v
 }
 
 /* PauseSound: Pause a sound */
-static int rl_fn_PauseSound(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_PauseSound(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Sound a0;
   (void)out;
   if (argc != 1) return rl_arity_error(interp, "raylib::pause_sound", 1, argc);
@@ -10493,7 +10493,7 @@ static int rl_fn_PauseSound(lcl_interp *interp, int argc, lcl_value **argv, lcl_
 }
 
 /* ResumeSound: Resume a paused sound */
-static int rl_fn_ResumeSound(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_ResumeSound(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Sound a0;
   (void)out;
   if (argc != 1) return rl_arity_error(interp, "raylib::resume_sound", 1, argc);
@@ -10503,7 +10503,7 @@ static int rl_fn_ResumeSound(lcl_interp *interp, int argc, lcl_value **argv, lcl
 }
 
 /* IsSoundPlaying: Check if a sound is currently playing */
-static int rl_fn_IsSoundPlaying(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_IsSoundPlaying(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Sound a0;
   bool r;
   if (argc != 1) return rl_arity_error(interp, "raylib::is_sound_playing", 1, argc);
@@ -10514,7 +10514,7 @@ static int rl_fn_IsSoundPlaying(lcl_interp *interp, int argc, lcl_value **argv, 
 }
 
 /* SetSoundVolume: Set volume for a sound (1.0 is max level) */
-static int rl_fn_SetSoundVolume(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_SetSoundVolume(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Sound a0;
   double a1;
   (void)out;
@@ -10526,7 +10526,7 @@ static int rl_fn_SetSoundVolume(lcl_interp *interp, int argc, lcl_value **argv, 
 }
 
 /* SetSoundPitch: Set pitch for a sound (1.0 is base level) */
-static int rl_fn_SetSoundPitch(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_SetSoundPitch(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Sound a0;
   double a1;
   (void)out;
@@ -10538,7 +10538,7 @@ static int rl_fn_SetSoundPitch(lcl_interp *interp, int argc, lcl_value **argv, l
 }
 
 /* SetSoundPan: Set pan for a sound (-1.0 left, 0.0 center, 1.0 right) */
-static int rl_fn_SetSoundPan(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_SetSoundPan(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Sound a0;
   double a1;
   (void)out;
@@ -10550,7 +10550,7 @@ static int rl_fn_SetSoundPan(lcl_interp *interp, int argc, lcl_value **argv, lcl
 }
 
 /* WaveCopy: Copy a wave to a new wave */
-static int rl_fn_WaveCopy(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_WaveCopy(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Wave a0;
   Wave r;
   if (argc != 1) return rl_arity_error(interp, "raylib::wave_copy", 1, argc);
@@ -10561,7 +10561,7 @@ static int rl_fn_WaveCopy(lcl_interp *interp, int argc, lcl_value **argv, lcl_va
 }
 
 /* WaveCrop: Crop a wave to defined frames range */
-static int rl_fn_WaveCrop(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_WaveCrop(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Wave *a0;
   long a1;
   long a2;
@@ -10575,7 +10575,7 @@ static int rl_fn_WaveCrop(lcl_interp *interp, int argc, lcl_value **argv, lcl_va
 }
 
 /* WaveFormat: Convert wave data to desired format */
-static int rl_fn_WaveFormat(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_WaveFormat(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Wave *a0;
   long a1;
   long a2;
@@ -10591,7 +10591,7 @@ static int rl_fn_WaveFormat(lcl_interp *interp, int argc, lcl_value **argv, lcl_
 }
 
 /* LoadMusicStream: Load music stream from file */
-static int rl_fn_LoadMusicStream(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_LoadMusicStream(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   const char *a0;
   Music r;
   if (argc != 1) return rl_arity_error(interp, "raylib::load_music_stream", 1, argc);
@@ -10602,7 +10602,7 @@ static int rl_fn_LoadMusicStream(lcl_interp *interp, int argc, lcl_value **argv,
 }
 
 /* IsMusicValid: Checks if a music stream is valid (context and buffers initialized) */
-static int rl_fn_IsMusicValid(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_IsMusicValid(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Music a0;
   bool r;
   if (argc != 1) return rl_arity_error(interp, "raylib::is_music_valid", 1, argc);
@@ -10613,7 +10613,7 @@ static int rl_fn_IsMusicValid(lcl_interp *interp, int argc, lcl_value **argv, lc
 }
 
 /* UnloadMusicStream: Unload music stream */
-static int rl_fn_UnloadMusicStream(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_UnloadMusicStream(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Music a0;
   (void)out;
   if (argc != 1) return rl_arity_error(interp, "raylib::unload_music_stream", 1, argc);
@@ -10623,7 +10623,7 @@ static int rl_fn_UnloadMusicStream(lcl_interp *interp, int argc, lcl_value **arg
 }
 
 /* PlayMusicStream: Start music playing */
-static int rl_fn_PlayMusicStream(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_PlayMusicStream(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Music a0;
   (void)out;
   if (argc != 1) return rl_arity_error(interp, "raylib::play_music_stream", 1, argc);
@@ -10633,7 +10633,7 @@ static int rl_fn_PlayMusicStream(lcl_interp *interp, int argc, lcl_value **argv,
 }
 
 /* IsMusicStreamPlaying: Check if music is playing */
-static int rl_fn_IsMusicStreamPlaying(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_IsMusicStreamPlaying(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Music a0;
   bool r;
   if (argc != 1) return rl_arity_error(interp, "raylib::is_music_stream_playing", 1, argc);
@@ -10644,7 +10644,7 @@ static int rl_fn_IsMusicStreamPlaying(lcl_interp *interp, int argc, lcl_value **
 }
 
 /* UpdateMusicStream: Updates buffers for music streaming */
-static int rl_fn_UpdateMusicStream(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_UpdateMusicStream(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Music a0;
   (void)out;
   if (argc != 1) return rl_arity_error(interp, "raylib::update_music_stream", 1, argc);
@@ -10654,7 +10654,7 @@ static int rl_fn_UpdateMusicStream(lcl_interp *interp, int argc, lcl_value **arg
 }
 
 /* StopMusicStream: Stop music playing */
-static int rl_fn_StopMusicStream(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_StopMusicStream(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Music a0;
   (void)out;
   if (argc != 1) return rl_arity_error(interp, "raylib::stop_music_stream", 1, argc);
@@ -10664,7 +10664,7 @@ static int rl_fn_StopMusicStream(lcl_interp *interp, int argc, lcl_value **argv,
 }
 
 /* PauseMusicStream: Pause music playing */
-static int rl_fn_PauseMusicStream(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_PauseMusicStream(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Music a0;
   (void)out;
   if (argc != 1) return rl_arity_error(interp, "raylib::pause_music_stream", 1, argc);
@@ -10674,7 +10674,7 @@ static int rl_fn_PauseMusicStream(lcl_interp *interp, int argc, lcl_value **argv
 }
 
 /* ResumeMusicStream: Resume playing paused music */
-static int rl_fn_ResumeMusicStream(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_ResumeMusicStream(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Music a0;
   (void)out;
   if (argc != 1) return rl_arity_error(interp, "raylib::resume_music_stream", 1, argc);
@@ -10684,7 +10684,7 @@ static int rl_fn_ResumeMusicStream(lcl_interp *interp, int argc, lcl_value **arg
 }
 
 /* SeekMusicStream: Seek music to a position (in seconds) */
-static int rl_fn_SeekMusicStream(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_SeekMusicStream(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Music a0;
   double a1;
   (void)out;
@@ -10696,7 +10696,7 @@ static int rl_fn_SeekMusicStream(lcl_interp *interp, int argc, lcl_value **argv,
 }
 
 /* SetMusicVolume: Set volume for music (1.0 is max level) */
-static int rl_fn_SetMusicVolume(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_SetMusicVolume(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Music a0;
   double a1;
   (void)out;
@@ -10708,7 +10708,7 @@ static int rl_fn_SetMusicVolume(lcl_interp *interp, int argc, lcl_value **argv, 
 }
 
 /* SetMusicPitch: Set pitch for a music (1.0 is base level) */
-static int rl_fn_SetMusicPitch(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_SetMusicPitch(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Music a0;
   double a1;
   (void)out;
@@ -10720,7 +10720,7 @@ static int rl_fn_SetMusicPitch(lcl_interp *interp, int argc, lcl_value **argv, l
 }
 
 /* SetMusicPan: Set pan for a music (-1.0 left, 0.0 center, 1.0 right) */
-static int rl_fn_SetMusicPan(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_SetMusicPan(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Music a0;
   double a1;
   (void)out;
@@ -10732,7 +10732,7 @@ static int rl_fn_SetMusicPan(lcl_interp *interp, int argc, lcl_value **argv, lcl
 }
 
 /* GetMusicTimeLength: Get music time length (in seconds) */
-static int rl_fn_GetMusicTimeLength(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GetMusicTimeLength(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Music a0;
   float r;
   if (argc != 1) return rl_arity_error(interp, "raylib::get_music_time_length", 1, argc);
@@ -10743,7 +10743,7 @@ static int rl_fn_GetMusicTimeLength(lcl_interp *interp, int argc, lcl_value **ar
 }
 
 /* GetMusicTimePlayed: Get current music time played (in seconds) */
-static int rl_fn_GetMusicTimePlayed(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_GetMusicTimePlayed(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   Music a0;
   float r;
   if (argc != 1) return rl_arity_error(interp, "raylib::get_music_time_played", 1, argc);
@@ -10754,7 +10754,7 @@ static int rl_fn_GetMusicTimePlayed(lcl_interp *interp, int argc, lcl_value **ar
 }
 
 /* LoadAudioStream: Load audio stream (to stream raw audio pcm data) */
-static int rl_fn_LoadAudioStream(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_LoadAudioStream(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   long a0;
   long a1;
   long a2;
@@ -10769,7 +10769,7 @@ static int rl_fn_LoadAudioStream(lcl_interp *interp, int argc, lcl_value **argv,
 }
 
 /* IsAudioStreamValid: Checks if an audio stream is valid (buffers initialized) */
-static int rl_fn_IsAudioStreamValid(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_IsAudioStreamValid(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   AudioStream a0;
   bool r;
   if (argc != 1) return rl_arity_error(interp, "raylib::is_audio_stream_valid", 1, argc);
@@ -10780,7 +10780,7 @@ static int rl_fn_IsAudioStreamValid(lcl_interp *interp, int argc, lcl_value **ar
 }
 
 /* UnloadAudioStream: Unload audio stream and free memory */
-static int rl_fn_UnloadAudioStream(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_UnloadAudioStream(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   AudioStream a0;
   (void)out;
   if (argc != 1) return rl_arity_error(interp, "raylib::unload_audio_stream", 1, argc);
@@ -10790,7 +10790,7 @@ static int rl_fn_UnloadAudioStream(lcl_interp *interp, int argc, lcl_value **arg
 }
 
 /* IsAudioStreamProcessed: Check if any audio stream buffers requires refill */
-static int rl_fn_IsAudioStreamProcessed(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_IsAudioStreamProcessed(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   AudioStream a0;
   bool r;
   if (argc != 1) return rl_arity_error(interp, "raylib::is_audio_stream_processed", 1, argc);
@@ -10801,7 +10801,7 @@ static int rl_fn_IsAudioStreamProcessed(lcl_interp *interp, int argc, lcl_value 
 }
 
 /* PlayAudioStream: Play audio stream */
-static int rl_fn_PlayAudioStream(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_PlayAudioStream(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   AudioStream a0;
   (void)out;
   if (argc != 1) return rl_arity_error(interp, "raylib::play_audio_stream", 1, argc);
@@ -10811,7 +10811,7 @@ static int rl_fn_PlayAudioStream(lcl_interp *interp, int argc, lcl_value **argv,
 }
 
 /* PauseAudioStream: Pause audio stream */
-static int rl_fn_PauseAudioStream(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_PauseAudioStream(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   AudioStream a0;
   (void)out;
   if (argc != 1) return rl_arity_error(interp, "raylib::pause_audio_stream", 1, argc);
@@ -10821,7 +10821,7 @@ static int rl_fn_PauseAudioStream(lcl_interp *interp, int argc, lcl_value **argv
 }
 
 /* ResumeAudioStream: Resume audio stream */
-static int rl_fn_ResumeAudioStream(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_ResumeAudioStream(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   AudioStream a0;
   (void)out;
   if (argc != 1) return rl_arity_error(interp, "raylib::resume_audio_stream", 1, argc);
@@ -10831,7 +10831,7 @@ static int rl_fn_ResumeAudioStream(lcl_interp *interp, int argc, lcl_value **arg
 }
 
 /* IsAudioStreamPlaying: Check if audio stream is playing */
-static int rl_fn_IsAudioStreamPlaying(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_IsAudioStreamPlaying(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   AudioStream a0;
   bool r;
   if (argc != 1) return rl_arity_error(interp, "raylib::is_audio_stream_playing", 1, argc);
@@ -10842,7 +10842,7 @@ static int rl_fn_IsAudioStreamPlaying(lcl_interp *interp, int argc, lcl_value **
 }
 
 /* StopAudioStream: Stop audio stream */
-static int rl_fn_StopAudioStream(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_StopAudioStream(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   AudioStream a0;
   (void)out;
   if (argc != 1) return rl_arity_error(interp, "raylib::stop_audio_stream", 1, argc);
@@ -10852,7 +10852,7 @@ static int rl_fn_StopAudioStream(lcl_interp *interp, int argc, lcl_value **argv,
 }
 
 /* SetAudioStreamVolume: Set volume for audio stream (1.0 is max level) */
-static int rl_fn_SetAudioStreamVolume(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_SetAudioStreamVolume(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   AudioStream a0;
   double a1;
   (void)out;
@@ -10864,7 +10864,7 @@ static int rl_fn_SetAudioStreamVolume(lcl_interp *interp, int argc, lcl_value **
 }
 
 /* SetAudioStreamPitch: Set pitch for audio stream (1.0 is base level) */
-static int rl_fn_SetAudioStreamPitch(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_SetAudioStreamPitch(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   AudioStream a0;
   double a1;
   (void)out;
@@ -10876,7 +10876,7 @@ static int rl_fn_SetAudioStreamPitch(lcl_interp *interp, int argc, lcl_value **a
 }
 
 /* SetAudioStreamPan: Set pan for audio stream (-1.0 to 1.0 range, 0.0 is centered) */
-static int rl_fn_SetAudioStreamPan(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_SetAudioStreamPan(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   AudioStream a0;
   double a1;
   (void)out;
@@ -10888,7 +10888,7 @@ static int rl_fn_SetAudioStreamPan(lcl_interp *interp, int argc, lcl_value **arg
 }
 
 /* SetAudioStreamBufferSizeDefault: Default size for new audio streams */
-static int rl_fn_SetAudioStreamBufferSizeDefault(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
+static lcl_return_code rl_fn_SetAudioStreamBufferSizeDefault(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {
   long a0;
   (void)out;
   if (argc != 1) return rl_arity_error(interp, "raylib::set_audio_stream_buffer_size_default", 1, argc);

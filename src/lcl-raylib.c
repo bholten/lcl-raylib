@@ -12,7 +12,7 @@
 
 /* Ints accept Lcl ints and (truncated) floats so `draw_text ... [* 2.5 $x]`
  * just works without an explicit `int` conversion. */
-int rl_get_int(lcl_interp *interp, lcl_value *v, long *out) {
+lcl_return_code rl_get_int(lcl_interp *interp, lcl_value *v, long *out) {
   double f;
   (void)interp;
 
@@ -28,7 +28,7 @@ int rl_get_int(lcl_interp *interp, lcl_value *v, long *out) {
   return LCL_RC_ERR;
 }
 
-int rl_get_float(lcl_interp *interp, lcl_value *v, double *out) {
+lcl_return_code rl_get_float(lcl_interp *interp, lcl_value *v, double *out) {
   long i;
   (void)interp;
 
@@ -44,7 +44,7 @@ int rl_get_float(lcl_interp *interp, lcl_value *v, double *out) {
   return LCL_RC_ERR;
 }
 
-int rl_get_string(lcl_interp *interp, lcl_value *v, const char **out) {
+lcl_return_code rl_get_string(lcl_interp *interp, lcl_value *v, const char **out) {
   if (lcl_value_to_cstring(interp, v, out) != LCL_OK) {
     return LCL_RC_ERR;
   }
@@ -58,7 +58,7 @@ int rl_get_string(lcl_interp *interp, lcl_value *v, const char **out) {
  * single process-wide buffer is sufficient. */
 static char rl_err_buf[256];
 
-int rl_arg_error(lcl_interp *interp, const char *fn, int idx,
+lcl_return_code rl_arg_error(lcl_interp *interp, const char *fn, int idx,
                  const char *pname, const char *expected) {
   snprintf(rl_err_buf, sizeof(rl_err_buf),
            "%s: argument %d (%s): expected %s", fn, idx, pname, expected);
@@ -67,7 +67,7 @@ int rl_arg_error(lcl_interp *interp, const char *fn, int idx,
   return LCL_RC_ERR;
 }
 
-int rl_arity_error(lcl_interp *interp, const char *fn, int expected,
+lcl_return_code rl_arity_error(lcl_interp *interp, const char *fn, int expected,
                    int got) {
   snprintf(rl_err_buf, sizeof(rl_err_buf),
            "%s: expected %d argument%s, got %d", fn, expected,
@@ -79,7 +79,7 @@ int rl_arity_error(lcl_interp *interp, const char *fn, int expected,
 
 /* Parse exactly `n` whitespace-separated numbers out of `s`. Used so flat
  * structs also accept a plain string: "10 20" -> Vector2. */
-int rl_parse_numbers(const char *s, double *out, int n) {
+lcl_return_code rl_parse_numbers(const char *s, double *out, int n) {
   int i;
   char *end;
 
@@ -133,7 +133,7 @@ static lcl_value *rl_string_list(char **items, size_t count) {
 }
 
 /* raylib::load_file_text path -> string (LoadFileText + UnloadFileText) */
-static int c_load_file_text(lcl_interp *interp, int argc, lcl_value **argv,
+static lcl_return_code c_load_file_text(lcl_interp *interp, int argc, lcl_value **argv,
                             lcl_value **out) {
   const char *path;
   char *text;
@@ -161,7 +161,7 @@ static int c_load_file_text(lcl_interp *interp, int argc, lcl_value **argv,
 }
 
 /* raylib::file_path_list_paths list -> {path ...} */
-static int c_file_path_list_paths(lcl_interp *interp, int argc,
+static lcl_return_code c_file_path_list_paths(lcl_interp *interp, int argc,
                                   lcl_value **argv, lcl_value **out) {
   FilePathList *fpl;
 
@@ -180,7 +180,7 @@ static int c_file_path_list_paths(lcl_interp *interp, int argc,
 }
 
 /* raylib::text_split text delimiter -> {part ...} */
-static int c_text_split(lcl_interp *interp, int argc, lcl_value **argv,
+static lcl_return_code c_text_split(lcl_interp *interp, int argc, lcl_value **argv,
                         lcl_value **out) {
   const char *text;
   const char *delim;
@@ -208,7 +208,7 @@ static int c_text_split(lcl_interp *interp, int argc, lcl_value **argv,
 }
 
 /* raylib::text_join {str ...} delimiter -> string */
-static int c_text_join(lcl_interp *interp, int argc, lcl_value **argv,
+static lcl_return_code c_text_join(lcl_interp *interp, int argc, lcl_value **argv,
                        lcl_value **out) {
   const char *delim;
   size_t n;
@@ -270,7 +270,7 @@ done:
 /* Text helpers returning raylib-internal static buffers: copy into a
  * fresh Lcl string. */
 #define RL_TEXT1(cname, rayfn, lclname)                                        \
-  static int cname(lcl_interp *interp, int argc, lcl_value **argv,             \
+  static lcl_return_code cname(lcl_interp *interp, int argc, lcl_value **argv,             \
                    lcl_value **out) {                                          \
     const char *text;                                                          \
     const char *r;                                                             \
@@ -290,7 +290,7 @@ RL_TEXT1(c_text_to_snake, TextToSnake, "text_to_snake")
 RL_TEXT1(c_text_to_camel, TextToCamel, "text_to_camel")
 
 /* raylib::get_codepoint text -> {codepoint byteLength} */
-static int c_get_codepoint(lcl_interp *interp, int argc, lcl_value **argv,
+static lcl_return_code c_get_codepoint(lcl_interp *interp, int argc, lcl_value **argv,
                            lcl_value **out) {
   const char *text;
   int size = 0;
@@ -326,7 +326,7 @@ static int c_get_codepoint(lcl_interp *interp, int argc, lcl_value **argv,
 }
 
 /* raylib::load_codepoints text -> {int ...} */
-static int c_load_codepoints(lcl_interp *interp, int argc, lcl_value **argv,
+static lcl_return_code c_load_codepoints(lcl_interp *interp, int argc, lcl_value **argv,
                              lcl_value **out) {
   const char *text;
   int count = 0;
@@ -363,7 +363,7 @@ static int c_load_codepoints(lcl_interp *interp, int argc, lcl_value **argv,
 }
 
 /* raylib::load_utf8 {codepoint ...} -> string */
-static int c_load_utf8(lcl_interp *interp, int argc, lcl_value **argv,
+static lcl_return_code c_load_utf8(lcl_interp *interp, int argc, lcl_value **argv,
                        lcl_value **out) {
   size_t n;
   size_t i;
@@ -415,7 +415,7 @@ static int c_load_utf8(lcl_interp *interp, int argc, lcl_value **argv,
 }
 
 /* raylib::trace_log level text */
-static int c_trace_log(lcl_interp *interp, int argc, lcl_value **argv,
+static lcl_return_code c_trace_log(lcl_interp *interp, int argc, lcl_value **argv,
                        lcl_value **out) {
   long level;
   const char *text;
@@ -439,7 +439,7 @@ static int c_trace_log(lcl_interp *interp, int argc, lcl_value **argv,
 }
 
 /* raylib::load_image_colors image -> {Color ...} */
-static int c_load_image_colors(lcl_interp *interp, int argc,
+static lcl_return_code c_load_image_colors(lcl_interp *interp, int argc,
                                lcl_value **argv, lcl_value **out) {
   Image img;
   Color *colors;
@@ -485,7 +485,7 @@ static int c_load_image_colors(lcl_interp *interp, int argc,
 }
 
 /* raylib::load_image_palette image maxSize -> {Color ...} */
-static int c_load_image_palette(lcl_interp *interp, int argc,
+static lcl_return_code c_load_image_palette(lcl_interp *interp, int argc,
                                 lcl_value **argv, lcl_value **out) {
   Image img;
   long max_size;
@@ -536,7 +536,7 @@ static int c_load_image_palette(lcl_interp *interp, int argc,
 }
 
 /* raylib::load_random_sequence count min max -> {int ...} */
-static int c_load_random_sequence(lcl_interp *interp, int argc,
+static lcl_return_code c_load_random_sequence(lcl_interp *interp, int argc,
                                   lcl_value **argv, lcl_value **out) {
   long count;
   long min;
@@ -588,7 +588,7 @@ static int c_load_random_sequence(lcl_interp *interp, int argc,
  *
  * `value` is a number for FLOAT/INT/SAMPLER2D uniforms and a list of numbers
  * for VEC2/3/4 and IVEC2/3/4. */
-static int c_set_shader_value(lcl_interp *interp, int argc, lcl_value **argv,
+static lcl_return_code c_set_shader_value(lcl_interp *interp, int argc, lcl_value **argv,
                               lcl_value **out) {
   Shader shader;
   long loc;
@@ -672,7 +672,7 @@ static int c_set_shader_value(lcl_interp *interp, int argc, lcl_value **argv,
 }
 
 /* raylib::opaque_type value -> "raylib::Vector2" etc, "" if not opaque */
-static int c_opaque_type(lcl_interp *interp, int argc, lcl_value **argv,
+static lcl_return_code c_opaque_type(lcl_interp *interp, int argc, lcl_value **argv,
                          lcl_value **out) {
   const char *t;
 

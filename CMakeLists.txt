@@ -31,7 +31,7 @@ if(POLICY CMP0135)
 endif()
 
 set(LCL_RAYLIB_RAYLIB_VERSION 6.0)
-set(LCL_RAYLIB_LCL_COMMIT fedbe87d7508e6217559bbf6ebf2e3ce9fa6cbf9)
+set(LCL_RAYLIB_LCL_COMMIT 2ac5cc5029dfedd1cd48bb9b71dd4f412d986012)
 
 # raylib options must be set before the project is added
 set(BUILD_EXAMPLES OFF CACHE BOOL "Build raylib examples" FORCE)

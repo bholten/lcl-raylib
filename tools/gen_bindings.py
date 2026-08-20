@@ -110,14 +110,14 @@ class Gen:
             self.w("}")
             self.w()
             # pointer accessor
-            self.w("int rl_ptr_%s(lcl_interp *interp, lcl_value *v, %s **out) {" % (sname, sname))
+            self.w("lcl_return_code rl_ptr_%s(lcl_interp *interp, lcl_value *v, %s **out) {" % (sname, sname))
             self.w("  (void)interp;")
             self.w("  if (lcl_opaque_get(v, %s, (void **)out) != LCL_OK) return LCL_RC_ERR;" % tag)
             self.w("  return LCL_RC_OK;")
             self.w("}")
             self.w()
             # by-value coercion
-            self.w("int rl_get_%s(lcl_interp *interp, lcl_value *v, %s *out) {" % (sname, sname))
+            self.w("lcl_return_code rl_get_%s(lcl_interp *interp, lcl_value *v, %s *out) {" % (sname, sname))
             self.w("  %s *p;" % sname)
             self.w("  (void)interp;")
             self.w("  if (lcl_opaque_get(v, %s, (void **)&p) == LCL_OK) {" % tag)
@@ -169,7 +169,7 @@ class Gen:
 
             if self.is_constructible(sname):
                 cfn = "rl_ctor_%s" % sname
-                self.w("static int %s(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {" % cfn)
+                self.w("static lcl_return_code %s(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {" % cfn)
                 self.w("  %s v;" % sname)
                 self.w("  memset(&v, 0, sizeof(v));")
                 self.w("  if (argc != %d) return rl_arity_error(interp, \"raylib::%s\", %d, argc);" % (len(fields), sn, len(fields)))
@@ -203,7 +203,7 @@ class Gen:
                     # getter
                     # getters coerce (rl_get_) so `vector2_x (1 2)` works too;
                     # setters need real storage (rl_ptr_).
-                    self.w("static int %s(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {" % gfn)
+                    self.w("static lcl_return_code %s(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {" % gfn)
                     self.w("  %s s;" % sname)
                     self.w("  if (argc != 1) return rl_arity_error(interp, \"raylib::%s\", 1, argc);" % getter)
                     self.w("  if (rl_get_%s(interp, argv[0], &s) != LCL_RC_OK) return RL_ARG_ERR(interp, \"raylib::%s\", 1, \"%s\", \"%s\");" % (sname, getter, sn, sname))
@@ -218,7 +218,7 @@ class Gen:
                     self.w()
                     self.registrations.append((getter, gfn))
                     # setter
-                    self.w("static int %s(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {" % sfn)
+                    self.w("static lcl_return_code %s(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {" % sfn)
                     self.w("  %s *p;" % sname)
                     self.w("  (void)out;")
                     self.w("  if (argc != 2) return rl_arity_error(interp, \"raylib::%s\", 2, argc);" % setter)
@@ -240,7 +240,7 @@ class Gen:
 
                     if et == "char":
                         # fixed string
-                        self.w("static int %s(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {" % gfn)
+                        self.w("static lcl_return_code %s(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {" % gfn)
                         self.w("  %s *p;" % sname)
                         self.w("  char buf[%d];" % (n + 1))
                         self.w("  if (argc != 1) return rl_arity_error(interp, \"raylib::%s\", 1, argc);" % getter)
@@ -254,7 +254,7 @@ class Gen:
                         self.registrations.append((getter, gfn))
                     elif et in INT_TYPES or et in FLOAT_TYPES:
                         newf = "lcl_int_new((long)" if et in INT_TYPES else "lcl_float_new((double)"
-                        self.w("static int %s(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {" % gfn)
+                        self.w("static lcl_return_code %s(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {" % gfn)
                         self.w("  %s *p;" % sname)
                         self.w("  lcl_value *lst;")
                         self.w("  int i;")
@@ -276,7 +276,7 @@ class Gen:
                         # setter from list
                         getx = "rl_get_int" if et in INT_TYPES else "rl_get_float"
                         ctype = "long" if et in INT_TYPES else "double"
-                        self.w("static int %s(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {" % sfn)
+                        self.w("static lcl_return_code %s(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {" % sfn)
                         self.w("  %s *p;" % sname)
                         self.w("  int i;")
                         self.w("  (void)out;")
@@ -384,7 +384,7 @@ class Gen:
             cfn = "rl_fn_%s" % name
             qn = "raylib::%s" % ln
             self.w("/* %s: %s */" % (name, fn.get("description", "").replace("*/", "* /")))
-            self.w("static int %s(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {" % cfn)
+            self.w("static lcl_return_code %s(lcl_interp *interp, int argc, lcl_value **argv, lcl_value **out) {" % cfn)
 
             for i, pl in enumerate(plans):
                 kind = pl[0]
@@ -550,12 +550,12 @@ class Gen:
         h.append("#include <raylib.h>")
         h.append("")
         h.append("/* Shared helpers implemented in lcl-raylib.c */")
-        h.append("int rl_get_int(lcl_interp *interp, lcl_value *v, long *out);")
-        h.append("int rl_get_float(lcl_interp *interp, lcl_value *v, double *out);")
-        h.append("int rl_get_string(lcl_interp *interp, lcl_value *v, const char **out);")
-        h.append("int rl_arg_error(lcl_interp *interp, const char *fn, int idx, const char *pname, const char *expected);")
-        h.append("int rl_arity_error(lcl_interp *interp, const char *fn, int expected, int got);")
-        h.append("int rl_parse_numbers(const char *s, double *out, int n);")
+        h.append("lcl_return_code rl_get_int(lcl_interp *interp, lcl_value *v, long *out);")
+        h.append("lcl_return_code rl_get_float(lcl_interp *interp, lcl_value *v, double *out);")
+        h.append("lcl_return_code rl_get_string(lcl_interp *interp, lcl_value *v, const char **out);")
+        h.append("lcl_return_code rl_arg_error(lcl_interp *interp, const char *fn, int idx, const char *pname, const char *expected);")
+        h.append("lcl_return_code rl_arity_error(lcl_interp *interp, const char *fn, int expected, int got);")
+        h.append("lcl_return_code rl_parse_numbers(const char *s, double *out, int n);")
         h.append("void lcl_raylib_register_generated(lcl_interp *interp, lcl_value *ns);")
         h.append("")
         h.append("/* Opaque type tags and per-struct helpers (generated) */")
@@ -564,8 +564,8 @@ class Gen:
         h.append("")
         for sname in self.structs:
             h.append("lcl_value *rl_new_%s(%s v);" % (sname, sname))
-            h.append("int rl_get_%s(lcl_interp *interp, lcl_value *v, %s *out);" % (sname, sname))
-            h.append("int rl_ptr_%s(lcl_interp *interp, lcl_value *v, %s **out);" % (sname, sname))
+            h.append("lcl_return_code rl_get_%s(lcl_interp *interp, lcl_value *v, %s *out);" % (sname, sname))
+            h.append("lcl_return_code rl_ptr_%s(lcl_interp *interp, lcl_value *v, %s **out);" % (sname, sname))
         h.append("")
         h.append("#endif")
         return "\n".join(h) + "\n"

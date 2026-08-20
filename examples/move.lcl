@@ -1,0 +1,45 @@
+;; DSL demo: move a block -- run with: build/lcl-raylib examples/move.lcl
+;;
+;;   arrows / wasd   move
+;;   hold shift      dash (released -> back to normal speed)
+;;   space           recentre
+;;   escape          quit
+import Raylib
+
+let W 640
+let H 480
+let SIZE 40
+
+var pos   ([/ $W 2] [/ $H 2])
+var speed 200
+
+app $W $H "Lcl + raylib: move" {
+    fps 60
+    background "#1e1e2e"
+
+    ;; Held keys: poll in on_update so movement scales with dt
+    ;; (on_key_down blocks run per frame but don't see dt).
+    on_update {dt} {
+        var dir (0 0)
+        if [or [key_down? left]  [key_down? a]] { set! dir [Vec::add $dir (-1 0)] }
+        if [or [key_down? right] [key_down? d]] { set! dir [Vec::add $dir (1 0)] }
+        if [or [key_down? up]    [key_down? w]] { set! dir [Vec::add $dir (0 -1)] }
+        if [or [key_down? down]  [key_down? s]] { set! dir [Vec::add $dir (0 1)] }
+
+        if [> [Vec::len_sq $dir] 0] {
+            set! pos [Vec::add $pos [Vec::scale [Vec::norm $dir] [* $speed $dt]]]
+            set! pos [Vec::clamp $pos (0 0) ([- $W $SIZE] [- $H $SIZE])]
+        }
+    }
+
+    ;; Edge events: press / release.
+    on_key_pressed  left_shift { set! speed 600 }
+    on_key_released left_shift { set! speed 200 }
+    on_key_pressed  space      { set! pos ([/ $W 2] [/ $H 2]) }
+
+    on_draw {
+        raylib::draw_rectangle_v $pos ($SIZE $SIZE) [color skyblue]
+        text "arrows/wasd: move   shift: dash   space: recentre" 10 10 20 raywhite
+        text "speed: $speed" 10 34 20 gray
+    }
+}

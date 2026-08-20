@@ -237,6 +237,7 @@ namespace Raylib {
     var _draws      ()
     var _key_pressed ()
     var _key_down   ()
+    var _key_released ()
     var _on_exit    ()
     var _assets     ()
 
@@ -537,8 +538,12 @@ namespace Raylib {
     ;;; Run `body` on the frame the key (see `key`) is pressed.
     proc on_key_pressed {name body} { set! _key_pressed [List::push $_key_pressed ([key $name] $body)] }
 
-    ;;; Run `body` every frame the key is held.
+    ;;; Run `body` every frame the key is held. For frame-rate independent
+    ;;; movement prefer polling `key_down?` inside `on_update`, which has `dt`.
     proc on_key_down {name body} { set! _key_down [List::push $_key_down ([key $name] $body)] }
+
+    ;;; Run `body` on the frame the key is released.
+    proc on_key_released {name body} { set! _key_released [List::push $_key_released ([key $name] $body)] }
 
     ;;; Run `body` when the app closes (before assets are unloaded).
     proc on_exit {body} { set! _on_exit [List::push $_on_exit $body] }
@@ -559,6 +564,7 @@ namespace Raylib {
         set! _draws ()
         set! _key_pressed ()
         set! _key_down ()
+        set! _key_released ()
         set! _on_exit ()
         set! _assets ()
         set! _running 0
@@ -587,6 +593,12 @@ namespace Raylib {
 
             foreach h $_key_down {
                 if [raylib::is_key_down [get $h 0]] {
+                    eval [get $h 1]
+                }
+            }
+
+            foreach h $_key_released {
+                if [raylib::is_key_released [get $h 0]] {
                     eval [get $h 1]
                 }
             }

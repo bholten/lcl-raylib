@@ -44,7 +44,7 @@ app $W $H "Lcl + raylib: bounce" {
     fps 60
     background "#1e1e2e"
 
-    foreach _ [List::range 0 5] {
+    foreach _ [List::range 0 124] {
         spawn! ([raylib::get_random_value $R [- $W $R]] [raylib::get_random_value $R [- $H $R]])
     }
 
