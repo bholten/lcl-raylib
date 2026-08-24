@@ -615,7 +615,7 @@ namespace Raylib {
         } result msg]
 
         if $failed {
-            close!
+            Raylib::close!
             error $msg
         }
 
