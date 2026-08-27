@@ -117,7 +117,7 @@ namespace Vec {
     ;;; >> Vec::length (3 4)
     ;;; 5
     proc length {v} {
-        math::sqrt [len_sq $v]
+        Math::sqrt [len_sq $v]
     }
 
     ;;; Distance between two points.
@@ -477,14 +477,14 @@ namespace Raylib {
                  {render_texture} [raylib::load_render_texture [get $path 0] [get $path 1]]
                  else             [error "asset: unknown kind \"$kind\""]]
 
-        set! _assets [List::push $_assets ($kind $v)]
+        List::push! _assets ($kind $v)
 
         $v
     }
 
     ;;; Register an already-loaded value for unloading at `close!`.
     proc track! {kind value} {
-        set! _assets [List::push $_assets ($kind $value)]
+        List::push! _assets ($kind $value)
         $value
     }
 
@@ -529,24 +529,24 @@ namespace Raylib {
 
     ;;; Register an update handler `{dt} { ... }`, run once per frame
     ;;; before drawing with the frame time in seconds.
-    proc on_update {params body} { set! _updates [List::push $_updates [lambda $params $body]] }
+    proc on_update {params body} { List::push! _updates [lambda $params $body] }
 
     ;;; Register a draw handler; runs inside begin/end_drawing after the
     ;;; background clear. Several handlers draw in registration order.
-    proc on_draw {body} { set! _draws [List::push $_draws [lambda {} $body]] }
+    proc on_draw {body} { List::push! _draws [lambda {} $body] }
 
     ;;; Run `body` on the frame the key (see `key`) is pressed.
-    proc on_key_pressed {name body} { set! _key_pressed [List::push $_key_pressed ([key $name] $body)] }
+    proc on_key_pressed {name body} { List::push! _key_pressed ([key $name] $body) }
 
     ;;; Run `body` every frame the key is held. For frame-rate independent
     ;;; movement prefer polling `key_down?` inside `on_update`, which has `dt`.
-    proc on_key_down {name body} { set! _key_down [List::push $_key_down ([key $name] $body)] }
+    proc on_key_down {name body} { List::push! _key_down ([key $name] $body) }
 
     ;;; Run `body` on the frame the key is released.
-    proc on_key_released {name body} { set! _key_released [List::push $_key_released ([key $name] $body)] }
+    proc on_key_released {name body} { List::push! _key_released ([key $name] $body) }
 
     ;;; Run `body` when the app closes (before assets are unloaded).
-    proc on_exit {body} { set! _on_exit [List::push $_on_exit $body] }
+    proc on_exit {body} { List::push! _on_exit $body }
 
     ;;; Ask the loop to stop after the current frame.
     proc quit! {} { set! _running 0 }

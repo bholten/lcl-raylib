@@ -31,7 +31,7 @@ if(POLICY CMP0135)
 endif()
 
 set(LCL_RAYLIB_RAYLIB_VERSION 6.0)
-set(LCL_RAYLIB_LCL_COMMIT 8d7b9dd3ffc841942c1625c171247adcea1fa25e)
+set(LCL_RAYLIB_LCL_COMMIT caa123f26fdf0d4b98b0d584462921bf5e3e9302)
 
 # raylib options must be set before the project is added
 set(BUILD_EXAMPLES OFF CACHE BOOL "Build raylib examples" FORCE)
@@ -48,6 +48,7 @@ set(LCL_BUILD_STATIC ON CACHE BOOL "" FORCE)
 set(LCL_BUILD_CLI OFF CACHE BOOL "" FORCE)
 set(LCL_BUILD_TESTS OFF CACHE BOOL "" FORCE)
 set(LCL_BUILD_MATH ON CACHE BOOL "" FORCE)
+set(LCL_BUILD_TIME ON CACHE BOOL "" FORCE)
 
 FetchContent_Declare(
   lcl
@@ -90,7 +91,7 @@ if(LCL_RAYLIB_ENABLE_CLANG_TIDY)
 endif()
 
 # ---------------------------------------------------------------------------
-# Runner: `lcl-raylib script.lcl` -- an Lcl interpreter with core + math +
+# Runner: `lcl-raylib script.lcl` -- an Lcl interpreter with core + math + time +
 # raylib registered, for playing with the bindings.
 # ---------------------------------------------------------------------------
 if(LCL_RAYLIB_BUILD_RUNNER)
@@ -109,7 +110,7 @@ if(LCL_RAYLIB_BUILD_RUNNER)
   target_include_directories(lcl-raylib PRIVATE ${CMAKE_CURRENT_BINARY_DIR})
   set_target_properties(lcl-raylib PROPERTIES C_STANDARD 99 C_STANDARD_REQUIRED ON C_EXTENSIONS OFF)
   target_compile_options(lcl-raylib PRIVATE -Wall -Wextra)
-  target_link_libraries(lcl-raylib PRIVATE lcl_raylib lcl::lcl lcl_math)
+  target_link_libraries(lcl-raylib PRIVATE lcl_raylib lcl::lcl lcl_math lcl_time)
 
   enable_testing()
   add_test(NAME doctest
