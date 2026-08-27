@@ -83,7 +83,38 @@ Targets:
 | target        | what                                                                                  |
 |---------------|---------------------------------------------------------------------------------------|
 | `lcl_raylib`  | static library (`lcl::raylib`); call `lcl_register_raylib(interp)` from your host    |
-| `lcl-raylib`  | script runner: `lcl-raylib script.lcl [args]` or `lcl-raylib -c "code"` (core + math + raylib) |
+| `lcl-raylib`  | script runner: `lcl-raylib script.lcl [args]` or `lcl-raylib -c "code"` (core + math + time + raylib) |
+
+## Profiling
+
+The runner wraps lcl-time's profiler and lcl's call hook:
+
+```sh
+build/lcl-raylib --profile game.lcl        # per-proc calls / inclusive / exclusive us + Interp::stats at exit
+LCL_TRACE=1 build/lcl-raylib game.lcl      # trace every user-proc entry (with args) and exit
+LCL_TRACE=Vec::add,update build/lcl-raylib game.lcl   # only these procs
+```
+
+`--profile` prints to stderr, after the script's own output:
+
+```
+     calls      incl_us      excl_us  name
+      4180        44145        16492  <lambda>
+       820         7937         3933  Vec::add
+        40        50528          765  step!
+values live: 852 (allocated 44211, freed 43359)  list clones: 0  dict clones: 820
+```
+
+Exclusive time excludes user procs called from the body, so C builtins (raylib
+calls, `end_drawing`'s vsync wait) land in the proc that called them — `_bracket`
+and `<lambda>` (your `on_update`/`on_draw` bodies) are where the raw draw calls show
+up. `list clones` / `dict clones` growing with your entity count means an
+accumulation loop that copies: use the in-place forms (`List::push! acc x`,
+`put! d k v`, `del! d k`) on a `var` instead of `set! acc [List::push $acc x]`.
+
+From a script, the same tools are `time::profile {body}`,
+`time::profile_start!` / `time::profile_stop!` (e.g. around a region of `on_update`),
+`time::profile_format $rows`, and `Interp::stats`.
 
 ## Embedding
 

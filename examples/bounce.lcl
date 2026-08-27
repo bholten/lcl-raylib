@@ -19,7 +19,7 @@ proc spawn! {at} {
     let vy [- [raylib::get_random_value 0 400] 200]
     let c  [color ([raylib::get_random_value 50 255] [raylib::get_random_value 50 255] [raylib::get_random_value 50 255])]
 
-    set! balls [List::push $balls #{pos $at vel ($vx $vy) color $c}]
+    List::push! balls #{pos $at vel ($vx $vy) color $c}
 }
 
 ;; Move one ball, bouncing off the walls. Returns the updated ball dict.
